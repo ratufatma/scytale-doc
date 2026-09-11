@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-mono: 'Fira Code', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  }
+
+  html {
+    font-family: var(--font-sans);
+    scroll-behavior: smooth;
+    color: #18181b;
+    background-color: #fafafa;
+  }
+
+  html.dark {
+    color: #f4f4f5;
+    background-color: #09090b;
+    color-scheme: dark;
+  }
+
+  code, pre, kbd {
+    font-family: var(--font-mono);
+  }
+}
+

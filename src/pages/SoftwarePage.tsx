@@ -1,0 +1,68 @@
+import React from 'react';
+import { SOFTWARE_CATALOG } from '../data/software';
+import { SoftwareCard } from '../components/software/SoftwareCard';
+import { Package, GitFork } from 'lucide-react';
+import { SITE_CONFIG } from '../data/config';
+
+interface SoftwarePageProps {
+  onSelectSoftware: (slug: string) => void;
+  onNavigateDoc: (path: string) => void;
+}
+
+export const SoftwarePage: React.FC<SoftwarePageProps> = ({
+  onSelectSoftware,
+  onNavigateDoc
+}) => {
+  return (
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-10">
+      {/* Header */}
+      <header className="border-b border-zinc-200 pb-8 space-y-3">
+        <div className="flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-zinc-500">
+          <Package className="w-4 h-4 text-zinc-700" />
+          <span>Software Catalog</span>
+        </div>
+        <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-950 font-mono">
+          Scytale Software Suite
+        </h1>
+        <p className="text-zinc-600 text-sm sm:text-base max-w-3xl leading-relaxed">
+          Official, open-source software tools maintained by the Scytale engineering group. Designed to be modular, auditable, and built with minimal runtime dependencies.
+        </p>
+      </header>
+
+      {/* Grid of software */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {SOFTWARE_CATALOG.map(software => (
+          <SoftwareCard
+            key={software.id}
+            software={software}
+            onSelect={onSelectSoftware}
+            onNavigateDoc={onNavigateDoc}
+          />
+        ))}
+      </div>
+
+      {/* Open Source Notice */}
+      <div className="rounded-xl border border-zinc-200 bg-zinc-50 p-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
+        <div className="flex items-center gap-3">
+          <div className="p-2 rounded-lg bg-white border border-zinc-200">
+            <GitFork className="w-4 h-4 text-zinc-700" />
+          </div>
+          <div>
+            <p className="font-semibold text-zinc-900">Extensible Architecture</p>
+            <p className="text-zinc-500">
+              All applications communicate via the standard Scytale JSON-RPC/IPC protocol or P2P wire framing.
+            </p>
+          </div>
+        </div>
+        <a
+          href={SITE_CONFIG.githubRepositoryUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-white font-medium transition-colors shrink-0"
+        >
+          <span>Explore Source Repositories</span>
+        </a>
+      </div>
+    </div>
+  );
+};
