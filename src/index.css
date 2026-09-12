@@ -11,13 +11,13 @@
   html {
     font-family: var(--font-sans);
     scroll-behavior: smooth;
-    color: #18181b;
-    background-color: #fafafa;
+    color: #334155;
+    background-color: #f8fafc;
   }
 
   html.dark {
-    color: #f4f4f5;
-    background-color: #09090b;
+    color: #cbd5e1;
+    background-color: #0b0f19;
     color-scheme: dark;
   }
 

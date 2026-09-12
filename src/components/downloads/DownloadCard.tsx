@@ -13,23 +13,23 @@ export const DownloadCard: React.FC<DownloadCardProps> = ({ artifact }) => {
   const { language } = useLanguage();
 
   return (
-    <div className="rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-5 shadow-2xs space-y-4 hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors">
+    <div className="rounded-xl border border-slate-200 dark:border-white/10 bg-white dark:bg-[#111827] p-5 shadow-2xs space-y-4 hover:border-slate-300 dark:hover:border-white/20 transition-colors">
       {/* Header Info */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-zinc-100 dark:border-zinc-800 pb-3">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 dark:border-white/10 pb-3">
         <div>
           <div className="flex items-center gap-2">
-            <h3 className="font-semibold text-zinc-950 dark:text-white text-base">{artifact.productName}</h3>
-            <span className="text-xs font-mono px-1.5 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">
+            <h3 className="font-semibold text-slate-900 dark:text-white text-base">{artifact.productName}</h3>
+            <span className="text-xs font-mono px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
               v{artifact.version}
             </span>
           </div>
-          <p className="text-xs text-zinc-500 dark:text-zinc-400 font-mono mt-0.5">{artifact.filename}</p>
+          <p className="text-xs text-slate-500 dark:text-slate-400 font-mono mt-0.5">{artifact.filename}</p>
         </div>
 
         <div className="flex items-center gap-1.5 flex-wrap">
           <PlatformBadge platform={artifact.platform} />
           <ArchitectureBadge arch={artifact.architecture} />
-          <span className="text-xs text-zinc-500 dark:text-zinc-400 font-mono px-2 py-0.5 bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded">
+          <span className="text-xs text-slate-500 dark:text-slate-400 font-mono px-2 py-0.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-white/10 rounded">
             {artifact.size}
           </span>
         </div>
@@ -44,7 +44,7 @@ export const DownloadCard: React.FC<DownloadCardProps> = ({ artifact }) => {
 
       {/* Notes */}
       {artifact.notes && (
-        <p className="text-xs text-zinc-500 dark:text-zinc-400 italic bg-zinc-50/70 dark:bg-zinc-800/40 p-2.5 rounded border border-zinc-100 dark:border-zinc-800">
+        <p className="text-xs text-slate-500 dark:text-slate-400 italic bg-slate-50/70 dark:bg-slate-800/40 p-2.5 rounded border border-slate-200/60 dark:border-white/10">
           {artifact.notes}
         </p>
       )}
@@ -60,7 +60,7 @@ export const DownloadCard: React.FC<DownloadCardProps> = ({ artifact }) => {
             <a
               href={artifact.url}
               download
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-zinc-900 dark:bg-zinc-100 hover:bg-zinc-800 dark:hover:bg-zinc-200 text-white dark:text-zinc-900 text-xs font-medium shadow-xs transition-colors"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-slate-900 dark:bg-white hover:bg-slate-800 dark:hover:bg-slate-100 text-white dark:text-slate-950 text-xs font-medium shadow-xs transition-colors"
             >
               <Download className="w-3.5 h-3.5" />
               <span>{language === 'id' ? `Unduh Biner (${artifact.size})` : `Download Binary (${artifact.size})`}</span>
@@ -72,7 +72,7 @@ export const DownloadCard: React.FC<DownloadCardProps> = ({ artifact }) => {
               <AlertCircle className="w-4 h-4 text-amber-600 dark:text-amber-400 shrink-0" />
               <span>{language === 'id' ? 'Aset rilis belum dikonfigurasi. Bangun dari sumber tersedia.' : 'Release asset not configured yet. Build from source available.'}</span>
             </div>
-            <div className="inline-flex items-center gap-1 text-zinc-700 dark:text-zinc-300 font-mono font-medium">
+            <div className="inline-flex items-center gap-1 text-slate-700 dark:text-slate-300 font-mono font-medium">
               <FileCode className="w-3.5 h-3.5" />
               <span>cargo build --release</span>
             </div>

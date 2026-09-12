@@ -23,13 +23,13 @@ export const ChecksumBlock: React.FC<ChecksumBlockProps> = ({
   return (
     <div
       id={id || `checksum-${filename.replace(/[^a-zA-Z0-9]/g, '-')}`}
-      className="rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/90 p-3.5 text-xs text-zinc-700 dark:text-zinc-300 space-y-2.5"
+      className="rounded-lg border border-slate-200 dark:border-white/10 bg-white dark:bg-[#111827] p-3.5 text-xs text-slate-700 dark:text-slate-300 space-y-2.5"
     >
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-        <div className="flex items-center gap-1.5 font-semibold text-zinc-900 dark:text-zinc-100">
+        <div className="flex items-center gap-1.5 font-semibold text-slate-900 dark:text-white">
           <span>SHA-256 Digest</span>
           {isConfigured ? (
-            <span className="text-[10px] px-1.5 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 font-mono">
+            <span className="text-[10px] px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 font-mono">
               Official
             </span>
           ) : (
@@ -47,29 +47,29 @@ export const ChecksumBlock: React.FC<ChecksumBlockProps> = ({
         )}
 
         {signature && signature.status === 'unconfigured' && (
-          <div className="flex items-center gap-1 text-[11px] text-zinc-500 dark:text-zinc-400">
+          <div className="flex items-center gap-1 text-[11px] text-slate-500 dark:text-slate-400">
             <AlertCircle className="w-3.5 h-3.5" />
             <span>{language === 'id' ? 'Tanda Tangan Tertunda' : 'Signature Pending'}</span>
           </div>
         )}
       </div>
 
-      <div className="flex items-center justify-between gap-2 p-2 rounded bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 font-mono text-[11px] break-all">
-        <span className="text-zinc-800 dark:text-zinc-200">{sha256}</span>
+      <div className="flex items-center justify-between gap-2 p-2 rounded bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-white/10 font-mono text-[11px] break-all">
+        <span className="text-slate-800 dark:text-slate-200">{sha256}</span>
         {isConfigured && <CopyButton text={sha256} label={language === 'id' ? 'Salin Hash' : 'Copy Hash'} className="shrink-0" />}
       </div>
 
       {isConfigured && (
-        <div className="text-[11px] text-zinc-500 dark:text-zinc-400 space-y-1">
-          <p className="font-medium text-zinc-600 dark:text-zinc-400">
+        <div className="text-[11px] text-slate-500 dark:text-slate-400 space-y-1">
+          <p className="font-medium text-slate-600 dark:text-slate-400">
             {language === 'id' ? 'Perintah verifikasi:' : 'Verification command:'}
           </p>
-          <div className="flex items-center justify-between p-1.5 rounded bg-zinc-900 dark:bg-black text-zinc-300 font-mono">
+          <div className="flex items-center justify-between p-1.5 rounded bg-slate-950 text-slate-300 border border-slate-800 dark:border-white/10 font-mono">
             <code>sha256sum {filename}</code>
             <CopyButton
               text={`sha256sum ${filename}`}
               label={language === 'id' ? 'Salin' : 'Copy'}
-              className="border-zinc-700 bg-zinc-800 text-zinc-300 hover:bg-zinc-700"
+              className="border-slate-700 bg-slate-800 text-slate-300 hover:bg-slate-700"
             />
           </div>
         </div>

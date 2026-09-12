@@ -77,37 +77,37 @@ export const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose, onNav
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-start justify-center pt-16 sm:pt-24 px-4 bg-zinc-900/60 dark:bg-black/80 backdrop-blur-xs">
+    <div className="fixed inset-0 z-50 flex items-start justify-center pt-16 sm:pt-24 px-4 bg-slate-900/60 dark:bg-black/80 backdrop-blur-xs">
       <div
-        className="w-full max-w-2xl rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-150"
+        className="w-full max-w-2xl rounded-xl border border-slate-200 dark:border-white/10 bg-white dark:bg-[#111827] shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-150"
         onClick={e => e.stopPropagation()}
       >
         {/* Search Input Bar */}
-        <div className="flex items-center px-4 py-3 border-b border-zinc-200 dark:border-zinc-800 gap-3">
-          <Search className="w-5 h-5 text-zinc-400 dark:text-zinc-500 shrink-0" />
+        <div className="flex items-center px-4 py-3 border-b border-slate-200 dark:border-white/10 gap-3">
+          <Search className="w-5 h-5 text-slate-400 dark:text-slate-500 shrink-0" />
           <input
             ref={inputRef}
             type="text"
             value={query}
             onChange={e => setQuery(e.target.value)}
             placeholder="Search documentation, protocol, CLI commands, releases..."
-            className="w-full bg-transparent text-sm text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 dark:placeholder:text-zinc-500 focus:outline-hidden font-medium"
+            className="w-full bg-transparent text-sm text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-hidden font-medium"
           />
           {query && (
             <button
               onClick={() => setQuery('')}
-              className="p-1 rounded text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800"
+              className="p-1 rounded text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800"
             >
               <X className="w-4 h-4" />
             </button>
           )}
-          <span className="hidden sm:inline-block px-1.5 py-0.5 text-[10px] font-mono text-zinc-400 dark:text-zinc-500 bg-zinc-100 dark:bg-zinc-800 rounded border border-zinc-200 dark:border-zinc-700">
+          <span className="hidden sm:inline-block px-1.5 py-0.5 text-[10px] font-mono text-slate-400 dark:text-slate-500 bg-slate-100 dark:bg-slate-800 rounded border border-slate-200 dark:border-white/10">
             ESC
           </span>
         </div>
 
         {/* Results Container */}
-        <div className="max-h-[60vh] overflow-y-auto p-2 divide-y divide-zinc-100 dark:divide-zinc-800/60">
+        <div className="max-h-[60vh] overflow-y-auto p-2 divide-y divide-slate-100 dark:divide-white/10">
           {results.length > 0 ? (
             results.map(item => (
               <div
@@ -116,43 +116,43 @@ export const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose, onNav
                   onNavigate(item.path);
                   onClose();
                 }}
-                className="group flex items-start justify-between gap-3 p-3 rounded-lg hover:bg-zinc-50 dark:hover:bg-zinc-800/60 cursor-pointer transition-colors"
+                className="group flex items-start justify-between gap-3 p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800/60 cursor-pointer transition-colors"
               >
                 <div className="flex items-start gap-3">
-                  <div className="mt-0.5 p-1.5 rounded-md bg-zinc-100 dark:bg-zinc-800 group-hover:bg-white dark:group-hover:bg-zinc-700 border border-zinc-200 dark:border-zinc-700 transition-colors">
+                  <div className="mt-0.5 p-1.5 rounded-md bg-slate-100 dark:bg-slate-800 group-hover:bg-white dark:group-hover:bg-slate-700 border border-slate-200 dark:border-white/10 transition-colors">
                     {getCategoryIcon(item.category)}
                   </div>
                   <div>
                     <div className="flex items-center gap-2">
-                      <h4 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-black dark:group-hover:text-white">
+                      <h4 className="text-sm font-semibold text-slate-900 dark:text-white">
                         {item.title}
                       </h4>
-                      <span className="text-[11px] font-mono text-zinc-400 dark:text-zinc-500 px-1.5 py-0.2 rounded bg-zinc-100 dark:bg-zinc-800">
+                      <span className="text-[11px] font-mono text-slate-400 dark:text-slate-500 px-1.5 py-0.2 rounded bg-slate-100 dark:bg-slate-800">
                         {item.section}
                       </span>
                     </div>
-                    <p className="text-xs text-zinc-600 dark:text-zinc-400 line-clamp-1 mt-0.5">
+                    <p className="text-xs text-slate-600 dark:text-slate-400 line-clamp-1 mt-0.5">
                       {item.description}
                     </p>
                   </div>
                 </div>
 
-                <ArrowRight className="w-4 h-4 text-zinc-400 opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all shrink-0 mt-1" />
+                <ArrowRight className="w-4 h-4 text-slate-400 opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all shrink-0 mt-1" />
               </div>
             ))
           ) : (
-            <div className="p-8 text-center text-zinc-500 dark:text-zinc-400 text-sm">
+            <div className="p-8 text-center text-slate-500 dark:text-slate-400 text-sm">
               No results found for &quot;{query}&quot;. Try searching for &quot;UTXO&quot;, &quot;redb&quot;, &quot;Blake3&quot;, or &quot;mining&quot;.
             </div>
           )}
         </div>
 
         {/* Search Footer */}
-        <div className="px-4 py-2 bg-zinc-50 dark:bg-zinc-950 border-t border-zinc-100 dark:border-zinc-800 flex items-center justify-between text-[11px] text-zinc-500 dark:text-zinc-400 font-mono">
+        <div className="px-4 py-2 bg-slate-50 dark:bg-slate-900 border-t border-slate-100 dark:border-white/10 flex items-center justify-between text-[11px] text-slate-500 dark:text-slate-400 font-mono">
           <span>Search Scytale Documentation &amp; Protocols</span>
           <div className="flex items-center gap-2">
             <span>Press</span>
-            <kbd className="px-1.5 py-0.5 bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded">ESC</kbd>
+            <kbd className="px-1.5 py-0.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-white/10 rounded">ESC</kbd>
             <span>to close</span>
           </div>
         </div>

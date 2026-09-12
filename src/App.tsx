@@ -147,17 +147,17 @@ export default function App() {
     // Fallback: 404 Not Found Page
     return (
       <div className="max-w-xl mx-auto px-4 py-24 text-center space-y-4">
-        <span className="text-xs font-mono font-semibold uppercase tracking-wider text-zinc-500">
+        <span className="text-xs font-mono font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
           HTTP 404
         </span>
-        <h1 className="text-3xl font-bold text-zinc-950 font-mono">Resource Not Found</h1>
-        <p className="text-sm text-zinc-600">
-          The requested path <code className="font-mono bg-zinc-100 px-1.5 py-0.5 rounded">{currentPath}</code> does not exist in the Scytale portal index.
+        <h1 className="text-3xl font-bold text-slate-900 dark:text-white font-mono">Resource Not Found</h1>
+        <p className="text-sm text-slate-600 dark:text-slate-400">
+          The requested path <code className="font-mono bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 rounded text-slate-800 dark:text-slate-200">{currentPath}</code> does not exist in the Scytale portal index.
         </p>
         <div className="pt-4">
           <button
             onClick={() => navigateTo('/')}
-            className="px-4 py-2 rounded-lg bg-zinc-900 text-white text-xs font-medium hover:bg-zinc-800 transition-colors"
+            className="px-4 py-2 rounded-lg bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-950 text-xs font-medium hover:bg-slate-800 dark:hover:bg-slate-200 transition-colors"
           >
             Return to Homepage
           </button>
@@ -170,7 +170,7 @@ export default function App() {
     <LanguageProvider>
       <ThemeProvider>
         <MetaManager currentPath={currentPath} />
-        <div className="min-h-screen flex flex-col bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 antialiased selection:bg-zinc-900 selection:text-white dark:selection:bg-zinc-100 dark:selection:text-zinc-900 transition-colors">
+        <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-[#0b0f19] text-slate-700 dark:text-slate-300 antialiased selection:bg-slate-900 selection:text-white dark:selection:bg-slate-100 dark:selection:text-slate-900 transition-colors">
           {/* Header Navigation */}
           <Header
             currentPath={currentPath}

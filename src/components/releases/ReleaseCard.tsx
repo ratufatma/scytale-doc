@@ -10,11 +10,11 @@ interface ReleaseCardProps {
 
 export const ReleaseCard: React.FC<ReleaseCardProps> = ({ release, onViewDetails }) => {
   return (
-    <div className="rounded-xl border border-zinc-200 bg-white p-6 shadow-2xs space-y-4 hover:border-zinc-300 transition-colors">
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-zinc-100 pb-4">
+    <div className="rounded-xl border border-slate-200 dark:border-white/10 bg-white dark:bg-[#111827] p-6 shadow-2xs space-y-4 hover:border-slate-300 dark:hover:border-white/20 transition-colors">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 dark:border-white/10 pb-4">
         <div className="flex items-center gap-3">
           <VersionBadge version={release.version} status={release.status} />
-          <div className="flex items-center gap-1.5 text-xs text-zinc-500 font-mono">
+          <div className="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400 font-mono">
             <Calendar className="w-3.5 h-3.5" />
             <span>{release.releaseDate}</span>
           </div>
@@ -22,25 +22,25 @@ export const ReleaseCard: React.FC<ReleaseCardProps> = ({ release, onViewDetails
 
         <button
           onClick={() => onViewDetails(release.version)}
-          className="inline-flex items-center gap-1.5 text-xs font-semibold text-zinc-900 hover:text-black hover:underline"
+          className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-900 dark:text-white hover:text-black dark:hover:text-slate-200 hover:underline"
         >
           <span>View Release Notes &amp; Binaries</span>
           <ArrowRight className="w-3.5 h-3.5" />
         </button>
       </div>
 
-      <p className="text-zinc-700 text-sm leading-relaxed">{release.summary}</p>
+      <p className="text-slate-700 dark:text-slate-300 text-sm leading-relaxed">{release.summary}</p>
 
       {/* Highlights */}
       {release.highlights && release.highlights.length > 0 && (
         <div className="space-y-2 pt-1">
-          <h4 className="text-xs font-semibold uppercase tracking-wider font-mono text-zinc-500">
+          <h4 className="text-xs font-semibold uppercase tracking-wider font-mono text-slate-500 dark:text-slate-400">
             Key Highlights
           </h4>
-          <ul className="space-y-1.5 text-xs text-zinc-700">
+          <ul className="space-y-1.5 text-xs text-slate-700 dark:text-slate-300">
             {release.highlights.map((h, idx) => (
               <li key={idx} className="flex items-start gap-2">
-                <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
+                <Check className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
                 <span>{h}</span>
               </li>
             ))}
@@ -49,8 +49,8 @@ export const ReleaseCard: React.FC<ReleaseCardProps> = ({ release, onViewDetails
       )}
 
       {/* Verification & Artifacts count footer */}
-      <div className="pt-2 flex items-center justify-between text-xs text-zinc-500 font-mono border-t border-zinc-50">
-        <div className="flex items-center gap-1.5 text-emerald-700">
+      <div className="pt-2 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 font-mono border-t border-slate-100 dark:border-white/10">
+        <div className="flex items-center gap-1.5 text-emerald-700 dark:text-emerald-400">
           <ShieldCheck className="w-3.5 h-3.5" />
           <span>PGP Signature &amp; SHA-256 Verified</span>
         </div>

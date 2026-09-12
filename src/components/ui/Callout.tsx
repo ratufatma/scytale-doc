@@ -19,30 +19,30 @@ export const Callout: React.FC<CalloutProps> = ({
     note: {
       icon: Info,
       defaultTitle: 'Note',
-      borderClass: 'border-blue-200 bg-blue-50/50 text-blue-950',
-      iconClass: 'text-blue-600',
-      titleClass: 'text-blue-900 font-semibold'
+      borderClass: 'border-blue-200 dark:border-blue-900/60 bg-blue-50/70 dark:bg-blue-950/40 text-blue-950 dark:text-blue-200',
+      iconClass: 'text-blue-600 dark:text-blue-400',
+      titleClass: 'text-blue-900 dark:text-blue-100 font-semibold'
     },
     tip: {
       icon: Lightbulb,
       defaultTitle: 'Tip',
-      borderClass: 'border-emerald-200 bg-emerald-50/50 text-emerald-950',
-      iconClass: 'text-emerald-600',
-      titleClass: 'text-emerald-900 font-semibold'
+      borderClass: 'border-emerald-200 dark:border-emerald-900/60 bg-emerald-50/70 dark:bg-emerald-950/40 text-emerald-950 dark:text-emerald-200',
+      iconClass: 'text-emerald-600 dark:text-emerald-400',
+      titleClass: 'text-emerald-900 dark:text-emerald-100 font-semibold'
     },
     warning: {
       icon: AlertTriangle,
       defaultTitle: 'Warning',
-      borderClass: 'border-amber-200 bg-amber-50/50 text-amber-950',
-      iconClass: 'text-amber-600',
-      titleClass: 'text-amber-900 font-semibold'
+      borderClass: 'border-amber-200 dark:border-amber-900/60 bg-amber-50/70 dark:bg-amber-950/40 text-amber-950 dark:text-amber-200',
+      iconClass: 'text-amber-600 dark:text-amber-400',
+      titleClass: 'text-amber-900 dark:text-amber-100 font-semibold'
     },
     security: {
       icon: ShieldAlert,
       defaultTitle: 'Security Critical',
-      borderClass: 'border-rose-200 bg-rose-50/50 text-rose-950',
-      iconClass: 'text-rose-600',
-      titleClass: 'text-rose-900 font-semibold'
+      borderClass: 'border-rose-200 dark:border-rose-900/60 bg-rose-50/70 dark:bg-rose-950/40 text-rose-950 dark:text-rose-200',
+      iconClass: 'text-rose-600 dark:text-rose-400',
+      titleClass: 'text-rose-900 dark:text-rose-100 font-semibold'
     }
   };
 
@@ -59,7 +59,7 @@ export const Callout: React.FC<CalloutProps> = ({
         <IconComponent className={`w-5 h-5 shrink-0 mt-0.5 ${config.iconClass}`} />
         <div className="space-y-1 w-full">
           <h4 className={`text-sm ${config.titleClass}`}>{title || config.defaultTitle}</h4>
-          <div className="text-zinc-800 text-xs sm:text-sm font-normal">{children}</div>
+          <div className="text-slate-700 dark:text-slate-300 text-xs sm:text-sm font-normal leading-relaxed">{children}</div>
         </div>
       </div>
     </aside>

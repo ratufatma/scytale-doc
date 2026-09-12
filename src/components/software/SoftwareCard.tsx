@@ -15,45 +15,46 @@ export const SoftwareCard: React.FC<SoftwareCardProps> = ({
   onNavigateDoc
 }) => {
   const getIcon = () => {
+    const iconClass = "w-5 h-5 text-slate-900 dark:text-white";
     switch (software.slug) {
       case 'node':
-        return <Cpu className="w-5 h-5 text-zinc-900" />;
+        return <Cpu className={iconClass} />;
       case 'cli':
-        return <Terminal className="w-5 h-5 text-zinc-900" />;
+        return <Terminal className={iconClass} />;
       case 'wallet':
-        return <Wallet className="w-5 h-5 text-zinc-900" />;
+        return <Wallet className={iconClass} />;
       case 'desktop':
-        return <Layout className="w-5 h-5 text-zinc-900" />;
+        return <Layout className={iconClass} />;
       case 'mobile':
-        return <Smartphone className="w-5 h-5 text-zinc-900" />;
+        return <Smartphone className={iconClass} />;
       case 'explorer':
-        return <Globe className="w-5 h-5 text-zinc-900" />;
+        return <Globe className={iconClass} />;
       case 'devtools':
-        return <Wrench className="w-5 h-5 text-zinc-900" />;
+        return <Wrench className={iconClass} />;
       default:
-        return <Cpu className="w-5 h-5 text-zinc-900" />;
+        return <Cpu className={iconClass} />;
     }
   };
 
   return (
-    <div className="rounded-xl border border-zinc-200 bg-white p-6 shadow-2xs space-y-4 hover:border-zinc-300 transition-colors flex flex-col justify-between">
+    <div className="rounded-xl border border-slate-200 dark:border-white/10 bg-white dark:bg-[#111827] p-6 shadow-2xs space-y-4 hover:border-slate-300 dark:hover:border-white/20 transition-colors flex flex-col justify-between">
       <div className="space-y-3">
         {/* Top header */}
         <div className="flex items-start justify-between gap-3">
           <div className="flex items-center gap-3">
-            <div className="p-2 rounded-lg bg-zinc-100 border border-zinc-200">
+            <div className="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-white/10">
               {getIcon()}
             </div>
             <div>
-              <h3 className="font-bold text-zinc-950 text-base">{software.name}</h3>
-              <span className="text-[11px] font-mono text-zinc-500 uppercase tracking-wider">
+              <h3 className="font-bold text-slate-900 dark:text-white text-base">{software.name}</h3>
+              <span className="text-[11px] font-mono text-slate-500 dark:text-slate-400 uppercase tracking-wider">
                 {software.category} &bull; v{software.latestRelease}
               </span>
             </div>
           </div>
         </div>
 
-        <p className="text-zinc-600 text-xs sm:text-sm leading-relaxed">{software.tagline}</p>
+        <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm leading-relaxed">{software.tagline}</p>
 
         {/* Platforms */}
         <div className="flex items-center gap-1.5 flex-wrap pt-1">
@@ -63,10 +64,10 @@ export const SoftwareCard: React.FC<SoftwareCardProps> = ({
         </div>
 
         {/* Highlights */}
-        <ul className="space-y-1 text-xs text-zinc-700 pt-2 border-t border-zinc-100">
+        <ul className="space-y-1 text-xs text-slate-700 dark:text-slate-300 pt-2 border-t border-slate-100 dark:border-white/10">
           {software.features.slice(0, 3).map((f, idx) => (
             <li key={idx} className="flex items-start gap-1.5">
-              <span className="text-zinc-400 font-mono">&bull;</span>
+              <span className="text-slate-400 font-mono">&bull;</span>
               <span className="line-clamp-1">{f}</span>
             </li>
           ))}
@@ -74,10 +75,10 @@ export const SoftwareCard: React.FC<SoftwareCardProps> = ({
       </div>
 
       {/* Footer Actions */}
-      <div className="pt-4 border-t border-zinc-100 flex items-center justify-between gap-2 text-xs">
+      <div className="pt-4 border-t border-slate-100 dark:border-white/10 flex items-center justify-between gap-2 text-xs">
         <button
           onClick={() => onNavigateDoc(software.documentationPath)}
-          className="inline-flex items-center gap-1.5 text-zinc-600 hover:text-zinc-950 font-medium transition-colors"
+          className="inline-flex items-center gap-1.5 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white font-medium transition-colors"
         >
           <BookOpen className="w-3.5 h-3.5" />
           <span>Documentation</span>
@@ -85,7 +86,7 @@ export const SoftwareCard: React.FC<SoftwareCardProps> = ({
 
         <button
           onClick={() => onSelect(software.slug)}
-          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-white font-medium shadow-2xs transition-colors"
+          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900 dark:bg-white hover:bg-slate-800 dark:hover:bg-slate-100 text-white dark:text-slate-950 font-medium shadow-2xs transition-colors"
         >
           <span>View Details</span>
           <ArrowRight className="w-3.5 h-3.5" />

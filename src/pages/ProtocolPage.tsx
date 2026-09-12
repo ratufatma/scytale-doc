@@ -44,21 +44,21 @@ export const ProtocolPage: React.FC = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12">
       {/* Header */}
-      <header className="border-b border-zinc-200 pb-8 space-y-3">
-        <div className="flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-zinc-500">
-          <Cpu className="w-4 h-4 text-emerald-600" />
+      <header className="border-b border-slate-200 dark:border-white/10 pb-8 space-y-3">
+        <div className="flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+          <Cpu className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
           <span>Core Engineering Specification</span>
         </div>
-        <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-950 font-mono">
+        <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 dark:text-white font-mono">
           Scytale Protocol Specification
         </h1>
-        <p className="text-zinc-600 text-sm sm:text-base max-w-3xl leading-relaxed">
+        <p className="text-slate-600 dark:text-slate-400 text-sm sm:text-base max-w-3xl leading-relaxed">
           Formal protocol mechanics, invariant rules, binary serialization layouts, and consensus state machines governing the Scytale distributed ledger.
         </p>
       </header>
 
       {/* Interactive Topic Tabs */}
-      <div className="flex items-center gap-2 overflow-x-auto pb-2 border-b border-zinc-200 text-xs font-mono">
+      <div className="flex items-center gap-2 overflow-x-auto pb-2 border-b border-slate-200 dark:border-white/10 text-xs font-mono">
         {[
           { id: 'utxo', label: '1. UTXO & Transaction Model' },
           { id: 'pow', label: '2. PoW & Difficulty Target' },
@@ -72,8 +72,8 @@ export const ProtocolPage: React.FC = () => {
             onClick={() => setActiveTab(tab.id as any)}
             className={`px-3.5 py-2 rounded-lg font-medium whitespace-nowrap transition-colors ${
               activeTab === tab.id
-                ? 'bg-zinc-900 text-white shadow-xs'
-                : 'text-zinc-600 hover:text-zinc-950 hover:bg-zinc-100'
+                ? 'bg-slate-900 dark:bg-emerald-600 text-white shadow-xs'
+                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800'
             }`}
           >
             {tab.label}
@@ -85,39 +85,39 @@ export const ProtocolPage: React.FC = () => {
       {activeTab === 'utxo' && (
         <section className="space-y-6">
           <div>
-            <h2 className="text-2xl font-bold text-zinc-950 font-mono">1. UTXO &amp; Transaction Model</h2>
-            <p className="text-xs text-zinc-500 mt-1 font-mono">Deterministic State Transitions</p>
+            <h2 className="text-2xl font-bold text-slate-900 dark:text-white font-mono">1. UTXO &amp; Transaction Model</h2>
+            <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 font-mono">Deterministic State Transitions</p>
           </div>
 
-          <p className="text-sm text-zinc-700 leading-relaxed max-w-3xl">
+          <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed max-w-3xl">
             Scytale transactions operate on immutable outpoints. A transaction consumes previously created unspent transaction outputs (UTXOs) in their entirety and produces new outputs. Unspent values cannot be partially decremented.
           </p>
 
           {/* ASCII Architecture Diagram */}
-          <div className="relative group/pre p-4 rounded-xl bg-zinc-950 text-zinc-200 font-mono text-xs overflow-x-auto border border-zinc-800 leading-normal">
+          <div className="relative group/pre p-4 rounded-xl bg-slate-950 text-slate-200 font-mono text-xs overflow-x-auto border border-slate-800 dark:border-white/10 leading-normal">
             <div className="absolute top-2.5 right-2.5 opacity-0 group-hover/pre:opacity-100 focus-within:opacity-100 transition-opacity duration-150 z-10">
               <PreCopyButton text={TX_OBJECT_DIAGRAM} />
             </div>
-            <pre className="selection:bg-zinc-800">{TX_OBJECT_DIAGRAM}</pre>
+            <pre className="selection:bg-slate-800">{TX_OBJECT_DIAGRAM}</pre>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="p-4 rounded-xl border border-zinc-200 bg-white space-y-2">
-              <h4 className="font-bold text-zinc-950 text-sm font-mono">Consensus Invariant: Conservation</h4>
-              <p className="text-xs text-zinc-600 leading-relaxed">
+            <div className="p-4 rounded-xl border border-slate-200 dark:border-white/10 bg-white dark:bg-[#111827] space-y-2">
+              <h4 className="font-bold text-slate-900 dark:text-white text-sm font-mono">Consensus Invariant: Conservation</h4>
+              <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
                 The arithmetic sum of output amounts must never exceed the sum of referenced input amounts. Any positive remainder is permanently allocated as the miner fee:
               </p>
-              <div className="p-2 rounded bg-zinc-100 font-mono text-xs text-zinc-800">
+              <div className="p-2 rounded bg-slate-100 dark:bg-slate-800 font-mono text-xs text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-white/10">
                 Fee = ∑(Input.value) - ∑(Output.value) ≥ 0
               </div>
             </div>
 
-            <div className="p-4 rounded-xl border border-zinc-200 bg-white space-y-2">
-              <h4 className="font-bold text-zinc-950 text-sm font-mono">Coinbase Transaction Rules</h4>
-              <p className="text-xs text-zinc-600 leading-relaxed">
+            <div className="p-4 rounded-xl border border-slate-200 dark:border-white/10 bg-white dark:bg-[#111827] space-y-2">
+              <h4 className="font-bold text-slate-900 dark:text-white text-sm font-mono">Coinbase Transaction Rules</h4>
+              <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
                 The first transaction in every block has a single input with a zeroed TxID (32 zero bytes) and index 0xFFFFFFFF. Its output sum is bounded by:
               </p>
-              <div className="p-2 rounded bg-zinc-100 font-mono text-xs text-zinc-800">
+              <div className="p-2 rounded bg-slate-100 dark:bg-slate-800 font-mono text-xs text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-white/10">
                 Coinbase.value ≤ BlockSubsidy(Height) + TotalBlockFees
               </div>
             </div>
@@ -129,21 +129,21 @@ export const ProtocolPage: React.FC = () => {
       {activeTab === 'pow' && (
         <section className="space-y-6">
           <div>
-            <h2 className="text-2xl font-bold text-zinc-950 font-mono">2. Proof of Work &amp; Difficulty Adjustment</h2>
-            <p className="text-xs text-zinc-500 mt-1 font-mono">Blake3 Objective Consensus Ordering</p>
+            <h2 className="text-2xl font-bold text-slate-900 dark:text-white font-mono">2. Proof of Work &amp; Difficulty Adjustment</h2>
+            <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 font-mono">Blake3 Objective Consensus Ordering</p>
           </div>
 
-          <p className="text-sm text-zinc-700 leading-relaxed max-w-3xl">
+          <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed max-w-3xl">
             Proof of work provides objective, unforgeable consensus history. Valid blocks must satisfy the inequality:
           </p>
 
-          <div className="p-3 rounded-lg bg-zinc-900 text-zinc-100 font-mono text-xs">
+          <div className="p-3 rounded-lg bg-slate-900 text-slate-100 font-mono text-xs border border-slate-800 dark:border-white/10">
             <code>Blake3(HeaderBytes) &le; CurrentTarget</code>
           </div>
 
           <div className="space-y-4">
-            <h3 className="text-base font-bold text-zinc-900 font-mono">Difficulty Retargeting Window</h3>
-            <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed">
+            <h3 className="text-base font-bold text-slate-900 dark:text-white font-mono">Difficulty Retargeting Window</h3>
+            <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
               Every 1,440 blocks (~24 hours at 60s target block time), all nodes independently recompute the target threshold using cumulative timestamps from the previous window.
             </p>
             <CodeBlock
@@ -159,38 +159,38 @@ export const ProtocolPage: React.FC = () => {
       {activeTab === 'hashing' && (
         <section className="space-y-6">
           <div>
-            <h2 className="text-2xl font-bold text-zinc-950 font-mono">3. Blake3 Cryptographic Hashing</h2>
-            <p className="text-xs text-zinc-500 mt-1 font-mono">Universal Cryptographic Primitive</p>
+            <h2 className="text-2xl font-bold text-slate-900 dark:text-white font-mono">3. Blake3 Cryptographic Hashing</h2>
+            <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 font-mono">Universal Cryptographic Primitive</p>
           </div>
 
-          <p className="text-sm text-zinc-700 leading-relaxed max-w-3xl">
+          <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed max-w-3xl">
             Blake3 was selected as the sole cryptographic hash function for Scytale due to its verified 128-bit security level, pure tree-hashing architecture, and exceptional performance on commodity hardware without custom ASICs.
           </p>
 
-          <div className="rounded-xl border border-zinc-200 bg-white overflow-hidden shadow-2xs">
+          <div className="rounded-xl border border-slate-200 dark:border-white/10 bg-white dark:bg-[#111827] overflow-hidden shadow-2xs">
             <table className="w-full text-left text-xs sm:text-sm">
-              <thead className="bg-zinc-50 border-b border-zinc-200 text-zinc-900 font-semibold font-mono text-xs">
+              <thead className="bg-slate-50 dark:bg-slate-800/60 border-b border-slate-200 dark:border-white/10 text-slate-900 dark:text-white font-semibold font-mono text-xs">
                 <tr>
-                  <th className="px-4 py-3 border-r border-zinc-200">Domain</th>
-                  <th className="px-4 py-3 border-r border-zinc-200">Input Data</th>
+                  <th className="px-4 py-3 border-r border-slate-200 dark:border-white/10">Domain</th>
+                  <th className="px-4 py-3 border-r border-slate-200 dark:border-white/10">Input Data</th>
                   <th className="px-4 py-3">Output Digest</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-zinc-200">
+              <tbody className="divide-y divide-slate-200 dark:divide-white/10">
                 <tr>
-                  <td className="px-4 py-3 font-semibold font-mono text-zinc-800 border-r border-zinc-200">Block Header Hash</td>
-                  <td className="px-4 py-3 text-zinc-600 font-mono text-xs border-r border-zinc-200">80-byte serialized header (version + prev_hash + merkle_root + timestamp + bits + nonce)</td>
-                  <td className="px-4 py-3 text-zinc-700 font-mono text-xs">32 bytes (Checked against Target)</td>
+                  <td className="px-4 py-3 font-semibold font-mono text-slate-800 dark:text-slate-200 border-r border-slate-200 dark:border-white/10">Block Header Hash</td>
+                  <td className="px-4 py-3 text-slate-600 dark:text-slate-400 font-mono text-xs border-r border-slate-200 dark:border-white/10">80-byte serialized header (version + prev_hash + merkle_root + timestamp + bits + nonce)</td>
+                  <td className="px-4 py-3 text-slate-700 dark:text-slate-300 font-mono text-xs">32 bytes (Checked against Target)</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-semibold font-mono text-zinc-800 border-r border-zinc-200">Transaction ID</td>
-                  <td className="px-4 py-3 text-zinc-600 font-mono text-xs border-r border-zinc-200">Blake3(Blake3(serialized_tx_bytes))</td>
-                  <td className="px-4 py-3 text-zinc-700 font-mono text-xs">32 bytes unique TxID</td>
+                  <td className="px-4 py-3 font-semibold font-mono text-slate-800 dark:text-slate-200 border-r border-slate-200 dark:border-white/10">Transaction ID</td>
+                  <td className="px-4 py-3 text-slate-600 dark:text-slate-400 font-mono text-xs border-r border-slate-200 dark:border-white/10">Blake3(Blake3(serialized_tx_bytes))</td>
+                  <td className="px-4 py-3 text-slate-700 dark:text-slate-300 font-mono text-xs">32 bytes unique TxID</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-semibold font-mono text-zinc-800 border-r border-zinc-200">Merkle Root</td>
-                  <td className="px-4 py-3 text-zinc-600 font-mono text-xs border-r border-zinc-200">Binary tree leaf pairs of all transaction IDs in the block</td>
-                  <td className="px-4 py-3 text-zinc-700 font-mono text-xs">32 bytes root committed in header</td>
+                  <td className="px-4 py-3 font-semibold font-mono text-slate-800 dark:text-slate-200 border-r border-slate-200 dark:border-white/10">Merkle Root</td>
+                  <td className="px-4 py-3 text-slate-600 dark:text-slate-400 font-mono text-xs border-r border-slate-200 dark:border-white/10">Binary tree leaf pairs of all transaction IDs in the block</td>
+                  <td className="px-4 py-3 text-slate-700 dark:text-slate-300 font-mono text-xs">32 bytes root committed in header</td>
                 </tr>
               </tbody>
             </table>
@@ -202,19 +202,19 @@ export const ProtocolPage: React.FC = () => {
       {activeTab === 'storage' && (
         <section className="space-y-6">
           <div>
-            <h2 className="text-2xl font-bold text-zinc-950 font-mono">4. redb Embedded Storage Engine</h2>
-            <p className="text-xs text-zinc-500 mt-1 font-mono">Safe, Pure-Rust ACID Key-Value Storage</p>
+            <h2 className="text-2xl font-bold text-slate-900 dark:text-white font-mono">4. redb Embedded Storage Engine</h2>
+            <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 font-mono">Safe, Pure-Rust ACID Key-Value Storage</p>
           </div>
 
-          <p className="text-sm text-zinc-700 leading-relaxed max-w-3xl">
+          <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed max-w-3xl">
             Scytale stores all chain state in `redb`. Because redb is written in 100% safe Rust, the daemon has zero dependency on C++ runtime linkers or dynamic libraries.
           </p>
 
-          <div className="relative group/pre p-4 rounded-xl bg-zinc-950 text-zinc-200 font-mono text-xs overflow-x-auto border border-zinc-800">
+          <div className="relative group/pre p-4 rounded-xl bg-slate-950 text-slate-200 font-mono text-xs overflow-x-auto border border-slate-800 dark:border-white/10">
             <div className="absolute top-2.5 right-2.5 opacity-0 group-hover/pre:opacity-100 focus-within:opacity-100 transition-opacity duration-150 z-10">
               <PreCopyButton text={REDB_SCHEMA_CODE} />
             </div>
-            <pre className="selection:bg-zinc-800">{REDB_SCHEMA_CODE}</pre>
+            <pre className="selection:bg-slate-800">{REDB_SCHEMA_CODE}</pre>
           </div>
         </section>
       )}
@@ -223,11 +223,11 @@ export const ProtocolPage: React.FC = () => {
       {activeTab === 'reorg' && (
         <section className="space-y-6">
           <div>
-            <h2 className="text-2xl font-bold text-zinc-950 font-mono">5. Chain Selection &amp; Reorganization</h2>
-            <p className="text-xs text-zinc-500 mt-1 font-mono">Cumulative Work Consensus Rule</p>
+            <h2 className="text-2xl font-bold text-slate-900 dark:text-white font-mono">5. Chain Selection &amp; Reorganization</h2>
+            <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 font-mono">Cumulative Work Consensus Rule</p>
           </div>
 
-          <p className="text-sm text-zinc-700 leading-relaxed max-w-3xl">
+          <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed max-w-3xl">
             When competing chain branches are broadcast across the P2P network, nodes select the branch with the highest cumulative chain work (total expected Blake3 hashes), not merely block height.
           </p>
 
@@ -241,19 +241,19 @@ export const ProtocolPage: React.FC = () => {
       {activeTab === 'p2p' && (
         <section className="space-y-6">
           <div>
-            <h2 className="text-2xl font-bold text-zinc-950 font-mono">6. Peer-to-Peer Wire Framing</h2>
-            <p className="text-xs text-zinc-500 mt-1 font-mono">Direct TCP Socket Communication</p>
+            <h2 className="text-2xl font-bold text-slate-900 dark:text-white font-mono">6. Peer-to-Peer Wire Framing</h2>
+            <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 font-mono">Direct TCP Socket Communication</p>
           </div>
 
-          <p className="text-sm text-zinc-700 leading-relaxed max-w-3xl">
+          <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed max-w-3xl">
             Nodes communicate over TCP on port 9000 using a compact binary framing standard. Every message packet begins with a 4-byte network magic delimiter followed by the command name, length, and payload checksum.
           </p>
 
-          <div className="relative group/pre p-4 rounded-xl bg-zinc-950 text-zinc-200 font-mono text-xs overflow-x-auto border border-zinc-800">
+          <div className="relative group/pre p-4 rounded-xl bg-slate-950 text-slate-200 font-mono text-xs overflow-x-auto border border-slate-800 dark:border-white/10">
             <div className="absolute top-2.5 right-2.5 opacity-0 group-hover/pre:opacity-100 focus-within:opacity-100 transition-opacity duration-150 z-10">
               <PreCopyButton text={P2P_WIRE_DIAGRAM} />
             </div>
-            <pre className="selection:bg-zinc-800">{P2P_WIRE_DIAGRAM}</pre>
+            <pre className="selection:bg-slate-800">{P2P_WIRE_DIAGRAM}</pre>
           </div>
         </section>
       )}

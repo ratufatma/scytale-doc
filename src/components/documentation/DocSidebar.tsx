@@ -47,17 +47,17 @@ export const DocSidebar: React.FC<DocSidebarProps> = ({
   }).filter(section => section.pages.length > 0 || !filterText);
 
   return (
-    <aside className={`w-full lg:w-64 shrink-0 border-r border-zinc-200 dark:border-zinc-800 bg-white/50 dark:bg-zinc-900/50 lg:bg-transparent ${className}`}>
+    <aside className={`w-full lg:w-64 shrink-0 border-r border-slate-200 dark:border-white/10 bg-white dark:bg-[#111827] lg:bg-transparent ${className}`}>
       <div className="sticky top-16 h-[calc(100vh-4rem)] overflow-y-auto p-4 space-y-4 text-sm">
         {/* Quick Filter */}
         <div className="relative">
-          <Search className="w-3.5 h-3.5 absolute left-2.5 top-2.5 text-zinc-400 dark:text-zinc-500" />
+          <Search className="w-3.5 h-3.5 absolute left-2.5 top-2.5 text-slate-400 dark:text-slate-500" />
           <input
             type="text"
             value={filterText}
             onChange={e => setFilterText(e.target.value)}
             placeholder={language === 'id' ? 'Cari dokumentasi...' : 'Filter documentation...'}
-            className="w-full pl-8 pr-3 py-1.5 text-xs rounded-md border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 dark:placeholder:text-zinc-500 focus:outline-hidden focus:border-zinc-400"
+            className="w-full pl-8 pr-3 py-1.5 text-xs rounded-md border border-slate-200 dark:border-white/10 bg-white dark:bg-slate-900 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-hidden focus:border-slate-400"
           />
         </div>
 
@@ -69,18 +69,18 @@ export const DocSidebar: React.FC<DocSidebarProps> = ({
               <div key={section.id} className="space-y-1">
                 <button
                   onClick={() => toggleSection(section.slug)}
-                  className="flex items-center justify-between w-full text-left px-2 py-1 text-xs font-semibold uppercase tracking-wider text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 font-mono transition-colors"
+                  className="flex items-center justify-between w-full text-left px-2 py-1 text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white font-mono transition-colors"
                 >
                   <span>{section.title}</span>
                   {isOpen ? (
-                    <ChevronDown className="w-3.5 h-3.5 text-zinc-400 dark:text-zinc-500" />
+                    <ChevronDown className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500" />
                   ) : (
-                    <ChevronRight className="w-3.5 h-3.5 text-zinc-400 dark:text-zinc-500" />
+                    <ChevronRight className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500" />
                   )}
                 </button>
 
                 {isOpen && (
-                  <div className="space-y-0.5 pl-2 border-l border-zinc-200 dark:border-zinc-800 ml-2">
+                  <div className="space-y-0.5 pl-2 border-l border-slate-200 dark:border-white/10 ml-2">
                     {section.pages.map(page => {
                       const isActive =
                         section.slug === currentSectionSlug && page.slug === currentPageSlug;
@@ -90,8 +90,8 @@ export const DocSidebar: React.FC<DocSidebarProps> = ({
                           onClick={() => onSelectPage(section.slug, page.slug)}
                           className={`w-full text-left px-2.5 py-1.5 rounded-md text-xs transition-colors block ${
                             isActive
-                              ? 'bg-zinc-950 dark:bg-zinc-100 text-white dark:text-zinc-950 font-medium shadow-2xs'
-                              : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800'
+                              ? 'bg-slate-900 dark:bg-white text-white dark:text-slate-950 font-medium shadow-2xs'
+                              : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800'
                           }`}
                         >
                           {page.title}

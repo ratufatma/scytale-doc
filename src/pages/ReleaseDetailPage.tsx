@@ -30,27 +30,27 @@ export const ReleaseDetailPage: React.FC<ReleaseDetailPageProps> = ({
       {/* Back Button */}
       <button
         onClick={onBack}
-        className="inline-flex items-center gap-1.5 text-xs font-mono font-medium text-zinc-600 hover:text-zinc-950 transition-colors"
+        className="inline-flex items-center gap-1.5 text-xs font-mono font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"
       >
         <ArrowLeft className="w-3.5 h-3.5" />
         <span>Back to Releases Hub</span>
       </button>
 
       {/* Main Release Header */}
-      <header className="border-b border-zinc-200 pb-8 space-y-4">
+      <header className="border-b border-slate-200 dark:border-white/10 pb-8 space-y-4">
         <div className="flex flex-wrap items-center gap-3">
           <VersionBadge version={release.version} status={release.status} />
-          <div className="flex items-center gap-1.5 text-xs text-zinc-500 font-mono">
+          <div className="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400 font-mono">
             <Calendar className="w-3.5 h-3.5" />
             <span>{release.releaseDate}</span>
           </div>
         </div>
 
-        <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-950 font-mono">
+        <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 dark:text-white font-mono">
           Scytale v{release.version}
         </h1>
 
-        <p className="text-base text-zinc-700 leading-relaxed max-w-3xl">
+        <p className="text-base text-slate-700 dark:text-slate-300 leading-relaxed max-w-3xl">
           {release.summary}
         </p>
 
@@ -59,7 +59,7 @@ export const ReleaseDetailPage: React.FC<ReleaseDetailPageProps> = ({
             href={release.rawChangelogUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1 text-xs font-mono text-zinc-600 hover:text-zinc-950 underline pt-2"
+            className="inline-flex items-center gap-1 text-xs font-mono text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white underline pt-2"
           >
             <span>View raw Git tag and signed commit</span>
             <ExternalLink className="w-3 h-3" />
@@ -69,14 +69,14 @@ export const ReleaseDetailPage: React.FC<ReleaseDetailPageProps> = ({
 
       {/* Overview & Highlights */}
       <section className="space-y-4">
-        <h2 className="text-xl font-bold text-zinc-950">Release Highlights</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-zinc-800">
+        <h2 className="text-xl font-bold text-slate-900 dark:text-white">Release Highlights</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-slate-700 dark:text-slate-300">
           {release.highlights.map((h, idx) => (
             <div
               key={idx}
-              className="flex items-start gap-2.5 p-3.5 rounded-lg border border-zinc-200 bg-white shadow-2xs"
+              className="flex items-start gap-2.5 p-3.5 rounded-lg border border-slate-200 dark:border-white/10 bg-white dark:bg-[#111827] shadow-2xs"
             >
-              <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+              <Check className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
               <span className="leading-snug text-xs sm:text-sm">{h}</span>
             </div>
           ))}
@@ -109,10 +109,10 @@ export const ReleaseDetailPage: React.FC<ReleaseDetailPageProps> = ({
       )}
 
       {/* Downloads for this release */}
-      <section className="space-y-6 border-t border-zinc-200 pt-8">
+      <section className="space-y-6 border-t border-slate-200 dark:border-white/10 pt-8">
         <div>
-          <h2 className="text-xl font-bold text-zinc-950">Compiled Release Artifacts</h2>
-          <p className="text-xs text-zinc-500 mt-1">
+          <h2 className="text-xl font-bold text-slate-900 dark:text-white">Compiled Release Artifacts</h2>
+          <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
             Download pre-built binary targets for Linux, macOS, Windows, and raw source archives.
           </p>
         </div>
@@ -125,17 +125,17 @@ export const ReleaseDetailPage: React.FC<ReleaseDetailPageProps> = ({
       </section>
 
       {/* Detailed Changelog */}
-      <section className="space-y-6 border-t border-zinc-200 pt-8">
-        <h2 className="text-xl font-bold text-zinc-950">Detailed Changelog</h2>
+      <section className="space-y-6 border-t border-slate-200 dark:border-white/10 pt-8">
+        <h2 className="text-xl font-bold text-slate-900 dark:text-white">Detailed Changelog</h2>
 
         <div className="space-y-6 text-sm">
           {/* Features */}
           {release.changes.features.length > 0 && (
             <div className="space-y-2">
-              <h3 className="font-semibold text-zinc-900 font-mono text-xs uppercase tracking-wider">
+              <h3 className="font-semibold text-slate-900 dark:text-white font-mono text-xs uppercase tracking-wider">
                 New Features &amp; Capabilities
               </h3>
-              <ul className="space-y-1.5 list-disc list-inside text-zinc-700 pl-2">
+              <ul className="space-y-1.5 list-disc list-inside text-slate-700 dark:text-slate-300 pl-2">
                 {release.changes.features.map((f, idx) => (
                   <li key={idx}>{f}</li>
                 ))}
@@ -146,10 +146,10 @@ export const ReleaseDetailPage: React.FC<ReleaseDetailPageProps> = ({
           {/* Improvements */}
           {release.changes.improvements.length > 0 && (
             <div className="space-y-2">
-              <h3 className="font-semibold text-zinc-900 font-mono text-xs uppercase tracking-wider">
+              <h3 className="font-semibold text-slate-900 dark:text-white font-mono text-xs uppercase tracking-wider">
                 Performance &amp; Architectural Improvements
               </h3>
-              <ul className="space-y-1.5 list-disc list-inside text-zinc-700 pl-2">
+              <ul className="space-y-1.5 list-disc list-inside text-slate-700 dark:text-slate-300 pl-2">
                 {release.changes.improvements.map((im, idx) => (
                   <li key={idx}>{im}</li>
                 ))}
@@ -160,10 +160,10 @@ export const ReleaseDetailPage: React.FC<ReleaseDetailPageProps> = ({
           {/* Bug Fixes */}
           {release.changes.bugFixes.length > 0 && (
             <div className="space-y-2">
-              <h3 className="font-semibold text-zinc-900 font-mono text-xs uppercase tracking-wider">
+              <h3 className="font-semibold text-slate-900 dark:text-white font-mono text-xs uppercase tracking-wider">
                 Bug Fixes &amp; Stability
               </h3>
-              <ul className="space-y-1.5 list-disc list-inside text-zinc-700 pl-2">
+              <ul className="space-y-1.5 list-disc list-inside text-slate-700 dark:text-slate-300 pl-2">
                 {release.changes.bugFixes.map((bf, idx) => (
                   <li key={idx}>{bf}</li>
                 ))}
@@ -175,12 +175,12 @@ export const ReleaseDetailPage: React.FC<ReleaseDetailPageProps> = ({
 
       {/* Known Issues */}
       {release.knownIssues && release.knownIssues.length > 0 && (
-        <section className="space-y-3 border-t border-zinc-200 pt-8">
-          <h2 className="text-lg font-bold text-zinc-950">Known Issues &amp; Errata</h2>
-          <ul className="space-y-2 text-xs sm:text-sm text-zinc-600">
+        <section className="space-y-3 border-t border-slate-200 dark:border-white/10 pt-8">
+          <h2 className="text-lg font-bold text-slate-900 dark:text-white">Known Issues &amp; Errata</h2>
+          <ul className="space-y-2 text-xs sm:text-sm text-slate-600 dark:text-slate-400">
             {release.knownIssues.map((issue, idx) => (
-              <li key={idx} className="flex items-start gap-2 p-3 rounded-lg bg-zinc-50 border border-zinc-200">
-                <AlertCircle className="w-4 h-4 text-zinc-500 shrink-0 mt-0.5" />
+              <li key={idx} className="flex items-start gap-2 p-3 rounded-lg bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-white/10">
+                <AlertCircle className="w-4 h-4 text-slate-500 dark:text-slate-400 shrink-0 mt-0.5" />
                 <span>{issue}</span>
               </li>
             ))}
@@ -189,16 +189,16 @@ export const ReleaseDetailPage: React.FC<ReleaseDetailPageProps> = ({
       )}
 
       {/* Navigation between releases */}
-      <div className="border-t border-zinc-200 pt-8 flex items-center justify-between gap-4">
+      <div className="border-t border-slate-200 dark:border-white/10 pt-8 flex items-center justify-between gap-4">
         {prevRelease ? (
           <button
             onClick={() => onSelectRelease(prevRelease.version)}
-            className="flex items-center gap-2 p-3 rounded-lg border border-zinc-200 hover:bg-zinc-50 text-left transition-colors"
+            className="flex items-center gap-2 p-3 rounded-lg border border-slate-200 dark:border-white/10 bg-white dark:bg-[#111827] hover:bg-slate-50 dark:hover:bg-slate-800 text-left transition-colors"
           >
-            <ArrowLeft className="w-4 h-4 text-zinc-400" />
+            <ArrowLeft className="w-4 h-4 text-slate-400" />
             <div>
-              <span className="block text-[10px] uppercase font-mono text-zinc-400">Previous Release</span>
-              <span className="text-xs font-semibold text-zinc-900">v{prevRelease.version}</span>
+              <span className="block text-[10px] uppercase font-mono text-slate-400">Previous Release</span>
+              <span className="text-xs font-semibold text-slate-900 dark:text-white">v{prevRelease.version}</span>
             </div>
           </button>
         ) : (
@@ -208,13 +208,13 @@ export const ReleaseDetailPage: React.FC<ReleaseDetailPageProps> = ({
         {nextRelease ? (
           <button
             onClick={() => onSelectRelease(nextRelease.version)}
-            className="flex items-center gap-2 p-3 rounded-lg border border-zinc-200 hover:bg-zinc-50 text-right transition-colors"
+            className="flex items-center gap-2 p-3 rounded-lg border border-slate-200 dark:border-white/10 bg-white dark:bg-[#111827] hover:bg-slate-50 dark:hover:bg-slate-800 text-right transition-colors"
           >
             <div>
-              <span className="block text-[10px] uppercase font-mono text-zinc-400">Next Release</span>
-              <span className="text-xs font-semibold text-zinc-900">v{nextRelease.version}</span>
+              <span className="block text-[10px] uppercase font-mono text-slate-400">Next Release</span>
+              <span className="text-xs font-semibold text-slate-900 dark:text-white">v{nextRelease.version}</span>
             </div>
-            <ArrowRight className="w-4 h-4 text-zinc-400" />
+            <ArrowRight className="w-4 h-4 text-slate-400" />
           </button>
         ) : (
           <div />

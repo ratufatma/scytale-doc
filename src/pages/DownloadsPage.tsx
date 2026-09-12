@@ -22,22 +22,22 @@ export const DownloadsPage: React.FC = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12">
       {/* Page Header */}
-      <header className="border-b border-zinc-200 dark:border-zinc-800 pb-8 space-y-3">
-        <div className="flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
+      <header className="border-b border-slate-200 dark:border-white/10 pb-8 space-y-3">
+        <div className="flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
           <ShieldCheck className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
           <span>{t.downloads.badge}</span>
         </div>
-        <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-950 dark:text-white font-mono">
+        <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 dark:text-white font-mono">
           {t.downloads.title}
         </h1>
-        <p className="text-zinc-600 dark:text-zinc-400 text-sm sm:text-base max-w-3xl leading-relaxed">
+        <p className="text-slate-600 dark:text-slate-400 text-sm sm:text-base max-w-3xl leading-relaxed">
           {t.downloads.description}
         </p>
       </header>
 
       {/* Filter Bar */}
-      <div className="rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-4 shadow-2xs space-y-4">
-        <div className="flex items-center gap-2 text-xs font-mono font-semibold text-zinc-700 dark:text-zinc-300">
+      <div className="rounded-xl border border-slate-200 dark:border-white/10 bg-white dark:bg-[#111827] p-4 shadow-2xs space-y-4">
+        <div className="flex items-center gap-2 text-xs font-mono font-semibold text-slate-700 dark:text-slate-300">
           <Filter className="w-3.5 h-3.5" />
           <span>{t.downloads.filterHeader}</span>
         </div>
@@ -45,11 +45,11 @@ export const DownloadsPage: React.FC = () => {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           {/* Software Product Filter */}
           <div className="space-y-1.5">
-            <label className="block text-xs font-medium text-zinc-600 dark:text-zinc-400">{t.downloads.productLabel}</label>
+            <label className="block text-xs font-medium text-slate-600 dark:text-slate-400">{t.downloads.productLabel}</label>
             <select
               value={productFilter}
               onChange={e => setProductFilter(e.target.value)}
-              className="w-full text-xs rounded-lg border border-zinc-200 dark:border-zinc-700 bg-zinc-50 dark:bg-zinc-800 px-3 py-2 text-zinc-900 dark:text-zinc-100 focus:outline-hidden focus:border-zinc-400"
+              className="w-full text-xs rounded-lg border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-slate-800 px-3 py-2 text-slate-900 dark:text-white focus:outline-hidden focus:border-slate-400"
             >
               <option value="all">{language === 'id' ? 'Semua Perangkat Lunak' : 'All Software'}</option>
               <option value="scytale-node">Scytale Node</option>
@@ -63,11 +63,11 @@ export const DownloadsPage: React.FC = () => {
 
           {/* Platform Filter */}
           <div className="space-y-1.5">
-            <label className="block text-xs font-medium text-zinc-600 dark:text-zinc-400">{t.downloads.osLabel}</label>
+            <label className="block text-xs font-medium text-slate-600 dark:text-slate-400">{t.downloads.osLabel}</label>
             <select
               value={platformFilter}
               onChange={e => setPlatformFilter(e.target.value)}
-              className="w-full text-xs rounded-lg border border-zinc-200 dark:border-zinc-700 bg-zinc-50 dark:bg-zinc-800 px-3 py-2 text-zinc-900 dark:text-zinc-100 focus:outline-hidden focus:border-zinc-400"
+              className="w-full text-xs rounded-lg border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-slate-800 px-3 py-2 text-slate-900 dark:text-white focus:outline-hidden focus:border-slate-400"
             >
               <option value="all">{language === 'id' ? 'Semua Platform' : 'All Platforms'}</option>
               <option value="linux">Linux</option>
@@ -80,11 +80,11 @@ export const DownloadsPage: React.FC = () => {
 
           {/* Architecture Filter */}
           <div className="space-y-1.5">
-            <label className="block text-xs font-medium text-zinc-600 dark:text-zinc-400">{t.downloads.archLabel}</label>
+            <label className="block text-xs font-medium text-slate-600 dark:text-slate-400">{t.downloads.archLabel}</label>
             <select
               value={archFilter}
               onChange={e => setArchFilter(e.target.value)}
-              className="w-full text-xs rounded-lg border border-zinc-200 dark:border-zinc-700 bg-zinc-50 dark:bg-zinc-800 px-3 py-2 text-zinc-900 dark:text-zinc-100 focus:outline-hidden focus:border-zinc-400"
+              className="w-full text-xs rounded-lg border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-slate-800 px-3 py-2 text-slate-900 dark:text-white focus:outline-hidden focus:border-slate-400"
             >
               <option value="all">{language === 'id' ? 'Semua Arsitektur' : 'All Architectures'}</option>
               <option value="x86_64">x86_64 (Intel / AMD 64-bit)</option>
@@ -96,7 +96,7 @@ export const DownloadsPage: React.FC = () => {
 
       {/* Artifacts List */}
       <div className="space-y-6">
-        <div className="flex items-center justify-between text-xs text-zinc-500 dark:text-zinc-400 font-mono">
+        <div className="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 font-mono">
           <span>{language === 'id' ? `Menampilkan ${filteredArtifacts.length} artefak rilis` : `Showing ${filteredArtifacts.length} release artifacts`}</span>
           <span>Latest Release: v{SITE_CONFIG.version}</span>
         </div>
@@ -108,8 +108,8 @@ export const DownloadsPage: React.FC = () => {
             ))}
           </div>
         ) : (
-          <div className="rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-12 text-center text-zinc-500 dark:text-zinc-400 space-y-2">
-            <p className="text-sm font-semibold text-zinc-800 dark:text-zinc-200">{language === 'id' ? 'Tidak ada biner yang cocok dengan filter yang dipilih' : 'No binary matches the selected filter'}</p>
+          <div className="rounded-xl border border-slate-200 dark:border-white/10 bg-white dark:bg-[#111827] p-12 text-center text-slate-500 dark:text-slate-400 space-y-2">
+            <p className="text-sm font-semibold text-slate-800 dark:text-slate-200">{language === 'id' ? 'Tidak ada biner yang cocok dengan filter yang dipilih' : 'No binary matches the selected filter'}</p>
             <p className="text-xs">{language === 'id' ? 'Sesuaikan filter platform atau arsitektur untuk melihat target rilis yang tersedia.' : 'Adjust your platform or architecture filters to view available release targets.'}</p>
             <button
               onClick={() => {
@@ -117,7 +117,7 @@ export const DownloadsPage: React.FC = () => {
                 setProductFilter('all');
                 setArchFilter('all');
               }}
-              className="mt-3 inline-flex px-3 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-700 text-xs font-medium text-zinc-700 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-800"
+              className="mt-3 inline-flex px-3 py-1.5 rounded-lg border border-slate-200 dark:border-white/10 text-xs font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800"
             >
               {t.common.resetFilters}
             </button>
@@ -126,28 +126,28 @@ export const DownloadsPage: React.FC = () => {
       </div>
 
       {/* Verify your download section */}
-      <section className="rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/60 p-6 sm:p-8 space-y-6">
+      <section className="rounded-2xl border border-slate-200 dark:border-white/10 bg-slate-100/70 dark:bg-slate-900/40 p-6 sm:p-8 space-y-6">
         <div className="max-w-3xl space-y-2">
-          <div className="flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-zinc-700 dark:text-zinc-300">
-            <Key className="w-4 h-4 text-zinc-700 dark:text-zinc-400" />
+          <div className="flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-slate-700 dark:text-slate-300">
+            <Key className="w-4 h-4 text-slate-700 dark:text-slate-400" />
             <span>{language === 'id' ? 'Integritas & Verifikasi Kriptografis' : 'Integrity & Cryptographic Verification'}</span>
           </div>
-          <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-zinc-950 dark:text-white">
+          <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 dark:text-white">
             {t.downloads.verifyTitle}
           </h2>
-          <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+          <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
             {t.downloads.verifySubtitle}
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
           {/* Step 1: Checksum */}
-          <div className="rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-5 space-y-3">
-            <div className="flex items-center gap-2 font-semibold text-zinc-950 dark:text-white text-sm">
-              <span className="w-5 h-5 rounded-full bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 flex items-center justify-center text-xs font-mono">1</span>
+          <div className="rounded-xl border border-slate-200 dark:border-white/10 bg-white dark:bg-[#111827] p-5 space-y-3">
+            <div className="flex items-center gap-2 font-semibold text-slate-900 dark:text-white text-sm">
+              <span className="w-5 h-5 rounded-full bg-slate-900 dark:bg-white text-white dark:text-slate-950 flex items-center justify-center text-xs font-mono">1</span>
               <span>{t.downloads.step1Title}</span>
             </div>
-            <p className="text-xs text-zinc-600 dark:text-zinc-400">
+            <p className="text-xs text-slate-600 dark:text-slate-400">
               {t.downloads.step1Desc}
             </p>
             <CodeBlock
@@ -158,12 +158,12 @@ export const DownloadsPage: React.FC = () => {
           </div>
 
           {/* Step 2: PGP Signature */}
-          <div className="rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-5 space-y-3">
-            <div className="flex items-center gap-2 font-semibold text-zinc-950 dark:text-white text-sm">
-              <span className="w-5 h-5 rounded-full bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 flex items-center justify-center text-xs font-mono">2</span>
+          <div className="rounded-xl border border-slate-200 dark:border-white/10 bg-white dark:bg-[#111827] p-5 space-y-3">
+            <div className="flex items-center gap-2 font-semibold text-slate-900 dark:text-white text-sm">
+              <span className="w-5 h-5 rounded-full bg-slate-900 dark:bg-white text-white dark:text-slate-950 flex items-center justify-center text-xs font-mono">2</span>
               <span>{t.downloads.step2Title}</span>
             </div>
-            <p className="text-xs text-zinc-600 dark:text-zinc-400">
+            <p className="text-xs text-slate-600 dark:text-slate-400">
               {language === 'id'
                 ? `Rilis resmi ditandatangani oleh Otoritas Rilis Scytale dengan fingerprint kunci ${SITE_CONFIG.pgpKeyId}.`
                 : `Official releases are signed by the Scytale Release Authority with key fingerprint ${SITE_CONFIG.pgpKeyId}.`}

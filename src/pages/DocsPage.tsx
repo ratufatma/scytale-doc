@@ -56,15 +56,15 @@ export const DocsPage: React.FC<DocsPageProps> = ({
   return (
     <div className="w-full">
       {/* Mobile documentation bar toggle */}
-      <div className="lg:hidden sticky top-16 z-30 bg-white/95 backdrop-blur-md border-b border-zinc-200 px-4 py-2.5 flex items-center justify-between text-xs font-mono">
+      <div className="lg:hidden sticky top-16 z-30 bg-white/95 dark:bg-[#111827]/95 backdrop-blur-md border-b border-slate-200 dark:border-white/10 px-4 py-2.5 flex items-center justify-between text-xs font-mono">
         <button
           onClick={() => setMobileSidebarOpen(!mobileSidebarOpen)}
-          className="flex items-center gap-2 text-zinc-800 font-semibold px-2.5 py-1.5 rounded-md border border-zinc-200 bg-zinc-50"
+          className="flex items-center gap-2 text-slate-900 dark:text-white font-semibold px-2.5 py-1.5 rounded-md border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-slate-800"
         >
           {mobileSidebarOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
           <span>{currentSection.title} &bull; {currentPage.title}</span>
         </button>
-        <span className="text-zinc-400 text-[11px]">Docs Menu</span>
+        <span className="text-slate-500 dark:text-slate-400 text-[11px]">Docs Menu</span>
       </div>
 
       {/* 3-Column Layout Container */}

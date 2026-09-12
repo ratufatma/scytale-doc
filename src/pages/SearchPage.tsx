@@ -55,11 +55,11 @@ export const SearchPage: React.FC<SearchPageProps> = ({ initialQuery = '', onNav
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8">
       {/* Header */}
-      <header className="border-b border-zinc-200 pb-6 space-y-2">
-        <h1 className="text-3xl font-bold tracking-tight text-zinc-950 font-mono">
+      <header className="border-b border-slate-200 dark:border-white/10 pb-6 space-y-2">
+        <h1 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white font-mono">
           Search Scytale Portal
         </h1>
-        <p className="text-zinc-600 text-sm">
+        <p className="text-slate-600 dark:text-slate-400 text-sm">
           Index of all technical documentation, protocol specifications, CLI commands, software packages, and release notes.
         </p>
       </header>
@@ -67,20 +67,20 @@ export const SearchPage: React.FC<SearchPageProps> = ({ initialQuery = '', onNav
       {/* Search Input and Categories */}
       <div className="space-y-4">
         <div className="relative">
-          <Search className="w-5 h-5 absolute left-3.5 top-3.5 text-zinc-400" />
+          <Search className="w-5 h-5 absolute left-3.5 top-3.5 text-slate-400" />
           <input
             type="text"
             value={query}
             onChange={e => setQuery(e.target.value)}
             placeholder="Search keywords, commands, parameters (e.g. Blake3, UTXO, scytale-node, redb, mining)..."
-            className="w-full pl-11 pr-4 py-3 rounded-xl border border-zinc-300 bg-white text-zinc-950 placeholder:text-zinc-400 text-sm focus:outline-hidden focus:border-zinc-500 shadow-2xs font-medium"
+            className="w-full pl-11 pr-4 py-3 rounded-xl border border-slate-300 dark:border-white/10 bg-white dark:bg-[#111827] text-slate-900 dark:text-white placeholder:text-slate-400 text-sm focus:outline-hidden focus:border-slate-500 dark:focus:border-emerald-500 shadow-2xs font-medium"
             autoFocus
           />
         </div>
 
         {/* Category Filters */}
         <div className="flex items-center gap-2 overflow-x-auto pb-1 text-xs font-mono">
-          <span className="text-zinc-400 flex items-center gap-1 mr-1">
+          <span className="text-slate-400 flex items-center gap-1 mr-1">
             <Filter className="w-3.5 h-3.5" />
             <span>Category:</span>
           </span>
@@ -90,8 +90,8 @@ export const SearchPage: React.FC<SearchPageProps> = ({ initialQuery = '', onNav
               onClick={() => setSelectedCategory(cat)}
               className={`px-3 py-1 rounded-md transition-colors ${
                 selectedCategory.toLowerCase() === cat.toLowerCase()
-                  ? 'bg-zinc-900 text-white font-semibold'
-                  : 'bg-zinc-100 text-zinc-700 hover:bg-zinc-200'
+                  ? 'bg-slate-900 dark:bg-emerald-600 text-white font-semibold'
+                  : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
               }`}
             >
               {cat === 'all' ? 'All Categories' : cat}
@@ -102,7 +102,7 @@ export const SearchPage: React.FC<SearchPageProps> = ({ initialQuery = '', onNav
 
       {/* Results List */}
       <div className="space-y-4">
-        <div className="flex items-center justify-between text-xs text-zinc-500 font-mono">
+        <div className="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 font-mono">
           <span>{results.length} results found</span>
           {query && <span>Filter: &quot;{query}&quot;</span>}
         </div>
@@ -113,37 +113,37 @@ export const SearchPage: React.FC<SearchPageProps> = ({ initialQuery = '', onNav
               <div
                 key={item.id}
                 onClick={() => onNavigate(item.path)}
-                className="group p-4 rounded-xl border border-zinc-200 bg-white hover:border-zinc-300 hover:shadow-xs transition-all cursor-pointer flex items-start justify-between gap-4"
+                className="group p-4 rounded-xl border border-slate-200 dark:border-white/10 bg-white dark:bg-[#111827] hover:border-slate-300 dark:hover:border-white/20 hover:shadow-xs transition-all cursor-pointer flex items-start justify-between gap-4"
               >
                 <div className="flex items-start gap-3.5">
-                  <div className="p-2 rounded-lg bg-zinc-50 border border-zinc-200 group-hover:bg-zinc-100 transition-colors">
+                  <div className="p-2 rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-white/10 group-hover:bg-slate-100 dark:group-hover:bg-slate-700 transition-colors">
                     {getCategoryIcon(item.category)}
                   </div>
                   <div className="space-y-1">
                     <div className="flex items-center gap-2">
-                      <h3 className="text-sm font-bold text-zinc-950 group-hover:text-black">
+                      <h3 className="text-sm font-bold text-slate-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
                         {item.title}
                       </h3>
-                      <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-zinc-100 text-zinc-600 border border-zinc-200">
+                      <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-white/10">
                         {item.section}
                       </span>
                     </div>
-                    <p className="text-xs text-zinc-600 leading-relaxed">
+                    <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
                       {item.description}
                     </p>
-                    <span className="text-[11px] font-mono text-zinc-400 group-hover:text-zinc-600">
+                    <span className="text-[11px] font-mono text-slate-400 dark:text-slate-500 group-hover:text-slate-600 dark:group-hover:text-slate-300">
                       {item.path}
                     </span>
                   </div>
                 </div>
 
-                <ArrowRight className="w-4 h-4 text-zinc-400 group-hover:text-zinc-900 group-hover:translate-x-1 transition-all shrink-0 mt-2" />
+                <ArrowRight className="w-4 h-4 text-slate-400 dark:text-slate-500 group-hover:text-slate-900 dark:group-hover:text-white group-hover:translate-x-1 transition-all shrink-0 mt-2" />
               </div>
             ))}
           </div>
         ) : (
-          <div className="rounded-xl border border-zinc-200 bg-white p-12 text-center text-zinc-500 space-y-2">
-            <p className="text-sm font-semibold text-zinc-800">No matching search results</p>
+          <div className="rounded-xl border border-slate-200 dark:border-white/10 bg-white dark:bg-[#111827] p-12 text-center text-slate-500 dark:text-slate-400 space-y-2">
+            <p className="text-sm font-semibold text-slate-800 dark:text-slate-200">No matching search results</p>
             <p className="text-xs">Try searching for terms like &quot;UTXO&quot;, &quot;mining&quot;, &quot;redb&quot;, &quot;Blake3&quot;, or &quot;cli&quot;.</p>
           </div>
         )}

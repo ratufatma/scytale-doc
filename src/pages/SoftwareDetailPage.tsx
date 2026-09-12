@@ -34,34 +34,34 @@ export const SoftwareDetailPage: React.FC<SoftwareDetailPageProps> = ({
       {/* Back button */}
       <button
         onClick={onBack}
-        className="inline-flex items-center gap-1.5 text-xs font-mono font-medium text-zinc-600 hover:text-zinc-950 transition-colors"
+        className="inline-flex items-center gap-1.5 text-xs font-mono font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"
       >
         <ArrowLeft className="w-3.5 h-3.5" />
         <span>Back to Software Catalog</span>
       </button>
 
       {/* Main Header */}
-      <header className="border-b border-zinc-200 pb-8 space-y-4">
+      <header className="border-b border-slate-200 dark:border-white/10 pb-8 space-y-4">
         <div className="flex flex-wrap items-center gap-2">
-          <span className="text-xs font-mono font-semibold uppercase tracking-wider text-zinc-500">
+          <span className="text-xs font-mono font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
             {software.category}
           </span>
-          <span className="text-zinc-300">&bull;</span>
-          <span className="text-xs font-mono px-2 py-0.5 rounded bg-zinc-900 text-white font-semibold">
+          <span className="text-slate-300 dark:text-slate-600">&bull;</span>
+          <span className="text-xs font-mono px-2 py-0.5 rounded bg-slate-900 dark:bg-emerald-500/20 text-white dark:text-emerald-400 font-semibold border border-transparent dark:border-emerald-500/30">
             v{software.latestRelease}
           </span>
         </div>
 
-        <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-950 font-mono">
+        <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 dark:text-white font-mono">
           {software.name}
         </h1>
 
-        <p className="text-base sm:text-lg text-zinc-700 leading-relaxed max-w-3xl">
+        <p className="text-base sm:text-lg text-slate-700 dark:text-slate-300 leading-relaxed max-w-3xl">
           {software.tagline}
         </p>
 
         <div className="flex items-center gap-2 flex-wrap pt-2">
-          <span className="text-xs text-zinc-500 mr-1">Target Platforms:</span>
+          <span className="text-xs text-slate-500 dark:text-slate-400 mr-1">Target Platforms:</span>
           {software.platforms.map(p => (
             <PlatformBadge key={p} platform={p} />
           ))}
@@ -70,9 +70,9 @@ export const SoftwareDetailPage: React.FC<SoftwareDetailPageProps> = ({
         <div className="flex items-center gap-4 pt-3">
           <button
             onClick={() => onNavigateDoc(software.documentationPath)}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-zinc-300 bg-white hover:bg-zinc-50 text-xs font-medium text-zinc-800 transition-colors"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-300 dark:border-white/10 bg-white dark:bg-[#111827] hover:bg-slate-50 dark:hover:bg-slate-800 text-xs font-medium text-slate-800 dark:text-slate-200 transition-colors"
           >
-            <BookOpen className="w-3.5 h-3.5 text-zinc-500" />
+            <BookOpen className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400" />
             <span>Read Documentation</span>
           </button>
 
@@ -80,7 +80,7 @@ export const SoftwareDetailPage: React.FC<SoftwareDetailPageProps> = ({
             href={software.repositoryPath}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-xs text-zinc-600 hover:text-zinc-950 underline font-mono"
+            className="inline-flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white underline font-mono"
           >
             <span>View Crate Source Code</span>
             <ExternalLink className="w-3 h-3" />
@@ -90,22 +90,22 @@ export const SoftwareDetailPage: React.FC<SoftwareDetailPageProps> = ({
 
       {/* Description & Overview */}
       <section className="space-y-4">
-        <h2 className="text-xl font-bold text-zinc-950">Architectural Overview</h2>
-        <p className="text-zinc-700 text-sm leading-relaxed max-w-3xl">
+        <h2 className="text-xl font-bold text-slate-900 dark:text-white">Architectural Overview</h2>
+        <p className="text-slate-700 dark:text-slate-300 text-sm leading-relaxed max-w-3xl">
           {software.description}
         </p>
       </section>
 
       {/* Features List */}
       <section className="space-y-4">
-        <h2 className="text-xl font-bold text-zinc-950">Key Engineering Features</h2>
+        <h2 className="text-xl font-bold text-slate-900 dark:text-white">Key Engineering Features</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           {software.features.map((feature, idx) => (
             <div
               key={idx}
-              className="flex items-start gap-2.5 p-3 rounded-lg border border-zinc-200 bg-white shadow-2xs text-xs sm:text-sm text-zinc-800"
+              className="flex items-start gap-2.5 p-3 rounded-lg border border-slate-200 dark:border-white/10 bg-white dark:bg-[#111827] shadow-2xs text-xs sm:text-sm text-slate-800 dark:text-slate-200"
             >
-              <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+              <Check className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
               <span>{feature}</span>
             </div>
           ))}
@@ -113,32 +113,32 @@ export const SoftwareDetailPage: React.FC<SoftwareDetailPageProps> = ({
       </section>
 
       {/* System Requirements */}
-      <section className="space-y-4 border-t border-zinc-200 pt-8">
-        <h2 className="text-xl font-bold text-zinc-950">System Requirements</h2>
-        <div className="rounded-xl border border-zinc-200 bg-white overflow-hidden shadow-2xs">
+      <section className="space-y-4 border-t border-slate-200 dark:border-white/10 pt-8">
+        <h2 className="text-xl font-bold text-slate-900 dark:text-white">System Requirements</h2>
+        <div className="rounded-xl border border-slate-200 dark:border-white/10 bg-white dark:bg-[#111827] overflow-hidden shadow-2xs">
           <table className="w-full text-left text-xs sm:text-sm">
-            <thead className="bg-zinc-50 border-b border-zinc-200 text-zinc-900 font-semibold font-mono text-xs">
+            <thead className="bg-slate-50 dark:bg-slate-800/60 border-b border-slate-200 dark:border-white/10 text-slate-900 dark:text-white font-semibold font-mono text-xs">
               <tr>
-                <th className="px-4 py-3 border-r border-zinc-200">Component</th>
+                <th className="px-4 py-3 border-r border-slate-200 dark:border-white/10">Component</th>
                 <th className="px-4 py-3">Requirement</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-zinc-200">
+            <tbody className="divide-y divide-slate-200 dark:divide-white/10">
               <tr>
-                <td className="px-4 py-3 font-semibold text-zinc-800 border-r border-zinc-200 font-mono">Operating System</td>
-                <td className="px-4 py-3 text-zinc-600">{software.systemRequirements.os}</td>
+                <td className="px-4 py-3 font-semibold text-slate-800 dark:text-slate-200 border-r border-slate-200 dark:border-white/10 font-mono">Operating System</td>
+                <td className="px-4 py-3 text-slate-600 dark:text-slate-400">{software.systemRequirements.os}</td>
               </tr>
               <tr>
-                <td className="px-4 py-3 font-semibold text-zinc-800 border-r border-zinc-200 font-mono">CPU</td>
-                <td className="px-4 py-3 text-zinc-600">{software.systemRequirements.cpu}</td>
+                <td className="px-4 py-3 font-semibold text-slate-800 dark:text-slate-200 border-r border-slate-200 dark:border-white/10 font-mono">CPU</td>
+                <td className="px-4 py-3 text-slate-600 dark:text-slate-400">{software.systemRequirements.cpu}</td>
               </tr>
               <tr>
-                <td className="px-4 py-3 font-semibold text-zinc-800 border-r border-zinc-200 font-mono">RAM</td>
-                <td className="px-4 py-3 text-zinc-600">{software.systemRequirements.ram}</td>
+                <td className="px-4 py-3 font-semibold text-slate-800 dark:text-slate-200 border-r border-slate-200 dark:border-white/10 font-mono">RAM</td>
+                <td className="px-4 py-3 text-slate-600 dark:text-slate-400">{software.systemRequirements.ram}</td>
               </tr>
               <tr>
-                <td className="px-4 py-3 font-semibold text-zinc-800 border-r border-zinc-200 font-mono">Storage</td>
-                <td className="px-4 py-3 text-zinc-600">{software.systemRequirements.storage}</td>
+                <td className="px-4 py-3 font-semibold text-slate-800 dark:text-slate-200 border-r border-slate-200 dark:border-white/10 font-mono">Storage</td>
+                <td className="px-4 py-3 text-slate-600 dark:text-slate-400">{software.systemRequirements.storage}</td>
               </tr>
             </tbody>
           </table>
@@ -146,13 +146,13 @@ export const SoftwareDetailPage: React.FC<SoftwareDetailPageProps> = ({
       </section>
 
       {/* Installation Quickstart */}
-      <section className="space-y-4 border-t border-zinc-200 pt-8">
-        <h2 className="text-xl font-bold text-zinc-950">Installation &amp; Execution</h2>
+      <section className="space-y-4 border-t border-slate-200 dark:border-white/10 pt-8">
+        <h2 className="text-xl font-bold text-slate-900 dark:text-white">Installation &amp; Execution</h2>
         <div className="space-y-4">
           {software.installQuickstart.map((q, idx) => (
             <div key={idx} className="space-y-1.5">
-              <h4 className="text-sm font-semibold text-zinc-900">{q.title}</h4>
-              <p className="text-xs text-zinc-500">{q.description}</p>
+              <h4 className="text-sm font-semibold text-slate-900 dark:text-white">{q.title}</h4>
+              <p className="text-xs text-slate-500 dark:text-slate-400">{q.description}</p>
               <CodeBlock
                 code={q.command}
                 language="bash"
@@ -165,10 +165,10 @@ export const SoftwareDetailPage: React.FC<SoftwareDetailPageProps> = ({
 
       {/* Downloads matching this software */}
       {matchingArtifacts.length > 0 && (
-        <section className="space-y-6 border-t border-zinc-200 pt-8">
+        <section className="space-y-6 border-t border-slate-200 dark:border-white/10 pt-8">
           <div>
-            <h2 className="text-xl font-bold text-zinc-950">Official Download Artifacts</h2>
-            <p className="text-xs text-zinc-500 mt-1">
+            <h2 className="text-xl font-bold text-slate-900 dark:text-white">Official Download Artifacts</h2>
+            <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
               Verified binaries and build targets specifically for {software.name}.
             </p>
           </div>
