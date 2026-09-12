@@ -24,5 +24,20 @@
   code, pre, kbd {
     font-family: var(--font-mono);
   }
+
+  :not(pre) > code {
+    background-color: #f1f5f9;
+    color: #0f172a;
+    padding: 0.15rem 0.35rem;
+    border-radius: 0.25rem;
+    font-size: 0.875em;
+    border: 1px solid #e2e8f0;
+  }
+
+  html.dark :not(pre) > code {
+    background-color: #1e293b;
+    color: #f8fafc;
+    border-color: rgba(255, 255, 255, 0.1);
+  }
 }
 

@@ -18,7 +18,7 @@ export const DevelopersPage: React.FC = () => {
 │   ├── node/                  # Primary daemon wiring storage, consensus, network, & RPC
 │   ├── cli/                   # Administrative command line interface tool
 │   ├── wallet/                # UTXO coin selection, passbook encryption, signing
-│   └── dev-tools/             # Fuzzers, mock cluster orchestration, benchmarking
+│   └── dev-tools/             # Fuzzers, cluster simulation, benchmarking
 └── tests/                     # Multi-node integration test scenarios`;
 
   return (
