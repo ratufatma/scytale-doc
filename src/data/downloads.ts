@@ -11,7 +11,7 @@ export const DOWNLOAD_ARTIFACTS: DownloadArtifact[] = [
     architecture: 'x86_64',
     filename: 'scytale-v0.3.0-testnet-linux-x86_64.tar.gz',
     size: '10.0 MB',
-    sha256: '816163f2c5b2e095fe5f1315d60e1843d09e5ae796dd6390d36b2ff4dbc30e29',
+    sha256: '84e539e4c0be9ec575c3f0c4c9bc43eca42ff72bf2f4a79c725a5d339d87c5ad',
     signature: {
       status: 'verified',
       signer: 'Scytale Release Authority <ratufatmasetyaningrum@gmail.com>',
@@ -31,7 +31,7 @@ export const DOWNLOAD_ARTIFACTS: DownloadArtifact[] = [
     architecture: 'x86_64',
     filename: 'scytale-v0.3.0-testnet-linux-x86_64.tar.gz',
     size: '10.0 MB',
-    sha256: '816163f2c5b2e095fe5f1315d60e1843d09e5ae796dd6390d36b2ff4dbc30e29',
+    sha256: '84e539e4c0be9ec575c3f0c4c9bc43eca42ff72bf2f4a79c725a5d339d87c5ad',
     signature: {
       status: 'verified',
       signer: 'Scytale Release Authority <ratufatmasetyaningrum@gmail.com>',
@@ -51,7 +51,7 @@ export const DOWNLOAD_ARTIFACTS: DownloadArtifact[] = [
     architecture: 'x86_64',
     filename: 'scytale-v0.3.0-testnet-linux-x86_64.tar.gz',
     size: '10.0 MB',
-    sha256: '816163f2c5b2e095fe5f1315d60e1843d09e5ae796dd6390d36b2ff4dbc30e29',
+    sha256: '84e539e4c0be9ec575c3f0c4c9bc43eca42ff72bf2f4a79c725a5d339d87c5ad',
     signature: {
       status: 'verified',
       signer: 'Scytale Release Authority <ratufatmasetyaningrum@gmail.com>'
@@ -71,7 +71,7 @@ export const DOWNLOAD_ARTIFACTS: DownloadArtifact[] = [
     architecture: 'all',
     filename: 'scytale-v0.3.0-testnet-linux-x86_64.tar.gz.sha256',
     size: '109 B',
-    sha256: '816163f2c5b2e095fe5f1315d60e1843d09e5ae796dd6390d36b2ff4dbc30e29',
+    sha256: '84e539e4c0be9ec575c3f0c4c9bc43eca42ff72bf2f4a79c725a5d339d87c5ad',
     signature: {
       status: 'verified',
       signer: 'Scytale Release Authority'

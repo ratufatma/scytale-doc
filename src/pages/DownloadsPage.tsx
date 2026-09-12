@@ -153,7 +153,7 @@ export const DownloadsPage: React.FC = () => {
             <CodeBlock
               language="bash"
               caption="Terminal Checksum Command"
-              code="# Linux:\nsha256sum scytale-v0.3.0-testnet-linux-x86_64.tar.gz\n\n# Expected Output:\n# 816163f2c5b2e095fe5f1315d60e1843d09e5ae796dd6390d36b2ff4dbc30e29  scytale-v0.3.0-testnet-linux-x86_64.tar.gz"
+              code="# Linux:\nsha256sum scytale-v0.3.0-testnet-linux-x86_64.tar.gz\n\n# Expected Output:\n# 84e539e4c0be9ec575c3f0c4c9bc43eca42ff72bf2f4a79c725a5d339d87c5ad  scytale-v0.3.0-testnet-linux-x86_64.tar.gz"
             />
           </div>
 
