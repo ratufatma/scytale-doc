@@ -354,7 +354,7 @@ const DICTIONARY: Record<Language, Translations> = {
       docsTitle: 'Documentation',
       softwareTitle: 'Software & Hub',
       protocolTitle: 'Protocol & Legal',
-      copyright: 'Scytale Network Contributors. Released under Apache-2.0 and MIT.',
+      copyright: 'Scytale Network. Developed by Ratu. Released under Apache-2.0 and MIT.',
     },
   },
   id: {
@@ -530,7 +530,7 @@ const DICTIONARY: Record<Language, Translations> = {
       docsTitle: 'Dokumentasi',
       softwareTitle: 'Perangkat Lunak & Hub',
       protocolTitle: 'Protokol & Hukum',
-      copyright: 'Kontributor Jaringan Scytale. Dirilis di bawah lisensi Apache-2.0 dan MIT.',
+      copyright: 'Jaringan Scytale. Dikembangkan oleh Ratu. Dirilis di bawah lisensi Apache-2.0 dan MIT.',
     },
   },
 };

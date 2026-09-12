@@ -115,13 +115,13 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
           <div className="flex items-center justify-between text-slate-400 pb-2 border-b border-slate-800 text-[11px]">
             <span>{language === 'id' ? 'MULAI CEPAT (KOMPILASI & JALANKAN)' : 'QUICK START (COMPILE & RUN)'}</span>
             <CopyButton
-              text="git clone https://github.com/scytale-network/scytale && cd scytale && cargo build --release && ./target/release/scytale-node start"
+              text="git clone https://github.com/ratufatma/scytale && cd scytale && cargo build --release && ./target/release/scytale-node start"
               className="border-slate-700 bg-slate-800 text-slate-300 hover:bg-slate-700"
             />
           </div>
           <div className="pt-3 text-slate-300 overflow-x-auto">
             <span className="text-slate-500">$ </span>
-            <span>git clone https://github.com/scytale-network/scytale &amp;&amp; cd scytale</span>
+            <span>git clone https://github.com/ratufatma/scytale &amp;&amp; cd scytale</span>
             <br />
             <span className="text-slate-500">$ </span>
             <span>cargo build --release</span>

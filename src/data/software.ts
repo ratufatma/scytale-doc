@@ -10,7 +10,7 @@ export const SOFTWARE_CATALOG: Software[] = [
     category: 'Core Node',
     platforms: ['linux', 'macos', 'windows'],
     documentationPath: '/docs/node',
-    repositoryPath: 'https://github.com/scytale-network/scytale/tree/main/crates/node',
+    repositoryPath: 'https://github.com/ratufatma/scytale/tree/main/crates/node',
     latestRelease: '0.4.2',
     features: [
       'Pure Rust zero-cost safety and concurrency architecture',
@@ -34,7 +34,7 @@ export const SOFTWARE_CATALOG: Software[] = [
       },
       {
         title: 'Build from source via Cargo',
-        command: 'git clone https://github.com/scytale-network/scytale\ncd scytale\ncargo build --release -p scytale-node\n./target/release/scytale-node',
+        command: 'git clone https://github.com/ratufatma/scytale\ncd scytale\ncargo build --release -p scytale-node\n./target/release/scytale-node',
         description: 'Compile the latest tagged commit using the standard Rust toolchain.'
       }
     ]
@@ -48,7 +48,7 @@ export const SOFTWARE_CATALOG: Software[] = [
     category: 'Client Tools',
     platforms: ['linux', 'macos', 'windows'],
     documentationPath: '/docs/cli',
-    repositoryPath: 'https://github.com/scytale-network/scytale/tree/main/crates/cli',
+    repositoryPath: 'https://github.com/ratufatma/scytale/tree/main/crates/cli',
     latestRelease: '0.4.2',
     features: [
       'Interactive and non-interactive scripted JSON/text output formats',
@@ -85,7 +85,7 @@ export const SOFTWARE_CATALOG: Software[] = [
     category: 'User Applications',
     platforms: ['linux', 'macos', 'windows'],
     documentationPath: '/docs/wallet',
-    repositoryPath: 'https://github.com/scytale-network/scytale/tree/main/crates/wallet',
+    repositoryPath: 'https://github.com/ratufatma/scytale/tree/main/crates/wallet',
     latestRelease: '0.4.2',
     features: [
       'BIP-39 style deterministic 24-word recovery phrase standard',
@@ -122,7 +122,7 @@ export const SOFTWARE_CATALOG: Software[] = [
     category: 'User Applications',
     platforms: ['linux', 'macos', 'windows'],
     documentationPath: '/docs/wallet',
-    repositoryPath: 'https://github.com/scytale-network/scytale-desktop',
+    repositoryPath: 'https://github.com/ratufatma/scytale-desktop',
     latestRelease: '0.4.2-staging',
     features: [
       'Embedded node controller with one-click background sync',
@@ -139,7 +139,7 @@ export const SOFTWARE_CATALOG: Software[] = [
     installQuickstart: [
       {
         title: 'Status: In Active Staging',
-        command: '# Pre-release build instructions:\ngit clone https://github.com/scytale-network/scytale-desktop\ncargo tauri dev',
+        command: '# Pre-release build instructions:\ngit clone https://github.com/ratufatma/scytale-desktop\ncargo tauri dev',
         description: 'Binary releases are being staged for milestone 2 security evaluation.'
       }
     ]
@@ -153,7 +153,7 @@ export const SOFTWARE_CATALOG: Software[] = [
     category: 'User Applications',
     platforms: ['android'],
     documentationPath: '/docs/wallet',
-    repositoryPath: 'https://github.com/scytale-network/scytale-mobile',
+    repositoryPath: 'https://github.com/ratufatma/scytale-mobile',
     latestRelease: '0.4.0-preview',
     features: [
       'Compact block filter filtering (BIP-158 inspired) for bandwidth-saving verification',
@@ -169,7 +169,7 @@ export const SOFTWARE_CATALOG: Software[] = [
     installQuickstart: [
       {
         title: 'Status: Alpha Staging',
-        command: '# Android APK compilation pipeline:\ngit clone https://github.com/scytale-network/scytale-mobile\n./gradlew assembleRelease',
+        command: '# Android APK compilation pipeline:\ngit clone https://github.com/ratufatma/scytale-mobile\n./gradlew assembleRelease',
         description: 'Official signed APKs will be released upon completion of consensus light-client audit.'
       }
     ]
@@ -183,7 +183,7 @@ export const SOFTWARE_CATALOG: Software[] = [
     category: 'Network Tools',
     platforms: ['source'],
     documentationPath: '/docs/developers',
-    repositoryPath: 'https://github.com/scytale-network/scytale-explorer',
+    repositoryPath: 'https://github.com/ratufatma/scytale-explorer',
     latestRelease: '0.4.2',
     features: [
       'Connects directly to your local node without intermediary database dependencies',
@@ -200,7 +200,7 @@ export const SOFTWARE_CATALOG: Software[] = [
     installQuickstart: [
       {
         title: 'Launch local explorer',
-        command: 'git clone https://github.com/scytale-network/scytale-explorer\ncd scytale-explorer\nnpm install && npm run build\nnode server.js --node-rpc http://127.0.0.1:8332',
+        command: 'git clone https://github.com/ratufatma/scytale-explorer\ncd scytale-explorer\nnpm install && npm run build\nnode server.js --node-rpc http://127.0.0.1:8332',
         description: 'Host your own independent explorer pointing to your trusted Scytale node.'
       }
     ]
@@ -214,7 +214,7 @@ export const SOFTWARE_CATALOG: Software[] = [
     category: 'Development',
     platforms: ['linux', 'macos', 'windows'],
     documentationPath: '/docs/developers',
-    repositoryPath: 'https://github.com/scytale-network/scytale/tree/main/crates/dev-tools',
+    repositoryPath: 'https://github.com/ratufatma/scytale/tree/main/crates/dev-tools',
     latestRelease: '0.4.2',
     features: [
       'Multi-node local cluster orchestration script (`scytale-simnet`)',

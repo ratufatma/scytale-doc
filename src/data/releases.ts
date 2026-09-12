@@ -43,7 +43,7 @@ export const RELEASES: Release[] = [
       'Initial block download (IBD) on low-power single-board computers with <2GB RAM requires setting `--db-cache-mb=256`.',
       'GUI desktop client remains in staging and is not included in the official binary distribution for v0.4.2.'
     ],
-    rawChangelogUrl: 'https://github.com/scytale-network/scytale/releases/tag/v0.4.2'
+    rawChangelogUrl: 'https://github.com/ratufatma/scytale/releases/tag/v0.4.2'
   },
   {
     id: 'v0.4.1',
@@ -81,7 +81,7 @@ export const RELEASES: Release[] = [
         filename: 'scytale-node-v0.4.1-linux-x86_64.tar.gz',
         size: '14.6 MB',
         sha256: '2a4e918f061409e8b217a949f83a47b1e8e2d4c6b5a3f12078de94c7c42b918a',
-        url: 'https://github.com/scytale-network/scytale/releases/download/v0.4.1/scytale-node-v0.4.1-linux-x86_64.tar.gz',
+        url: 'https://github.com/ratufatma/scytale/releases/download/v0.4.1/scytale-node-v0.4.1-linux-x86_64.tar.gz',
         isConfigured: true
       },
       {
@@ -94,7 +94,7 @@ export const RELEASES: Release[] = [
         filename: 'scytale-cli-v0.4.1-linux-x86_64.tar.gz',
         size: '6.2 MB',
         sha256: '9f83a47b1e8e2d4c6b5a3f12078de94c8b217a94f0612c75d409e3a67c42b918',
-        url: 'https://github.com/scytale-network/scytale/releases/download/v0.4.1/scytale-cli-v0.4.1-linux-x86_64.tar.gz',
+        url: 'https://github.com/ratufatma/scytale/releases/download/v0.4.1/scytale-cli-v0.4.1-linux-x86_64.tar.gz',
         isConfigured: true
       }
     ],
@@ -135,7 +135,7 @@ export const RELEASES: Release[] = [
         filename: 'scytale-node-v0.4.0-linux-x86_64.tar.gz',
         size: '14.1 MB',
         sha256: '75d409e3a67c42b9189f83a47b1e8e2d4c6b5a3f12078de94c8b217a94f0612c',
-        url: 'https://github.com/scytale-network/scytale/releases/download/v0.4.0/scytale-node-v0.4.0-linux-x86_64.tar.gz',
+        url: 'https://github.com/ratufatma/scytale/releases/download/v0.4.0/scytale-node-v0.4.0-linux-x86_64.tar.gz',
         isConfigured: true
       }
     ],

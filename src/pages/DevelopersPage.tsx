@@ -65,7 +65,7 @@ export const DevelopersPage: React.FC = () => {
         <CodeBlock
           language="bash"
           caption={language === 'id' ? 'Alur Kerja Bangun & Uji' : 'Build and Test Workflow'}
-          code={`# 1. Clone canonical repository\ngit clone https://github.com/scytale-network/scytale.git\ncd scytale\n\n# 2. Compile all crates with release profile\ncargo build --release\n\n# 3. Run all unit tests and invariant assertions\ncargo test --workspace\n\n# 4. Run strict linting passes\ncargo clippy --all-targets -- -D warnings\n\n# 5. Check formatting\ncargo fmt --check`}
+          code={`# 1. Clone canonical repository\ngit clone https://github.com/ratufatma/scytale.git\ncd scytale\n\n# 2. Compile all crates with release profile\ncargo build --release\n\n# 3. Run all unit tests and invariant assertions\ncargo test --workspace\n\n# 4. Run strict linting passes\ncargo clippy --all-targets -- -D warnings\n\n# 5. Check formatting\ncargo fmt --check`}
         />
       </section>
 

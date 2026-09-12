@@ -11,10 +11,12 @@ export const SITE_CONFIG = {
   consensus: 'Proof of Work',
   model: 'UTXO Model',
   
-  // Official links and placeholders
-  githubRepositoryUrl: 'https://github.com/scytale-network/scytale',
-  githubIssuesUrl: 'https://github.com/scytale-network/scytale/issues',
-  githubReleasesUrl: 'https://github.com/scytale-network/scytale/releases',
+  developer: 'Ratu',
+  
+  // Official links
+  githubRepositoryUrl: 'https://github.com/ratufatma/scytale',
+  githubIssuesUrl: 'https://github.com/ratufatma/scytale/issues',
+  githubReleasesUrl: 'https://github.com/ratufatma/scytale/releases',
   license: 'Apache-2.0 / MIT',
   
   // Security & Contact

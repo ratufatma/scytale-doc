@@ -16,9 +16,9 @@ export const DOWNLOAD_ARTIFACTS: DownloadArtifact[] = [
       status: 'verified',
       signer: 'Scytale Release Authority <releases@scytale-network.org>',
       fingerprint: '7A8F 3B90 41C2 8E6D 9051 B8A1 24DC 5E78 91FA 3320',
-      signatureUrl: 'https://github.com/scytale-network/scytale/releases/download/v0.4.2/scytale-node-v0.4.2-linux-x86_64.tar.gz.asc'
+      signatureUrl: 'https://github.com/ratufatma/scytale/releases/download/v0.4.2/scytale-node-v0.4.2-linux-x86_64.tar.gz.asc'
     },
-    url: 'https://github.com/scytale-network/scytale/releases/download/v0.4.2/scytale-node-v0.4.2-linux-x86_64.tar.gz',
+    url: 'https://github.com/ratufatma/scytale/releases/download/v0.4.2/scytale-node-v0.4.2-linux-x86_64.tar.gz',
     isConfigured: true,
     notes: 'Standard Linux binary built with glibc 2.31+ and musl libc support.'
   },
@@ -36,9 +36,9 @@ export const DOWNLOAD_ARTIFACTS: DownloadArtifact[] = [
       status: 'verified',
       signer: 'Scytale Release Authority <releases@scytale-network.org>',
       fingerprint: '7A8F 3B90 41C2 8E6D 9051 B8A1 24DC 5E78 91FA 3320',
-      signatureUrl: 'https://github.com/scytale-network/scytale/releases/download/v0.4.2/scytale-node-v0.4.2-linux-arm64.tar.gz.asc'
+      signatureUrl: 'https://github.com/ratufatma/scytale/releases/download/v0.4.2/scytale-node-v0.4.2-linux-arm64.tar.gz.asc'
     },
-    url: 'https://github.com/scytale-network/scytale/releases/download/v0.4.2/scytale-node-v0.4.2-linux-arm64.tar.gz',
+    url: 'https://github.com/ratufatma/scytale/releases/download/v0.4.2/scytale-node-v0.4.2-linux-arm64.tar.gz',
     isConfigured: true,
     notes: 'Optimized for ARM64 server architectures and single-board nodes.'
   },
@@ -56,9 +56,9 @@ export const DOWNLOAD_ARTIFACTS: DownloadArtifact[] = [
       status: 'verified',
       signer: 'Scytale Release Authority <releases@scytale-network.org>',
       fingerprint: '7A8F 3B90 41C2 8E6D 9051 B8A1 24DC 5E78 91FA 3320',
-      signatureUrl: 'https://github.com/scytale-network/scytale/releases/download/v0.4.2/scytale-node-v0.4.2-macos-arm64.tar.gz.asc'
+      signatureUrl: 'https://github.com/ratufatma/scytale/releases/download/v0.4.2/scytale-node-v0.4.2-macos-arm64.tar.gz.asc'
     },
-    url: 'https://github.com/scytale-network/scytale/releases/download/v0.4.2/scytale-node-v0.4.2-macos-arm64.tar.gz',
+    url: 'https://github.com/ratufatma/scytale/releases/download/v0.4.2/scytale-node-v0.4.2-macos-arm64.tar.gz',
     isConfigured: true,
     notes: 'Native Apple Silicon binary (macOS 12.0+).'
   },
@@ -76,9 +76,9 @@ export const DOWNLOAD_ARTIFACTS: DownloadArtifact[] = [
       status: 'verified',
       signer: 'Scytale Release Authority <releases@scytale-network.org>',
       fingerprint: '7A8F 3B90 41C2 8E6D 9051 B8A1 24DC 5E78 91FA 3320',
-      signatureUrl: 'https://github.com/scytale-network/scytale/releases/download/v0.4.2/scytale-node-v0.4.2-macos-x86_64.tar.gz.asc'
+      signatureUrl: 'https://github.com/ratufatma/scytale/releases/download/v0.4.2/scytale-node-v0.4.2-macos-x86_64.tar.gz.asc'
     },
-    url: 'https://github.com/scytale-network/scytale/releases/download/v0.4.2/scytale-node-v0.4.2-macos-x86_64.tar.gz',
+    url: 'https://github.com/ratufatma/scytale/releases/download/v0.4.2/scytale-node-v0.4.2-macos-x86_64.tar.gz',
     isConfigured: true,
     notes: 'Intel 64-bit binary for macOS 11.0+.'
   },
@@ -96,9 +96,9 @@ export const DOWNLOAD_ARTIFACTS: DownloadArtifact[] = [
       status: 'verified',
       signer: 'Scytale Release Authority <releases@scytale-network.org>',
       fingerprint: '7A8F 3B90 41C2 8E6D 9051 B8A1 24DC 5E78 91FA 3320',
-      signatureUrl: 'https://github.com/scytale-network/scytale/releases/download/v0.4.2/scytale-node-v0.4.2-windows-x86_64.zip.asc'
+      signatureUrl: 'https://github.com/ratufatma/scytale/releases/download/v0.4.2/scytale-node-v0.4.2-windows-x86_64.zip.asc'
     },
-    url: 'https://github.com/scytale-network/scytale/releases/download/v0.4.2/scytale-node-v0.4.2-windows-x86_64.zip',
+    url: 'https://github.com/ratufatma/scytale/releases/download/v0.4.2/scytale-node-v0.4.2-windows-x86_64.zip',
     isConfigured: true,
     notes: 'Windows 10 / Server 2019+ 64-bit executable.'
   },
@@ -119,7 +119,7 @@ export const DOWNLOAD_ARTIFACTS: DownloadArtifact[] = [
       signer: 'Scytale Release Authority <releases@scytale-network.org>',
       fingerprint: '7A8F 3B90 41C2 8E6D 9051 B8A1 24DC 5E78 91FA 3320'
     },
-    url: 'https://github.com/scytale-network/scytale/releases/download/v0.4.2/scytale-cli-v0.4.2-linux-x86_64.tar.gz',
+    url: 'https://github.com/ratufatma/scytale/releases/download/v0.4.2/scytale-cli-v0.4.2-linux-x86_64.tar.gz',
     isConfigured: true
   },
   {
@@ -137,7 +137,7 @@ export const DOWNLOAD_ARTIFACTS: DownloadArtifact[] = [
       signer: 'Scytale Release Authority <releases@scytale-network.org>',
       fingerprint: '7A8F 3B90 41C2 8E6D 9051 B8A1 24DC 5E78 91FA 3320'
     },
-    url: 'https://github.com/scytale-network/scytale/releases/download/v0.4.2/scytale-cli-v0.4.2-macos-arm64.tar.gz',
+    url: 'https://github.com/ratufatma/scytale/releases/download/v0.4.2/scytale-cli-v0.4.2-macos-arm64.tar.gz',
     isConfigured: true
   },
   {
@@ -155,7 +155,7 @@ export const DOWNLOAD_ARTIFACTS: DownloadArtifact[] = [
       signer: 'Scytale Release Authority <releases@scytale-network.org>',
       fingerprint: '7A8F 3B90 41C2 8E6D 9051 B8A1 24DC 5E78 91FA 3320'
     },
-    url: 'https://github.com/scytale-network/scytale/releases/download/v0.4.2/scytale-cli-v0.4.2-windows-x86_64.zip',
+    url: 'https://github.com/ratufatma/scytale/releases/download/v0.4.2/scytale-cli-v0.4.2-windows-x86_64.zip',
     isConfigured: true
   },
 
@@ -175,7 +175,7 @@ export const DOWNLOAD_ARTIFACTS: DownloadArtifact[] = [
       signer: 'Scytale Release Authority <releases@scytale-network.org>',
       fingerprint: '7A8F 3B90 41C2 8E6D 9051 B8A1 24DC 5E78 91FA 3320'
     },
-    url: 'https://github.com/scytale-network/scytale/releases/download/v0.4.2/scytale-wallet-v0.4.2-linux-x86_64.tar.gz',
+    url: 'https://github.com/ratufatma/scytale/releases/download/v0.4.2/scytale-wallet-v0.4.2-linux-x86_64.tar.gz',
     isConfigured: true
   },
 
@@ -195,7 +195,7 @@ export const DOWNLOAD_ARTIFACTS: DownloadArtifact[] = [
       signer: 'Scytale Release Authority <releases@scytale-network.org>',
       fingerprint: '7A8F 3B90 41C2 8E6D 9051 B8A1 24DC 5E78 91FA 3320'
     },
-    url: 'https://github.com/scytale-network/scytale/archive/refs/tags/v0.4.2.tar.gz',
+    url: 'https://github.com/ratufatma/scytale/archive/refs/tags/v0.4.2.tar.gz',
     isConfigured: true,
     notes: 'Official tagged release archive from the primary git repository.'
   },

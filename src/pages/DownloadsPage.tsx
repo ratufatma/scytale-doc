@@ -171,7 +171,7 @@ export const DownloadsPage: React.FC = () => {
             <CodeBlock
               language="bash"
               caption="GPG Signature Check"
-              code="# Download detached signature:\ncurl -LO https://github.com/scytale-network/scytale/releases/download/v0.4.2/scytale-node-v0.4.2-linux-x86_64.tar.gz.asc\n\n# Verify against official release key:\ngpg --verify scytale-node-v0.4.2-linux-x86_64.tar.gz.asc"
+              code="# Download detached signature:\ncurl -LO https://github.com/ratufatma/scytale/releases/download/v0.4.2/scytale-node-v0.4.2-linux-x86_64.tar.gz.asc\n\n# Verify against official release key:\ngpg --verify scytale-node-v0.4.2-linux-x86_64.tar.gz.asc"
             />
           </div>
         </div>
