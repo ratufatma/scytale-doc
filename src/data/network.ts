@@ -86,6 +86,13 @@ export const NETWORK_PARAMETERS: NetworkParameter[] = [
     category: 'P2P'
   },
   {
+    name: 'Stratum Mining Pool Port',
+    value: '3333',
+    unit: 'TCP (SSP-1 Protocol)',
+    description: 'Standard listening port for distributed Stratum mining pool workers and rigs.',
+    category: 'P2P'
+  },
+  {
     name: 'Genesis Block Hash',
     value: '4033f099ae89051a629c871e9af28a215898ff345505ffdbbce65c27a29585c9',
     description: 'The cryptographic seed block hardcoded into all conforming node client releases.',

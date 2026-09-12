@@ -11,7 +11,7 @@ export const SOFTWARE_CATALOG: Software[] = [
     platforms: ['linux'],
     documentationPath: '/docs/node-ops/quickstart',
     repositoryPath: 'https://github.com/ratufatma/scytale/tree/main/apps/scytale-node',
-    latestRelease: '0.3.0',
+    latestRelease: '0.4.0',
     status: 'active',
     features: [
       'Pure Rust zero-cost safety and concurrency architecture',
@@ -19,6 +19,7 @@ export const SOFTWARE_CATALOG: Software[] = [
       'Blake3 cryptographic hashing pipeline for blocks, transactions, and state roots',
       'Autonomous P2P networking with Gossipsub block propagation and Kademlia DHT discovery',
       'Configurable HTTP RPC gateway (:8332) and Unix IPC socket interface',
+      'Embedded Stratum mining pool server (:3333) with auto-diff target scaling and memory hardening',
       'Deterministic mempool eviction with fee-rate priority sorting'
     ],
     systemRequirements: {
@@ -30,8 +31,8 @@ export const SOFTWARE_CATALOG: Software[] = [
     installQuickstart: [
       {
         title: 'Run using binary release (Linux)',
-        command: 'tar -xzvf scytale-v0.3.0-testnet-linux-x86_64.tar.gz\ncd scytale-v0.3.0-testnet-linux-x86_64\n./scytale-node start --mine --miner-payout <ALAMAT_DOMPET_SCY_ANDA>',
-        description: 'Extract the official archive and launch the daemon with default canonical bootnode and mining.'
+        command: 'tar -xzvf scytale-v0.4.0-testnet-linux-x86_64.tar.gz\ncd scytale-v0.4.0-testnet-linux-x86_64\n./scytale-node start --stratum-bind 0.0.0.0:3333 --miner-address <ALAMAT_DOMPET_SCY_ANDA>',
+        description: 'Extract the official archive and launch the daemon with embedded Stratum mining pool.'
       },
       {
         title: 'Build from source via Cargo',
@@ -50,7 +51,7 @@ export const SOFTWARE_CATALOG: Software[] = [
     platforms: ['linux'],
     documentationPath: '/docs/api/cli',
     repositoryPath: 'https://github.com/ratufatma/scytale/tree/main/apps/scytale-cli',
-    latestRelease: '0.3.0',
+    latestRelease: '0.4.0',
     status: 'active',
     features: [
       'BIP-39 mnemonic phrase generation (12/24 words) and Bech32m address derivation',

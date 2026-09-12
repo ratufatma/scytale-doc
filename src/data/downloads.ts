@@ -1,6 +1,84 @@
 import { DownloadArtifact } from '../types';
 
 export const DOWNLOAD_ARTIFACTS: DownloadArtifact[] = [
+  // Scytale Release Bundle v0.4.0-testnet (Node with Stratum Pool & CLI)
+  {
+    id: 'bundle-v0.4.0-linux-x86_64',
+    product: 'scytale-node',
+    productName: 'Scytale Release Bundle v0.4.0 (Stratum Pool + CLI)',
+    version: '0.4.0',
+    platform: 'linux',
+    architecture: 'x86_64',
+    filename: 'scytale-v0.4.0-testnet-linux-x86_64.tar.gz',
+    size: '10.9 MB',
+    sha256: '5ce6474665e6d0ab4081a9de02f42d5702dfad6d97f7839c571c8a0e0fba9fe5',
+    signature: {
+      status: 'verified',
+      signer: 'Scytale Release Authority <ratufatmasetyaningrum@gmail.com>',
+      fingerprint: '4A8B 9C1D 2E3F 0A7B 8C9D 1E2F 3A4B 5C6D 7E8F 9A0B',
+      signatureUrl: 'https://github.com/ratufatma/scytale/releases/download/v0.4.0-testnet/scytale-v0.4.0-testnet-linux-x86_64.tar.gz.sha256'
+    },
+    url: 'https://github.com/ratufatma/scytale/releases/download/v0.4.0-testnet/scytale-v0.4.0-testnet-linux-x86_64.tar.gz',
+    isConfigured: true,
+    notes: 'Official distribution tarball containing scytale-node (with embedded Stratum SSP-1 mining pool server on port 3333) and scytale-cli compiled for Linux x86_64. Stratum pool: stratum+tcp://seed.myratu.com:3333'
+  },
+  {
+    id: 'cli-v0.4.0-linux-x86_64',
+    product: 'scytale-cli',
+    productName: 'Scytale CLI (Included in Release Tarball v0.4.0)',
+    version: '0.4.0',
+    platform: 'linux',
+    architecture: 'x86_64',
+    filename: 'scytale-v0.4.0-testnet-linux-x86_64.tar.gz',
+    size: '10.9 MB',
+    sha256: '5ce6474665e6d0ab4081a9de02f42d5702dfad6d97f7839c571c8a0e0fba9fe5',
+    signature: {
+      status: 'verified',
+      signer: 'Scytale Release Authority <ratufatmasetyaningrum@gmail.com>',
+      fingerprint: '4A8B 9C1D 2E3F 0A7B 8C9D 1E2F 3A4B 5C6D 7E8F 9A0B',
+      signatureUrl: 'https://github.com/ratufatma/scytale/releases/download/v0.4.0-testnet/scytale-v0.4.0-testnet-linux-x86_64.tar.gz.sha256'
+    },
+    url: 'https://github.com/ratufatma/scytale/releases/download/v0.4.0-testnet/scytale-v0.4.0-testnet-linux-x86_64.tar.gz',
+    isConfigured: true,
+    notes: 'Interactive wallet management, BIP-39 mnemonic creation, and miner operator CLI tool.'
+  },
+  {
+    id: 'sha256-v0.4.0-linux-x86_64',
+    product: 'scytale-node',
+    productName: 'SHA256 Checksum Verification File v0.4.0',
+    version: '0.4.0',
+    platform: 'linux',
+    architecture: 'all',
+    filename: 'scytale-v0.4.0-testnet-linux-x86_64.tar.gz.sha256',
+    size: '109 B',
+    sha256: '5ce6474665e6d0ab4081a9de02f42d5702dfad6d97f7839c571c8a0e0fba9fe5',
+    signature: {
+      status: 'verified',
+      signer: 'Scytale Release Authority'
+    },
+    url: 'https://github.com/ratufatma/scytale/releases/download/v0.4.0-testnet/scytale-v0.4.0-testnet-linux-x86_64.tar.gz.sha256',
+    isConfigured: true,
+    notes: 'Direct sha256 checksum digest for cryptographic package verification.'
+  },
+  {
+    id: 'source-v0.4.0',
+    product: 'source',
+    productName: 'Scytale Source Code Archive v0.4.0',
+    version: '0.4.0',
+    platform: 'source',
+    architecture: 'all',
+    filename: 'v0.4.0-testnet.tar.gz',
+    size: 'Git Archive',
+    sha256: 'Commit tagged v0.4.0-testnet on GitHub',
+    signature: {
+      status: 'verified',
+      signer: 'Scytale Git Authority'
+    },
+    url: 'https://github.com/ratufatma/scytale/archive/refs/tags/v0.4.0-testnet.tar.gz',
+    isConfigured: true,
+    notes: 'Official tagged source code archive from the primary git repository.'
+  },
+
   // Scytale Release Bundle v0.3.0-testnet (Node & CLI)
   {
     id: 'bundle-v0.3.0-linux-x86_64',
