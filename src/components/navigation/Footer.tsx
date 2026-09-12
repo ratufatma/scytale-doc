@@ -17,9 +17,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           {/* Col 1: Brand & Identity */}
           <div className="col-span-2 space-y-3">
             <div className="flex items-center gap-2">
-              <div className="w-6 h-6 rounded bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 flex items-center justify-center font-mono text-xs">
-                <Layers className="w-3.5 h-3.5" />
-              </div>
+              <img src={`${import.meta.env.BASE_URL}gemini-svg.svg`} alt="Scytale Logo" className="w-6 h-6 rounded-md object-contain shadow-xs border border-slate-200 dark:border-white/10" />
               <span className="font-bold text-slate-900 dark:text-white text-sm font-mono tracking-tight">
                 {SITE_CONFIG.name}
               </span>

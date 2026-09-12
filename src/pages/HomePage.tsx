@@ -67,9 +67,12 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
             </button>
           </div>
 
-          <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-slate-900 dark:text-white font-mono">
-            {SITE_CONFIG.name}
-          </h1>
+          <div className="flex items-center gap-4">
+            <img src={`${import.meta.env.BASE_URL}gemini-svg.svg`} alt="Scytale Logo" className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl shadow-md shrink-0 border border-slate-200 dark:border-white/10" />
+            <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-slate-900 dark:text-white font-mono">
+              {SITE_CONFIG.name}
+            </h1>
+          </div>
 
           <p className="text-lg sm:text-xl text-slate-700 dark:text-slate-300 leading-relaxed max-w-2xl font-medium">
             {t.home.headline}

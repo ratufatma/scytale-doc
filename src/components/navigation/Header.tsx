@@ -45,8 +45,8 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate, onOpenS
             className="flex items-center gap-2.5 text-left group"
             id="brand-link"
           >
-            <div className="w-8 h-8 rounded-lg bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-950 flex items-center justify-center font-mono font-bold text-sm tracking-wider shadow-xs group-hover:bg-slate-800 dark:group-hover:bg-slate-200 transition-colors">
-              <Layers className="w-4 h-4 text-slate-100 dark:text-slate-900" />
+            <div className="w-8 h-8 rounded-lg overflow-hidden flex items-center justify-center shadow-xs border border-slate-200 dark:border-white/10 group-hover:scale-105 transition-transform">
+              <img src={`${import.meta.env.BASE_URL}gemini-svg.svg`} alt="Scytale Logo" className="w-8 h-8 object-contain" />
             </div>
             <div>
               <span className="font-bold text-base tracking-tight text-slate-900 dark:text-white font-mono">
