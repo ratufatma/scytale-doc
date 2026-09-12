@@ -10,16 +10,18 @@ export const DevelopersPage: React.FC = () => {
   const crateStructure = `scytale/
 ├── Cargo.toml                 # Workspace manifest
 ├── crates/
-│   ├── primitives/            # Cryptographic types, Blake3 wrappers, transaction serialization
-│   ├── consensus/             # PoW validation, difficulty adjustment, chain selection
-│   ├── storage/               # redb database controller, tables, migration utilities
-│   ├── network/               # P2P actor, wire framing, peer discovery & ban scoring
-│   ├── mempool/               # In-memory transaction pool with fee-rate ancestor scoring
-│   ├── node/                  # Primary daemon wiring storage, consensus, network, & RPC
-│   ├── cli/                   # Administrative command line interface tool
-│   ├── wallet/                # UTXO coin selection, passbook encryption, signing
-│   └── dev-tools/             # Fuzzers, cluster simulation, benchmarking
-└── tests/                     # Multi-node integration test scenarios`;
+│   ├── scytale-primitives/    # Cryptographic types, Blake3, Ed25519, Bech32
+│   ├── scytale-core/          # 120B Header, Blocks, Transactions, UTXOs
+│   ├── scytale-consensus/     # PoW validation, difficulty retargeting, emissions
+│   ├── scytale-storage/       # redb database engine, UTXO table, snapshots
+│   ├── scytale-network/       # libp2p Gossipsub, Kademlia DHT, wire protocol
+│   ├── scytale-mempool/       # Mempool with fee-rate ancestor scoring
+│   ├── scytale-mining/        # CPU miner worker & block template builder
+│   └── scytale-bridge/        # IPC framing and event boundary types
+├── apps/
+│   ├── scytale-node/          # Full node daemon (:8332 RPC, IPC socket, P2P :9000)
+│   └── scytale-cli/           # Wallet management, keygen, and operator CLI
+└── explorer/                  # Web explorer and real-time indexer`;
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12">

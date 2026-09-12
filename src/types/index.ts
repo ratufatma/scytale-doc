@@ -58,6 +58,8 @@ export interface Software {
   repositoryPath: string;
   latestRelease: string;
   features: string[];
+  status?: 'active' | 'coming-soon';
+  badge?: string;
   systemRequirements: {
     os: string;
     cpu: string;
@@ -100,6 +102,8 @@ export interface DocPage {
   sectionTitle: string;
   summary: string;
   content: DocContentItem[];
+  status?: 'active' | 'coming-soon';
+  badge?: string;
   nextPage?: { title: string; path: string };
   prevPage?: { title: string; path: string };
 }

@@ -168,22 +168,22 @@ export const DOC_SECTIONS: DocSection[] = [
         content: [
           {
             type: 'paragraph',
-            text: 'Scytale is currently operating in Testnet Alpha (v0.4.x). The consensus primitives, redb persistence engine, and CLI tools are operational and subject to peer review and adversarial testing.'
+            text: 'Scytale is currently operating in Public Testnet Phase 1 (v0.3.0-testnet). The consensus primitives, redb persistence engine, P2P mesh network, and CLI tools are fully operational and subject to peer review and community solo mining.'
           },
           {
             type: 'callout',
             calloutType: 'warning',
-            text: 'The Scytale network is in testnet. Do not treat testnet coins as having financial value. Protocol parameters may be refined prior to mainnet genesis candidate release.'
+            text: 'The Scytale network is in public testnet. Do not treat testnet coins as having financial value. Protocol parameters may be refined prior to mainnet genesis candidate release.'
           },
           {
             type: 'table',
             table: {
               headers: ['Milestone', 'Target Scope', 'Status'],
               rows: [
-                ['Milestone 0: Genesis Primitives', 'Blake3 hashing, eUTXO serialization, redb backend, genesis block 0x4033f099...', 'Complete (v0.3.0)'],
-                ['Milestone 1: Testnet Alpha', 'libp2p P2P wire protocol, difficulty adjustment, CLI passbook, HTTP RPC :8332', 'Operational (v0.4.x)'],
-                ['Milestone 2: Security & Hardening', 'Formal audit, compact block filters, peer fuzzing, faucet testnet', 'In Progress'],
-                ['Milestone 3: Mainnet Candidate', 'Deterministic genesis seed, final parameter freeze (66M SCY)', 'Scheduled Q1 2027']
+                ['Milestone 0: Genesis Primitives', 'Blake3 hashing, eUTXO serialization, redb backend, genesis block 0x4033f099...', 'Complete'],
+                ['Milestone 1: Public Testnet Phase 1', 'libp2p P2P wire protocol, difficulty adjustment, CLI wallet, HTTP RPC :8332, Solo Mining', 'Operational (v0.3.0-testnet)'],
+                ['Milestone 2: Security, Pools & Hardening', 'Formal audit, Stratum mining pool protocol, Desktop GUI wallet, peer fuzzing', 'In Progress (Fase 2)'],
+                ['Milestone 3: Mainnet Candidate', 'Deterministic genesis seed, final parameter freeze (66M SCY)', 'Scheduled']
               ]
             }
           }
@@ -1422,6 +1422,134 @@ export const DOC_SECTIONS: DocSection[] = [
                 ['E302', 'ERR_SUBSIDY_EXCEEDED', 'Coinbase output exceeds block_subsidy(height) + fees.', 'Block invalid; reject and disconnect peer.']
               ]
             }
+          }
+        ]
+      }
+    ]
+  },
+
+  // ─────────────────────────────────────────────────────────────
+  // SECTION 9: Ecosystem Roadmap & R&D (Akan Segera Terbit)
+  // ─────────────────────────────────────────────────────────────
+  {
+    id: 'roadmap',
+    title: 'Roadmap & R&D',
+    slug: 'roadmap',
+    description: 'Modul dan fitur masa depan dalam tahap riset dan pengembangan (Fase 2).',
+    pages: [
+      {
+        id: 'smart-contracts',
+        title: 'Smart Contracts / Virtual Machine',
+        slug: 'smart-contracts',
+        sectionId: 'roadmap',
+        sectionTitle: 'Roadmap & R&D',
+        status: 'coming-soon',
+        summary: 'Spesifikasi eUTXO WebAssembly execution engine dan model deterministik smart contract Scytale.',
+        content: [
+          {
+            type: 'paragraph',
+            text: 'Scytale merancang lapisan smart contract deterministik berbasis model eUTXO (extended UTXO) dan WebAssembly (WASM). Berbeda dengan account-based virtual machine yang rentan terhadap re-entrancy bugs dan state bloat, model eUTXO Scytale memproses eksekusi kontrak secara stateless dan parallelizable.'
+          },
+          {
+            type: 'heading',
+            level: 2,
+            text: 'Arsitektur eUTXO Smart Contract',
+            id: 'eutxo-contracts'
+          },
+          {
+            type: 'list',
+            items: [
+              'WebAssembly Sandboxing: Eksekusi bytecode WASM sandboxed dengan batasan fuel deterministik tanpa instruksi floating-point.',
+              'Datum & Redeemer Pattern: Script pengeluaran memverifikasi pasangan datum state dan redeemer input secara matematis.',
+              'Zero State Bloat: Bukti eksekusi kontrak terkomit langsung ke dalam pohon UTXO tanpa memerlukan database state trie global yang membesar tak terbatas.'
+            ]
+          }
+        ]
+      },
+      {
+        id: 'mining-pool',
+        title: 'Mining Pool Protocol (Stratum Pool)',
+        slug: 'mining-pool',
+        sectionId: 'roadmap',
+        sectionTitle: 'Roadmap & R&D',
+        status: 'coming-soon',
+        summary: 'Protokol koordinasi penambangan terdistribusi dan pool shares berbasis Stratum v2 / Blake3.',
+        content: [
+          {
+            type: 'paragraph',
+            text: 'Protokol Mining Pool Scytale dirancang untuk memfasilitasi agregasi hashrate CPU secara efisien melalui protokol Stratum berlatensi rendah dengan validasi share berbasis Blake3 PoW.'
+          },
+          {
+            type: 'heading',
+            level: 2,
+            text: 'Fitur Utama Protokol Mining Pool',
+            id: 'pool-features'
+          },
+          {
+            type: 'list',
+            items: [
+              'Stratum Binary Protocol: Komunikasi hemat bandwidth antara mining worker rig dan pool coordinator daemon.',
+              'Variable Difficulty (Vardiff): Penyesuaian otomatis target share individual untuk meminimalkan beban jaringan penambang.',
+              'PPLNS Accounting: Skema pembagian reward coinbase terverifikasi dengan auditability transparan bagi seluruh penambang.'
+            ]
+          }
+        ]
+      },
+      {
+        id: 'desktop-extension-wallet',
+        title: 'GUI Desktop Wallet & Extension',
+        slug: 'desktop-extension-wallet',
+        sectionId: 'roadmap',
+        sectionTitle: 'Roadmap & R&D',
+        status: 'coming-soon',
+        summary: 'Aplikasi antarmuka grafis desktop berbasis Tauri dan ekstensi peramban non-custodial.',
+        content: [
+          {
+            type: 'paragraph',
+            text: 'Dompet desktop berbasis Tauri/Rust dan ekstensi peramban menyediakan antarmuka visual intuitif untuk mengelola passbook UTXO, menandatangani transaksi secara offline (air-gapped), dan berinteraksi dengan ekosistem Scytale tanpa kompromi keamanan.'
+          },
+          {
+            type: 'heading',
+            level: 2,
+            text: 'Pilar Desain Dompet Grafis',
+            id: 'wallet-pillars'
+          },
+          {
+            type: 'list',
+            items: [
+              'Tauri Native App: Antarmuka ultra-ringan dengan konsumsi memori rendah (<50MB RAM) dan keamanan sandboxed.',
+              'Enkripsi Argon2id + ChaCha20: Penyimpanan kunci privat terisolasi pada disk lokal dengan POSIX permission ketat.',
+              'Dukungan Air-Gapped QR: Penandatanganan transaksi dingin tanpa menghubungkan perangkat penyimpanan kunci ke jaringan.'
+            ]
+          }
+        ]
+      },
+      {
+        id: 'cross-chain-governance',
+        title: 'Cross-Chain Bridge & Governance',
+        slug: 'cross-chain-governance',
+        sectionId: 'roadmap',
+        sectionTitle: 'Roadmap & R&D',
+        status: 'coming-soon',
+        summary: 'Jembatan interoperabilitas kriptografis SPV dan mekanisme konsensus tata kelola proposal perbaikan Scytale (SIP).',
+        content: [
+          {
+            type: 'paragraph',
+            text: 'Protokol jembatan cross-chain memungkinkan transfer nilai tanpa kustodian terpusat berbasis verifikasi bukti kriptografis SPV (Simplified Payment Verification), didampingi kerangka tata kelola Scytale Improvement Proposals (SIP).'
+          },
+          {
+            type: 'heading',
+            level: 2,
+            text: 'Mekanisme Interoperabilitas & Tata Kelola',
+            id: 'bridge-governance'
+          },
+          {
+            type: 'list',
+            items: [
+              'SPV Light Client Proofs: Verifikasi header rantai silang berbasis bukti pohon inklusi Blake3.',
+              'Scytale Improvement Proposals (SIP): Mekanisme upgrade protokol on-chain dengan sinyal hashrate penambang dan konsensus node operator.',
+              'Non-Custodial Escrow: Penguncian multi-sig deterministik tanpa ketergantungan oracle terpusat.'
+            ]
           }
         ]
       }

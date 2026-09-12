@@ -8,33 +8,34 @@ export const SOFTWARE_CATALOG: Software[] = [
     tagline: 'Full consensus validation daemon and peer-to-peer network participant.',
     description: 'The reference implementation of the Scytale protocol daemon written in Rust. It manages persistent blockchain state using redb, maintains the active UTXO set, performs chain validation, executes Proof of Work difficulty retargeting, and powers peer-to-peer block and transaction propagation.',
     category: 'Core Node',
-    platforms: ['linux', 'macos', 'windows'],
-    documentationPath: '/docs/node',
-    repositoryPath: 'https://github.com/ratufatma/scytale/tree/main/crates/node',
-    latestRelease: '0.4.2',
+    platforms: ['linux'],
+    documentationPath: '/docs/node-ops/quickstart',
+    repositoryPath: 'https://github.com/ratufatma/scytale/tree/main/apps/scytale-node',
+    latestRelease: '0.3.0',
+    status: 'active',
     features: [
       'Pure Rust zero-cost safety and concurrency architecture',
       'Embedded redb ACID key-value storage engine for fast, durable queries',
       'Blake3 cryptographic hashing pipeline for blocks, transactions, and state roots',
-      'Fully autonomous P2P networking with bounded peer rotation and anti-eclipse protections',
-      'Configurable RPC/IPC interface for local client integration and mining coordination',
-      'Deterministic mempool eviction with fee-rate ancestor scoring'
+      'Autonomous P2P networking with Gossipsub block propagation and Kademlia DHT discovery',
+      'Configurable HTTP RPC gateway (:8332) and Unix IPC socket interface',
+      'Deterministic mempool eviction with fee-rate priority sorting'
     ],
     systemRequirements: {
-      os: 'Linux 64-bit (glibc 2.31+ / musl), macOS 12.0+, Windows 10/Server 2019+',
-      cpu: '2 cores (x86_64 or ARM64)',
+      os: 'Linux 64-bit (glibc 2.31+ / musl)',
+      cpu: '2 cores (x86_64)',
       ram: '2 GB minimum (4 GB recommended for initial block download)',
       storage: '10 GB SSD for current testnet chain state'
     },
     installQuickstart: [
       {
         title: 'Run using binary release (Linux)',
-        command: 'tar -xzf scytale-node-v0.4.2-linux-x86_64.tar.gz\n./scytale-node --config scytale.toml',
-        description: 'Extract the official archive and launch the daemon with default peer seeds.'
+        command: 'tar -xzvf scytale-v0.3.0-testnet-linux-x86_64.tar.gz\ncd scytale-v0.3.0-testnet-linux-x86_64\n./scytale-node start --mine --miner-payout <ALAMAT_DOMPET_SCY_ANDA>',
+        description: 'Extract the official archive and launch the daemon with default canonical bootnode and mining.'
       },
       {
         title: 'Build from source via Cargo',
-        command: 'git clone https://github.com/ratufatma/scytale\ncd scytale\ncargo build --release -p scytale-node\n./target/release/scytale-node',
+        command: 'git clone https://github.com/ratufatma/scytale\ncd scytale\ncargo build --release -p scytale-node -p scytale-cli\n./target/release/scytale-node start',
         description: 'Compile the latest tagged commit using the standard Rust toolchain.'
       }
     ]
@@ -43,36 +44,37 @@ export const SOFTWARE_CATALOG: Software[] = [
     id: 'cli',
     name: 'Scytale CLI',
     slug: 'cli',
-    tagline: 'Comprehensive command-line tool for node operations, network inspection, and scripting.',
-    description: 'The official CLI client designed for node operators, developers, and automated scripts. It provides deep diagnostic commands for querying node status, mining coordination, inspecting mempool entries, broadcasting raw transactions, and testing protocol primitives.',
+    tagline: 'Comprehensive command-line tool for node operations, network inspection, and wallet management.',
+    description: 'The official CLI client designed for node operators, miners, and developers. It provides deep diagnostic commands for querying node status, generating BIP-39 wallets, inspecting passbook balances, broadcasting raw transactions, and coordinating mining payout addresses.',
     category: 'Client Tools',
-    platforms: ['linux', 'macos', 'windows'],
-    documentationPath: '/docs/cli',
-    repositoryPath: 'https://github.com/ratufatma/scytale/tree/main/crates/cli',
-    latestRelease: '0.4.2',
+    platforms: ['linux'],
+    documentationPath: '/docs/api/cli',
+    repositoryPath: 'https://github.com/ratufatma/scytale/tree/main/apps/scytale-cli',
+    latestRelease: '0.3.0',
+    status: 'active',
     features: [
-      'Interactive and non-interactive scripted JSON/text output formats',
+      'BIP-39 mnemonic phrase generation (12/24 words) and Bech32m address derivation',
       'Direct Unix domain socket IPC connection or authenticated HTTP RPC connection',
-      'Granular chain inspection (block by hash or height, raw transaction deserialization)',
-      'Built-in mining benchmark tool using Blake3 worker threads',
-      'Network peer topology inspector and connection diagnostics'
+      'Granular chain inspection (block by hash or height, tip status, passbook balances)',
+      'Transaction builder for Ed25519 P2PKH transfer execution',
+      'Integrated mining address and worker configuration'
     ],
     systemRequirements: {
-      os: 'Any modern Linux, macOS, or Windows operating system',
+      os: 'Any modern Linux 64-bit operating system',
       cpu: '1 core',
       ram: '256 MB',
       storage: '20 MB disk space'
     },
     installQuickstart: [
       {
-        title: 'Verify local node connection',
-        command: 'scytale-cli status',
-        description: 'Verify the active local node RPC connection and print sync height.'
+        title: 'Create new wallet address',
+        command: './scytale-cli wallet new --mnemonic',
+        description: 'Generate a new Ed25519 keypair and display the Bech32 address (scy1...).'
       },
       {
-        title: 'Inspect latest block header',
-        command: 'scytale-cli block get --latest --format json',
-        description: 'Retrieve and format the current canonical tip block header.'
+        title: 'Inspect node runtime status',
+        command: './scytale-cli status',
+        description: 'Query active block height, tip hash, and mining status from local node.'
       }
     ]
   },
@@ -81,49 +83,52 @@ export const SOFTWARE_CATALOG: Software[] = [
     name: 'Scytale Wallet',
     slug: 'wallet',
     tagline: 'Deterministic UTXO passbook and key management client.',
-    description: 'The standard key manager and transaction construction engine for Scytale. It adheres strictly to the UTXO model, generating deterministic key pairs, computing unspent transaction output balances, signing inputs with constant-time authorization algorithms, and crafting raw transactions with change outputs.',
+    description: 'The standard non-custodial key manager and transaction construction engine for Scytale. It adheres strictly to the UTXO model, generating deterministic key pairs, computing unspent transaction output balances, and crafting raw transactions with change outputs.',
     category: 'User Applications',
-    platforms: ['linux', 'macos', 'windows'],
-    documentationPath: '/docs/wallet',
-    repositoryPath: 'https://github.com/ratufatma/scytale/tree/main/crates/wallet',
-    latestRelease: '0.4.2',
+    platforms: ['linux'],
+    documentationPath: '/docs/api/cli',
+    repositoryPath: 'https://github.com/ratufatma/scytale/tree/main/apps/scytale-cli',
+    latestRelease: '0.3.0',
+    status: 'active',
     features: [
-      'BIP-39 style deterministic 24-word recovery phrase standard',
-      'Encrypted passbook storage on disk using Argon2id + ChaCha20-Poly1305',
+      'BIP-39 deterministic 12/24-word recovery phrase standard',
+      'POSIX 0600 secure file permission enforcement for wallet keys',
       'Automatic coin selection algorithm to minimize transaction size and fees',
       'Cold storage and air-gapped transaction signing support',
-      'Zero telemetry and zero external dependency connections'
+      'Zero external web telemetry dependencies'
     ],
     systemRequirements: {
-      os: 'Linux, macOS, or Windows',
+      os: 'Linux 64-bit',
       cpu: '1 core',
-      ram: '512 MB',
+      ram: '256 MB',
       storage: '50 MB disk space'
     },
     installQuickstart: [
       {
-        title: 'Initialize a new passbook wallet',
-        command: 'scytale-wallet init --passbook ~/.scytale/wallet.passbook',
-        description: 'Generate your 24-word mnemonic phrase and create an encrypted passbook.'
+        title: 'Initialize a new wallet',
+        command: 'scytale-cli wallet new --mnemonic',
+        description: 'Generate your mnemonic phrase and create your non-custodial wallet file.'
       },
       {
-        title: 'Generate receiving address',
-        command: 'scytale-wallet address new',
-        description: 'Derive a new Blake3-keyed recipient address for incoming SCY transfers.'
+        title: 'Check confirmed balance',
+        command: 'scytale-cli wallet balance --address <ALAMAT_SCY>',
+        description: 'Query active UTXO set for confirmed and unconfirmed Quanta balances.'
       }
     ]
   },
   {
     id: 'desktop',
-    name: 'Scytale Desktop',
+    name: 'Scytale Desktop (GUI)',
     slug: 'desktop',
     tagline: 'Minimalist desktop GUI for node management and passbook operations.',
-    description: 'An open-source desktop interface currently in active staging. It provides a visual dashboard for node synchronization, active peer status, passbook address books, and local transaction history without exposing users to web-based attack vectors.',
+    description: 'An open-source desktop interface currently in active research and development (R&D). It provides a visual dashboard for node synchronization, active peer status, passbook address books, and local transaction history without exposing users to web-based attack vectors.',
     category: 'User Applications',
     platforms: ['linux', 'macos', 'windows'],
-    documentationPath: '/docs/wallet',
+    documentationPath: '/docs/roadmap/desktop-extension-wallet',
     repositoryPath: 'https://github.com/ratufatma/scytale-desktop',
-    latestRelease: '0.4.2-staging',
+    latestRelease: 'Fase 2 (R&D)',
+    status: 'coming-soon',
+    badge: 'Akan Segera Terbit (Fase 2)',
     features: [
       'Embedded node controller with one-click background sync',
       'Air-gapped transaction builder with QR code payload display',
@@ -131,16 +136,16 @@ export const SOFTWARE_CATALOG: Software[] = [
       'Dark and light technical interfaces with high contrast accessibility'
     ],
     systemRequirements: {
-      os: 'Linux (AppImage / Flatpak), macOS 12.0+, Windows 10/11',
+      os: 'Linux (AppImage), macOS 12.0+, Windows 10/11',
       cpu: '2 cores',
       ram: '2 GB',
       storage: '200 MB (+ blockchain storage if running full node)'
     },
     installQuickstart: [
       {
-        title: 'Status: In Active Staging',
-        command: '# Pre-release build instructions:\ngit clone https://github.com/ratufatma/scytale-desktop\ncargo tauri dev',
-        description: 'Binary releases are being staged for milestone 2 security evaluation.'
+        title: 'Status: Akan Segera Terbit (Fase 2)',
+        command: '# Tahap Riset dan Pengembangan (R&D)\n# Rilis dijadwalkan pada roadmap ekosistem Scytale Fase 2.',
+        description: 'Fitur ini sedang dalam tahap riset dan pengembangan (R&D).'
       }
     ]
   },
@@ -149,14 +154,16 @@ export const SOFTWARE_CATALOG: Software[] = [
     name: 'Scytale Mobile',
     slug: 'mobile',
     tagline: 'Lightweight mobile companion passbook for everyday payments.',
-    description: 'A mobile client utilizing SPV (Simplified Payment Verification) / compact block filter synchronization to allow safe, trust-minimized transacting from mobile devices without storing the full chain history.',
+    description: 'A mobile client utilizing compact block filter synchronization to allow safe, trust-minimized transacting from mobile devices without storing the full chain history.',
     category: 'User Applications',
     platforms: ['android'],
-    documentationPath: '/docs/wallet',
-    repositoryPath: 'https://github.com/ratufatma/scytale-mobile',
-    latestRelease: '0.4.0-preview',
+    documentationPath: '/docs/roadmap/desktop-extension-wallet',
+    repositoryPath: 'https://github.com/ratufatma/scytale',
+    latestRelease: 'Fase 2 (R&D)',
+    status: 'coming-soon',
+    badge: 'Akan Segera Terbit (Fase 2)',
     features: [
-      'Compact block filter filtering (BIP-158 inspired) for bandwidth-saving verification',
+      'Compact block filter filtering for bandwidth-saving verification',
       'Biometric and hardware enclave key storage protection',
       'Zero-fee local address book with offline QR scanning'
     ],
@@ -168,9 +175,9 @@ export const SOFTWARE_CATALOG: Software[] = [
     },
     installQuickstart: [
       {
-        title: 'Status: Alpha Staging',
-        command: '# Android APK compilation pipeline:\ngit clone https://github.com/ratufatma/scytale-mobile\n./gradlew assembleRelease',
-        description: 'Official signed APKs will be released upon completion of consensus light-client audit.'
+        title: 'Status: Akan Segera Terbit (Fase 2)',
+        command: '# Rilis dijadwalkan pada fase pengembangan berikutnya.',
+        description: 'Tahap riset dan pengembangan (R&D) light-client.'
       }
     ]
   },
@@ -182,9 +189,10 @@ export const SOFTWARE_CATALOG: Software[] = [
     description: 'A static, self-contained web explorer that connects directly to any Scytale node over HTTP/IPC to inspect blocks, transactions, mempool state, and difficulty graphs without third-party trackers or analytic cookies.',
     category: 'Network Tools',
     platforms: ['source'],
-    documentationPath: '/docs/developers',
-    repositoryPath: 'https://github.com/ratufatma/scytale-explorer',
-    latestRelease: '0.4.2',
+    documentationPath: '/docs/api/explorer',
+    repositoryPath: 'https://github.com/ratufatma/scytale/tree/main/explorer',
+    latestRelease: '0.3.0',
+    status: 'active',
     features: [
       'Connects directly to your local node without intermediary database dependencies',
       'Real-time mempool inspection and UTXO script visualizer',
@@ -199,40 +207,9 @@ export const SOFTWARE_CATALOG: Software[] = [
     },
     installQuickstart: [
       {
-        title: 'Launch local explorer',
-        command: 'git clone https://github.com/ratufatma/scytale-explorer\ncd scytale-explorer\nnpm install && npm run build\nnode server.js --node-rpc http://127.0.0.1:8332',
-        description: 'Host your own independent explorer pointing to your trusted Scytale node.'
-      }
-    ]
-  },
-  {
-    id: 'devtools',
-    name: 'Developer Tools',
-    slug: 'devtools',
-    tagline: 'Test harness, simnet network generator, and protocol fuzzers.',
-    description: 'A collection of developer utilities for testing protocol edge cases, generating multi-node local networks, simulating chain reorgs, and fuzzing deserialization boundaries.',
-    category: 'Development',
-    platforms: ['linux', 'macos', 'windows'],
-    documentationPath: '/docs/developers',
-    repositoryPath: 'https://github.com/ratufatma/scytale/tree/main/crates/dev-tools',
-    latestRelease: '0.4.2',
-    features: [
-      'Multi-node local cluster orchestration script (`scytale-simnet`)',
-      'Continuous differential fuzzing harness for Blake3 block verification',
-      'Deterministic UTXO state generator for benchmarking redb throughput',
-      'Raw transaction crafting and signing test utility'
-    ],
-    systemRequirements: {
-      os: 'Linux, macOS, or Windows',
-      cpu: '4 cores recommended for multi-node simulation',
-      ram: '4 GB',
-      storage: '1 GB'
-    },
-    installQuickstart: [
-      {
-        title: 'Start local 3-node simulation',
-        command: 'cargo run -p scytale-simnet -- --nodes 3 --auto-mine',
-        description: 'Spin up three isolated local nodes communicating over loopback sockets.'
+        title: 'Akses Explorer Publik',
+        command: 'curl -s https://explorer.myratu.com/api/v1/status',
+        description: 'Buka https://explorer.myratu.com pada browser Anda untuk menjelajahi rantai live.'
       }
     ]
   }

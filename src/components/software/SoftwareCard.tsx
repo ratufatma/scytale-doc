@@ -46,7 +46,14 @@ export const SoftwareCard: React.FC<SoftwareCardProps> = ({
               {getIcon()}
             </div>
             <div>
-              <h3 className="font-bold text-slate-900 dark:text-white text-base">{software.name}</h3>
+              <div className="flex items-center gap-2">
+                <h3 className="font-bold text-slate-900 dark:text-white text-base">{software.name}</h3>
+                {software.status === 'coming-soon' && (
+                  <span className="px-2 py-0.5 text-[10px] font-semibold rounded-full bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20 whitespace-nowrap">
+                    Akan Segera Terbit
+                  </span>
+                )}
+              </div>
               <span className="text-[11px] font-mono text-slate-500 dark:text-slate-400 uppercase tracking-wider">
                 {software.category} &bull; v{software.latestRelease}
               </span>

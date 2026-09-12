@@ -179,7 +179,7 @@ export const ProtocolPage: React.FC = () => {
               <tbody className="divide-y divide-slate-200 dark:divide-white/10">
                 <tr>
                   <td className="px-4 py-3 font-semibold font-mono text-slate-800 dark:text-slate-200 border-r border-slate-200 dark:border-white/10">Block Header Hash</td>
-                  <td className="px-4 py-3 text-slate-600 dark:text-slate-400 font-mono text-xs border-r border-slate-200 dark:border-white/10">80-byte serialized header (version + prev_hash + merkle_root + timestamp + bits + nonce)</td>
+                  <td className="px-4 py-3 text-slate-600 dark:text-slate-400 font-mono text-xs border-r border-slate-200 dark:border-white/10">120-byte serialized header (version + prev_hash + merkle_root + utxo_root + timestamp + bits + nonce)</td>
                   <td className="px-4 py-3 text-slate-700 dark:text-slate-300 font-mono text-xs">32 bytes (Checked against Target)</td>
                 </tr>
                 <tr>

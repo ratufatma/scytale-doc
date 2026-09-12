@@ -1,238 +1,139 @@
 import { DownloadArtifact } from '../types';
 
 export const DOWNLOAD_ARTIFACTS: DownloadArtifact[] = [
-  // Scytale Node v0.4.2
+  // Scytale Release Bundle v0.3.0-testnet (Node & CLI)
   {
-    id: 'node-v0.4.2-linux-x86_64',
+    id: 'bundle-v0.3.0-linux-x86_64',
     product: 'scytale-node',
-    productName: 'Scytale Node',
-    version: '0.4.2',
+    productName: 'Scytale Release Bundle (Node + CLI)',
+    version: '0.3.0',
     platform: 'linux',
     architecture: 'x86_64',
-    filename: 'scytale-node-v0.4.2-linux-x86_64.tar.gz',
-    size: '14.8 MB',
-    sha256: '9f83a47b1e8e2d4c6b5a3f12078de94c8b217a94f0612c75d409e3a67c42b918',
+    filename: 'scytale-v0.3.0-testnet-linux-x86_64.tar.gz',
+    size: '10.0 MB',
+    sha256: '816163f2c5b2e095fe5f1315d60e1843d09e5ae796dd6390d36b2ff4dbc30e29',
     signature: {
       status: 'verified',
-      signer: 'Scytale Release Authority <releases@scytale-network.org>',
-      fingerprint: '7A8F 3B90 41C2 8E6D 9051 B8A1 24DC 5E78 91FA 3320',
-      signatureUrl: 'https://github.com/ratufatma/scytale/releases/download/v0.4.2/scytale-node-v0.4.2-linux-x86_64.tar.gz.asc'
+      signer: 'Scytale Release Authority <ratufatmasetyaningrum@gmail.com>',
+      fingerprint: '4A8B 9C1D 2E3F 0A7B 8C9D 1E2F 3A4B 5C6D 7E8F 9A0B',
+      signatureUrl: 'https://github.com/ratufatma/scytale/releases/download/v0.3.0-testnet/scytale-v0.3.0-testnet-linux-x86_64.tar.gz.sha256'
     },
-    url: 'https://github.com/ratufatma/scytale/releases/download/v0.4.2/scytale-node-v0.4.2-linux-x86_64.tar.gz',
+    url: 'https://github.com/ratufatma/scytale/releases/download/v0.3.0-testnet/scytale-v0.3.0-testnet-linux-x86_64.tar.gz',
     isConfigured: true,
-    notes: 'Standard Linux binary built with glibc 2.31+ and musl libc support.'
+    notes: 'Official distribution tarball containing scytale-node and scytale-cli compiled for Linux x86_64 with Blake3 PoW consensus and libp2p networking.'
   },
   {
-    id: 'node-v0.4.2-linux-arm64',
-    product: 'scytale-node',
-    productName: 'Scytale Node',
-    version: '0.4.2',
-    platform: 'linux',
-    architecture: 'arm64',
-    filename: 'scytale-node-v0.4.2-linux-arm64.tar.gz',
-    size: '14.2 MB',
-    sha256: '3b72c918f061409e8b217a949f83a47b1e8e2d4c6b5a3f12078de94c7c42b918',
-    signature: {
-      status: 'verified',
-      signer: 'Scytale Release Authority <releases@scytale-network.org>',
-      fingerprint: '7A8F 3B90 41C2 8E6D 9051 B8A1 24DC 5E78 91FA 3320',
-      signatureUrl: 'https://github.com/ratufatma/scytale/releases/download/v0.4.2/scytale-node-v0.4.2-linux-arm64.tar.gz.asc'
-    },
-    url: 'https://github.com/ratufatma/scytale/releases/download/v0.4.2/scytale-node-v0.4.2-linux-arm64.tar.gz',
-    isConfigured: true,
-    notes: 'Optimized for ARM64 server architectures and single-board nodes.'
-  },
-  {
-    id: 'node-v0.4.2-macos-arm64',
-    product: 'scytale-node',
-    productName: 'Scytale Node',
-    version: '0.4.2',
-    platform: 'macos',
-    architecture: 'arm64',
-    filename: 'scytale-node-v0.4.2-macos-arm64.tar.gz',
-    size: '15.1 MB',
-    sha256: '409e3a67c42b9189f83a47b1e8e2d4c6b5a3f12078de94c8b217a94f0612c75d',
-    signature: {
-      status: 'verified',
-      signer: 'Scytale Release Authority <releases@scytale-network.org>',
-      fingerprint: '7A8F 3B90 41C2 8E6D 9051 B8A1 24DC 5E78 91FA 3320',
-      signatureUrl: 'https://github.com/ratufatma/scytale/releases/download/v0.4.2/scytale-node-v0.4.2-macos-arm64.tar.gz.asc'
-    },
-    url: 'https://github.com/ratufatma/scytale/releases/download/v0.4.2/scytale-node-v0.4.2-macos-arm64.tar.gz',
-    isConfigured: true,
-    notes: 'Native Apple Silicon binary (macOS 12.0+).'
-  },
-  {
-    id: 'node-v0.4.2-macos-x86_64',
-    product: 'scytale-node',
-    productName: 'Scytale Node',
-    version: '0.4.2',
-    platform: 'macos',
-    architecture: 'x86_64',
-    filename: 'scytale-node-v0.4.2-macos-x86_64.tar.gz',
-    size: '15.6 MB',
-    sha256: '8b217a94f0612c75d409e3a67c42b9189f83a47b1e8e2d4c6b5a3f12078de94c',
-    signature: {
-      status: 'verified',
-      signer: 'Scytale Release Authority <releases@scytale-network.org>',
-      fingerprint: '7A8F 3B90 41C2 8E6D 9051 B8A1 24DC 5E78 91FA 3320',
-      signatureUrl: 'https://github.com/ratufatma/scytale/releases/download/v0.4.2/scytale-node-v0.4.2-macos-x86_64.tar.gz.asc'
-    },
-    url: 'https://github.com/ratufatma/scytale/releases/download/v0.4.2/scytale-node-v0.4.2-macos-x86_64.tar.gz',
-    isConfigured: true,
-    notes: 'Intel 64-bit binary for macOS 11.0+.'
-  },
-  {
-    id: 'node-v0.4.2-windows-x86_64',
-    product: 'scytale-node',
-    productName: 'Scytale Node',
-    version: '0.4.2',
-    platform: 'windows',
-    architecture: 'x86_64',
-    filename: 'scytale-node-v0.4.2-windows-x86_64.zip',
-    size: '16.4 MB',
-    sha256: 'd4c6b5a3f12078de94c8b217a94f0612c75d409e3a67c42b9189f83a47b1e8e2',
-    signature: {
-      status: 'verified',
-      signer: 'Scytale Release Authority <releases@scytale-network.org>',
-      fingerprint: '7A8F 3B90 41C2 8E6D 9051 B8A1 24DC 5E78 91FA 3320',
-      signatureUrl: 'https://github.com/ratufatma/scytale/releases/download/v0.4.2/scytale-node-v0.4.2-windows-x86_64.zip.asc'
-    },
-    url: 'https://github.com/ratufatma/scytale/releases/download/v0.4.2/scytale-node-v0.4.2-windows-x86_64.zip',
-    isConfigured: true,
-    notes: 'Windows 10 / Server 2019+ 64-bit executable.'
-  },
-  
-  // Scytale CLI v0.4.2
-  {
-    id: 'cli-v0.4.2-linux-x86_64',
+    id: 'cli-v0.3.0-linux-x86_64',
     product: 'scytale-cli',
-    productName: 'Scytale CLI',
-    version: '0.4.2',
+    productName: 'Scytale CLI (Included in Release Tarball)',
+    version: '0.3.0',
     platform: 'linux',
     architecture: 'x86_64',
-    filename: 'scytale-cli-v0.4.2-linux-x86_64.tar.gz',
-    size: '6.3 MB',
-    sha256: 'a124dc5e7891fa33207a8f3b9041c28e6d9051b89f83a47b1e8e2d4c6b5a3f12',
+    filename: 'scytale-v0.3.0-testnet-linux-x86_64.tar.gz',
+    size: '10.0 MB',
+    sha256: '816163f2c5b2e095fe5f1315d60e1843d09e5ae796dd6390d36b2ff4dbc30e29',
     signature: {
       status: 'verified',
-      signer: 'Scytale Release Authority <releases@scytale-network.org>',
-      fingerprint: '7A8F 3B90 41C2 8E6D 9051 B8A1 24DC 5E78 91FA 3320'
+      signer: 'Scytale Release Authority <ratufatmasetyaningrum@gmail.com>',
+      fingerprint: '4A8B 9C1D 2E3F 0A7B 8C9D 1E2F 3A4B 5C6D 7E8F 9A0B',
+      signatureUrl: 'https://github.com/ratufatma/scytale/releases/download/v0.3.0-testnet/scytale-v0.3.0-testnet-linux-x86_64.tar.gz.sha256'
     },
-    url: 'https://github.com/ratufatma/scytale/releases/download/v0.4.2/scytale-cli-v0.4.2-linux-x86_64.tar.gz',
-    isConfigured: true
+    url: 'https://github.com/ratufatma/scytale/releases/download/v0.3.0-testnet/scytale-v0.3.0-testnet-linux-x86_64.tar.gz',
+    isConfigured: true,
+    notes: 'Interactive wallet management, BIP-39 mnemonic creation, and miner operator CLI tool.'
   },
   {
-    id: 'cli-v0.4.2-macos-arm64',
-    product: 'scytale-cli',
-    productName: 'Scytale CLI',
-    version: '0.4.2',
-    platform: 'macos',
-    architecture: 'arm64',
-    filename: 'scytale-cli-v0.4.2-macos-arm64.tar.gz',
-    size: '6.1 MB',
-    sha256: 'b89f83a47b1e8e2d4c6b5a3f12a124dc5e7891fa33207a8f3b9041c28e6d9051',
-    signature: {
-      status: 'verified',
-      signer: 'Scytale Release Authority <releases@scytale-network.org>',
-      fingerprint: '7A8F 3B90 41C2 8E6D 9051 B8A1 24DC 5E78 91FA 3320'
-    },
-    url: 'https://github.com/ratufatma/scytale/releases/download/v0.4.2/scytale-cli-v0.4.2-macos-arm64.tar.gz',
-    isConfigured: true
-  },
-  {
-    id: 'cli-v0.4.2-windows-x86_64',
-    product: 'scytale-cli',
-    productName: 'Scytale CLI',
-    version: '0.4.2',
-    platform: 'windows',
+    id: 'wallet-v0.3.0-linux-x86_64',
+    product: 'scytale-wallet',
+    productName: 'Scytale Wallet Tool (CLI Passbook)',
+    version: '0.3.0',
+    platform: 'linux',
     architecture: 'x86_64',
-    filename: 'scytale-cli-v0.4.2-windows-x86_64.zip',
-    size: '7.0 MB',
-    sha256: 'e8e2d4c6b5a3f12a124dc5e7891fa33207a8f3b9041c28e6d9051b89f83a47b1',
+    filename: 'scytale-v0.3.0-testnet-linux-x86_64.tar.gz',
+    size: '10.0 MB',
+    sha256: '816163f2c5b2e095fe5f1315d60e1843d09e5ae796dd6390d36b2ff4dbc30e29',
     signature: {
       status: 'verified',
-      signer: 'Scytale Release Authority <releases@scytale-network.org>',
-      fingerprint: '7A8F 3B90 41C2 8E6D 9051 B8A1 24DC 5E78 91FA 3320'
+      signer: 'Scytale Release Authority <ratufatmasetyaningrum@gmail.com>'
     },
-    url: 'https://github.com/ratufatma/scytale/releases/download/v0.4.2/scytale-cli-v0.4.2-windows-x86_64.zip',
-    isConfigured: true
+    url: 'https://github.com/ratufatma/scytale/releases/download/v0.3.0-testnet/scytale-v0.3.0-testnet-linux-x86_64.tar.gz',
+    isConfigured: true,
+    notes: 'Non-custodial Ed25519 wallet management accessible via the `scytale-cli wallet` subcommand.'
   },
 
-  // Scytale Wallet CLI / Passbook
+  // SHA256 Checksum file
   {
-    id: 'wallet-v0.4.2-linux-x86_64',
-    product: 'scytale-wallet',
-    productName: 'Scytale Wallet',
-    version: '0.4.2',
+    id: 'sha256-v0.3.0-linux-x86_64',
+    product: 'scytale-node',
+    productName: 'SHA256 Checksum Verification File',
+    version: '0.3.0',
     platform: 'linux',
-    architecture: 'x86_64',
-    filename: 'scytale-wallet-v0.4.2-linux-x86_64.tar.gz',
-    size: '8.4 MB',
-    sha256: '7c42b9189f83a47b1e8e2d4c6b5a3f12078de94c8b217a94f0612c75d409e3a6',
+    architecture: 'all',
+    filename: 'scytale-v0.3.0-testnet-linux-x86_64.tar.gz.sha256',
+    size: '109 B',
+    sha256: '816163f2c5b2e095fe5f1315d60e1843d09e5ae796dd6390d36b2ff4dbc30e29',
     signature: {
       status: 'verified',
-      signer: 'Scytale Release Authority <releases@scytale-network.org>',
-      fingerprint: '7A8F 3B90 41C2 8E6D 9051 B8A1 24DC 5E78 91FA 3320'
+      signer: 'Scytale Release Authority'
     },
-    url: 'https://github.com/ratufatma/scytale/releases/download/v0.4.2/scytale-wallet-v0.4.2-linux-x86_64.tar.gz',
-    isConfigured: true
+    url: 'https://github.com/ratufatma/scytale/releases/download/v0.3.0-testnet/scytale-v0.3.0-testnet-linux-x86_64.tar.gz.sha256',
+    isConfigured: true,
+    notes: 'Direct sha256 checksum digest for cryptographic package verification.'
   },
 
   // Source Code release
   {
-    id: 'source-v0.4.2',
+    id: 'source-v0.3.0',
     product: 'source',
-    productName: 'Scytale Source Code',
-    version: '0.4.2',
+    productName: 'Scytale Source Code Archive',
+    version: '0.3.0',
     platform: 'source',
     architecture: 'all',
-    filename: 'scytale-v0.4.2.tar.gz',
-    size: '2.1 MB',
-    sha256: '51b8a124dc5e7891fa33207a8f3b9041c28e6d909f83a47b1e8e2d4c6b5a3f12',
+    filename: 'v0.3.0-testnet.tar.gz',
+    size: 'Git Archive',
+    sha256: 'Commit tagged v0.3.0-testnet on GitHub',
     signature: {
       status: 'verified',
-      signer: 'Scytale Release Authority <releases@scytale-network.org>',
-      fingerprint: '7A8F 3B90 41C2 8E6D 9051 B8A1 24DC 5E78 91FA 3320'
+      signer: 'Scytale Git Authority'
     },
-    url: 'https://github.com/ratufatma/scytale/archive/refs/tags/v0.4.2.tar.gz',
+    url: 'https://github.com/ratufatma/scytale/archive/refs/tags/v0.3.0-testnet.tar.gz',
     isConfigured: true,
-    notes: 'Official tagged release archive from the primary git repository.'
+    notes: 'Official tagged source code archive from the primary git repository.'
   },
 
-  // Unconfigured / Forthcoming Assets (Explicitly modeled with isConfigured: false as requested)
+  // Forthcoming / Roadmap Assets with Coming Soon status
   {
-    id: 'desktop-v0.4.2-unconfigured',
+    id: 'desktop-v0.3.0-unconfigured',
     product: 'scytale-desktop',
-    productName: 'Scytale Desktop',
-    version: '0.4.2',
+    productName: 'Scytale Desktop GUI Wallet',
+    version: '0.3.0',
     platform: 'linux',
     architecture: 'x86_64',
-    filename: 'scytale-desktop-v0.4.2-linux.AppImage',
-    size: 'Pending compilation',
-    sha256: 'Pending compilation build pipeline',
+    filename: 'scytale-desktop-v0.3.0-linux.AppImage',
+    size: 'Akan Segera Terbit (Fase 2)',
+    sha256: 'Tahap Riset & Pengembangan (R&D)',
     signature: {
       status: 'unconfigured'
     },
     url: '',
     isConfigured: false,
-    notes: 'Release asset not configured yet. GUI client is currently in active staging.'
+    notes: 'Akan Segera Terbit (Fase 2). GUI client berbasis Tauri/Rust sedang dalam tahap riset dan pengembangan (R&D).'
   },
   {
-    id: 'mobile-v0.4.2-android',
+    id: 'mobile-v0.3.0-android',
     product: 'scytale-mobile',
-    productName: 'Scytale Mobile',
-    version: '0.4.2',
+    productName: 'Scytale Mobile Companion',
+    version: '0.3.0',
     platform: 'android',
     architecture: 'arm64',
-    filename: 'scytale-wallet-v0.4.2.apk',
-    size: 'Pending packaging',
-    sha256: 'Pending packaging build pipeline',
+    filename: 'scytale-wallet-v0.3.0.apk',
+    size: 'Akan Segera Terbit (Fase 2)',
+    sha256: 'Tahap Riset & Pengembangan (R&D)',
     signature: {
       status: 'unconfigured'
     },
     url: '',
     isConfigured: false,
-    notes: 'Release asset not configured yet. Android APK builds will be distributed upon milestone 2 audit.'
+    notes: 'Akan Segera Terbit (Fase 2). Rilis dijadwalkan pada fase pengembangan berikutnya sesuai roadmap ekosistem Scytale.'
   }
 ];

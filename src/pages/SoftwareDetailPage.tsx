@@ -80,12 +80,23 @@ export const SoftwareDetailPage: React.FC<SoftwareDetailPageProps> = ({
             href={software.repositoryPath}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white underline font-mono"
+            className="inline-flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"
           >
-            <span>View Crate Source Code</span>
-            <ExternalLink className="w-3 h-3" />
+            <span>Source Code</span>
+            <ExternalLink className="w-3.5 h-3.5" />
           </a>
         </div>
+
+        {software.status === 'coming-soon' && (
+          <div className="mt-4 p-4 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-800 dark:text-amber-300 flex items-start gap-3">
+            <span className="px-2 py-0.5 text-xs font-semibold rounded-full bg-amber-500/20 text-amber-700 dark:text-amber-400 border border-amber-500/30 whitespace-nowrap shrink-0 mt-0.5">
+              Akan Segera Terbit (Fase 2)
+            </span>
+            <p className="text-xs sm:text-sm leading-relaxed">
+              Fitur ini sedang dalam tahap riset dan pengembangan (R&D). Rilis dijadwalkan pada fase pengembangan berikutnya sesuai roadmap ekosistem Scytale.
+            </p>
+          </div>
+        )}
       </header>
 
       {/* Description & Overview */}

@@ -113,21 +113,25 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
         {/* Quick Command Box */}
         <div className="mt-10 max-w-2xl rounded-lg border border-slate-800 dark:border-white/10 bg-slate-950 text-slate-100 p-4 shadow-sm font-mono text-xs">
           <div className="flex items-center justify-between text-slate-400 pb-2 border-b border-slate-800 text-[11px]">
-            <span>{language === 'id' ? 'MULAI CEPAT (KOMPILASI & JALANKAN)' : 'QUICK START (COMPILE & RUN)'}</span>
+            <span>{language === 'id' ? 'MULAI CEPAT (UNDUH & TAMBANG SOLO)' : 'QUICK START (DOWNLOAD & SOLO MINE)'}</span>
             <CopyButton
-              text="git clone https://github.com/ratufatma/scytale && cd scytale && cargo build --release && ./target/release/scytale-node start"
+              text="curl -LO https://github.com/ratufatma/scytale/releases/download/v0.3.0-testnet/scytale-v0.3.0-testnet-linux-x86_64.tar.gz && tar -xzvf scytale-v0.3.0-testnet-linux-x86_64.tar.gz && cd scytale-v0.3.0-testnet-linux-x86_64 && ./scytale-node start --mine --miner-payout <ALAMAT_DOMPET_SCY>"
               className="border-slate-700 bg-slate-800 text-slate-300 hover:bg-slate-700"
             />
           </div>
-          <div className="pt-3 text-slate-300 overflow-x-auto">
-            <span className="text-slate-500">$ </span>
-            <span>git clone https://github.com/ratufatma/scytale &amp;&amp; cd scytale</span>
-            <br />
-            <span className="text-slate-500">$ </span>
-            <span>cargo build --release</span>
-            <br />
-            <span className="text-slate-500">$ </span>
-            <span className="text-emerald-400">./target/release/scytale-node start --network testnet</span>
+          <div className="pt-3 text-slate-300 overflow-x-auto space-y-1">
+            <div>
+              <span className="text-slate-500">$ </span>
+              <span>curl -LO https://github.com/ratufatma/scytale/releases/download/v0.3.0-testnet/scytale-v0.3.0-testnet-linux-x86_64.tar.gz</span>
+            </div>
+            <div>
+              <span className="text-slate-500">$ </span>
+              <span>tar -xzvf scytale-v0.3.0-testnet-linux-x86_64.tar.gz &amp;&amp; cd scytale-v0.3.0-testnet-linux-x86_64</span>
+            </div>
+            <div>
+              <span className="text-slate-500">$ </span>
+              <span className="text-emerald-400">./scytale-node start --mine --miner-payout &lt;ALAMAT_DOMPET_SCY&gt;</span>
+            </div>
           </div>
         </div>
       </section>

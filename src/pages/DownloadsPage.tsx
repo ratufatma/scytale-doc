@@ -153,7 +153,7 @@ export const DownloadsPage: React.FC = () => {
             <CodeBlock
               language="bash"
               caption="Terminal Checksum Command"
-              code="# Linux / macOS:\nsha256sum scytale-node-v0.4.2-linux-x86_64.tar.gz\n\n# Windows (PowerShell):\nGet-FileHash scytale-node-v0.4.2-windows-x86_64.zip -Algorithm SHA256"
+              code="# Linux:\nsha256sum scytale-v0.3.0-testnet-linux-x86_64.tar.gz\n\n# Expected Output:\n# 816163f2c5b2e095fe5f1315d60e1843d09e5ae796dd6390d36b2ff4dbc30e29  scytale-v0.3.0-testnet-linux-x86_64.tar.gz"
             />
           </div>
 
@@ -165,13 +165,13 @@ export const DownloadsPage: React.FC = () => {
             </div>
             <p className="text-xs text-slate-600 dark:text-slate-400">
               {language === 'id'
-                ? `Rilis resmi ditandatangani oleh Otoritas Rilis Scytale dengan fingerprint kunci ${SITE_CONFIG.pgpKeyId}.`
-                : `Official releases are signed by the Scytale Release Authority with key fingerprint ${SITE_CONFIG.pgpKeyId}.`}
+                ? `Verifikasi langsung menggunakan file checksum SHA256 resmi yang diterbitkan di GitHub Release:`
+                : `Verify directly using the official SHA256 checksum file published on GitHub Releases:`}
             </p>
             <CodeBlock
               language="bash"
-              caption="GPG Signature Check"
-              code="# Download detached signature:\ncurl -LO https://github.com/ratufatma/scytale/releases/download/v0.4.2/scytale-node-v0.4.2-linux-x86_64.tar.gz.asc\n\n# Verify against official release key:\ngpg --verify scytale-node-v0.4.2-linux-x86_64.tar.gz.asc"
+              caption="SHA256 Checksum Verification"
+              code="# Download file dan checksum resmi:\ncurl -LO https://github.com/ratufatma/scytale/releases/download/v0.3.0-testnet/scytale-v0.3.0-testnet-linux-x86_64.tar.gz\ncurl -LO https://github.com/ratufatma/scytale/releases/download/v0.3.0-testnet/scytale-v0.3.0-testnet-linux-x86_64.tar.gz.sha256\n\n# Jalankan verifikasi otomatis:\nsha256sum -c scytale-v0.3.0-testnet-linux-x86_64.tar.gz.sha256"
             />
           </div>
         </div>

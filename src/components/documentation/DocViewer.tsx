@@ -3,7 +3,7 @@ import { DocPage } from '../../types';
 import { CodeBlock } from '../ui/CodeBlock';
 import { Callout } from '../ui/Callout';
 import { PreCopyButton } from '../ui/PreCopyButton';
-import { ChevronRight, ArrowLeft, ArrowRight, BookOpen } from 'lucide-react';
+import { ChevronRight, ArrowLeft, ArrowRight, BookOpen, AlertTriangle } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
 import { usePreClipboard } from '../../hooks/usePreClipboard';
 
@@ -50,6 +50,27 @@ export const DocViewer: React.FC<DocViewerProps> = ({ page, onNavigatePage }) =>
           </p>
         )}
       </header>
+
+      {/* Coming Soon Banner */}
+      {page.status === 'coming-soon' && (
+        <div className="mb-8 p-4 sm:p-5 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-800 dark:text-amber-300 flex items-start gap-3.5 shadow-2xs">
+          <div className="p-1 rounded-md bg-amber-500/20 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5">
+            <AlertTriangle className="w-4 h-4" />
+          </div>
+          <div className="space-y-1.5">
+            <div className="flex items-center gap-2">
+              <span className="px-2 py-0.5 text-xs font-semibold rounded-full bg-amber-500/20 text-amber-700 dark:text-amber-400 border border-amber-500/30">
+                {language === 'id' ? 'Akan Segera Terbit (Fase 2)' : 'Coming Soon (Phase 2)'}
+              </span>
+            </div>
+            <p className="text-xs sm:text-sm leading-relaxed text-amber-900 dark:text-amber-200">
+              {language === 'id'
+                ? 'Fitur ini sedang dalam tahap riset dan pengembangan (R&D). Rilis dijadwalkan pada fase pengembangan berikutnya sesuai roadmap ekosistem Scytale.'
+                : 'Fitur ini sedang dalam tahap riset dan pengembangan (R&D). Rilis dijadwalkan pada fase pengembangan berikutnya sesuai roadmap ekosistem Scytale.'}
+            </p>
+          </div>
+        </div>
+      )}
 
       {/* Page Content Stream */}
       <div className="space-y-6 text-slate-700 dark:text-slate-300 text-sm sm:text-base leading-relaxed">

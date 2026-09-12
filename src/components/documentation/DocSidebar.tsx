@@ -88,13 +88,18 @@ export const DocSidebar: React.FC<DocSidebarProps> = ({
                         <button
                           key={page.id}
                           onClick={() => onSelectPage(section.slug, page.slug)}
-                          className={`w-full text-left px-2.5 py-1.5 rounded-md text-xs transition-colors block ${
+                          className={`w-full text-left px-2.5 py-1.5 rounded-md text-xs transition-colors flex items-center justify-between gap-1.5 ${
                             isActive
                               ? 'bg-slate-900 dark:bg-white text-white dark:text-slate-950 font-medium shadow-2xs'
                               : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800'
                           }`}
                         >
-                          {page.title}
+                          <span className="truncate">{page.title}</span>
+                          {page.status === 'coming-soon' && (
+                            <span className="shrink-0 px-1.5 py-0.5 rounded-full text-[9px] font-semibold bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20">
+                              Fase 2
+                            </span>
+                          )}
                         </button>
                       );
                     })}

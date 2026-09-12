@@ -2,7 +2,7 @@ export const SITE_CONFIG = {
   name: 'Scytale',
   tagline: 'A lightweight blockchain network built around simple, verifiable primitives.',
   description: 'Official portal, technical documentation, binary download center, and protocol specification for the Scytale blockchain network.',
-  version: '0.4.2',
+  version: '0.3.0',
   releaseDate: 'September 2026',
   supply: '66,000,000 SCY',
   tokenSymbol: 'SCY',

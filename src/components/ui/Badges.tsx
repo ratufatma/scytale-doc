@@ -46,3 +46,11 @@ export const VersionBadge: React.FC<{ version: string; status?: ReleaseStatus }>
     </div>
   );
 };
+
+export const ComingSoonBadge: React.FC<{ label?: string; className?: string }> = ({ label, className = '' }) => {
+  return (
+    <span className={`inline-flex items-center px-2 py-0.5 text-xs font-semibold rounded-full bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20 whitespace-nowrap ${className}`}>
+      {label || 'Akan Segera Terbit (Fase 2)'}
+    </span>
+  );
+};
