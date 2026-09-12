@@ -1,6 +1,171 @@
 import { DownloadArtifact } from '../types';
 
 export const DOWNLOAD_ARTIFACTS: DownloadArtifact[] = [
+  // --- Scytale Passbook Suite (v0.1.0) ---
+  {
+    id: 'passbook-v0.1.0-windows-exe',
+    product: 'scytale-passbook',
+    productName: 'Scytale Passbook (Windows Setup .exe)',
+    version: '0.1.0',
+    platform: 'windows',
+    architecture: 'x86_64',
+    filename: 'Scytale Passbook_0.1.0_x64-setup.exe',
+    size: '1.83 MB',
+    sha256: 'c647f2427a2234f4f03e23c6858cad647586c0d80e729e54e7ac924be615eda9',
+    signature: {
+      status: 'verified',
+      signer: 'Scytale Release Authority <ratufatmasetyaningrum@gmail.com>'
+    },
+    url: 'https://github.com/ratufatma/scytale-passbook/releases/download/v0.1.0/Scytale.Passbook_0.1.0_x64-setup.exe',
+    isConfigured: true,
+    notes: 'Windows 64-bit NSIS standalone setup installer with desktop and start menu shortcuts.'
+  },
+  {
+    id: 'passbook-v0.1.0-windows-msi',
+    product: 'scytale-passbook',
+    productName: 'Scytale Passbook (Windows MSI Package)',
+    version: '0.1.0',
+    platform: 'windows',
+    architecture: 'x86_64',
+    filename: 'Scytale Passbook_0.1.0_x64_en-US.msi',
+    size: '2.74 MB',
+    sha256: 'eda8ce20fdf252f4f2df9006a6020c05a3a0fa464dc5fc6a8353513f489e6582',
+    signature: {
+      status: 'verified',
+      signer: 'Scytale Release Authority <ratufatmasetyaningrum@gmail.com>'
+    },
+    url: 'https://github.com/ratufatma/scytale-passbook/releases/download/v0.1.0/Scytale.Passbook_0.1.0_x64_en-US.msi',
+    isConfigured: true,
+    notes: 'Windows 64-bit WiX MSI enterprise installer supporting silent and per-user deployment.'
+  },
+  {
+    id: 'passbook-v0.1.0-linux-deb',
+    product: 'scytale-passbook',
+    productName: 'Scytale Passbook (Linux DEB)',
+    version: '0.1.0',
+    platform: 'linux',
+    architecture: 'x86_64',
+    filename: 'scytale-passbook_0.1.0_amd64.deb',
+    size: '2.8 MB',
+    sha256: '757cc4931fde15a90369fb1eecdce19f89052c8772de61eb62fa9211480b4b24',
+    signature: {
+      status: 'verified',
+      signer: 'Scytale Release Authority <ratufatmasetyaningrum@gmail.com>'
+    },
+    url: 'https://github.com/ratufatma/scytale-passbook/releases/download/v0.1.0/scytale-passbook_0.1.0_amd64.deb',
+    isConfigured: true,
+    notes: 'Debian/Ubuntu installation package for Scytale Passbook wallet.'
+  },
+  {
+    id: 'passbook-v0.1.0-linux-appimage',
+    product: 'scytale-passbook',
+    productName: 'Scytale Passbook (Linux AppImage)',
+    version: '0.1.0',
+    platform: 'linux',
+    architecture: 'x86_64',
+    filename: 'scytale-passbook_0.1.0_amd64.AppImage',
+    size: '70 MB',
+    sha256: 'c9baa1e42a16eafdfbd841a4b89bd508040faf0e7f93a40354e39a367540360c',
+    signature: {
+      status: 'verified',
+      signer: 'Scytale Release Authority <ratufatmasetyaningrum@gmail.com>'
+    },
+    url: 'https://github.com/ratufatma/scytale-passbook/releases/download/v0.1.0/scytale-passbook_0.1.0_amd64.AppImage',
+    isConfigured: true,
+    notes: 'Standalone portable Linux executable for Scytale Passbook. Run with chmod +x.'
+  },
+  {
+    id: 'passbook-v0.1.0-android-apk',
+    product: 'scytale-passbook',
+    productName: 'Scytale Passbook (Android APK)',
+    version: '0.1.0',
+    platform: 'android',
+    architecture: 'all',
+    filename: 'scytale-passbook_0.1.0.apk',
+    size: '98 MB',
+    sha256: '57aa96ad55da42911bab3848d059669804bcb59d88c695d3530523647288f44e',
+    signature: {
+      status: 'verified',
+      signer: 'Scytale Release Authority <ratufatmasetyaningrum@gmail.com>'
+    },
+    url: 'https://github.com/ratufatma/scytale-passbook/releases/download/v0.1.0/scytale-passbook_0.1.0.apk',
+    isConfigured: true,
+    notes: 'Android APK package for Scytale Passbook mobile companion.'
+  },
+
+  // --- Scytale Studio IDE (v0.1.0) ---
+  {
+    id: 'studio-v0.1.0-windows-exe',
+    product: 'scytale-studio',
+    productName: 'Scytale Studio IDE (Windows Setup .exe)',
+    version: '0.1.0',
+    platform: 'windows',
+    architecture: 'x86_64',
+    filename: 'Scytale Studio_0.1.0_x64-setup.exe',
+    size: '3.43 MB',
+    sha256: '990a7e810e3e348e1d850a6bd5f2406e7d82620e421468ca05d1f52cfebe3ac8',
+    signature: {
+      status: 'verified',
+      signer: 'Scytale Release Authority <ratufatmasetyaningrum@gmail.com>'
+    },
+    url: 'https://github.com/ratufatma/scytale/releases/download/v0.1.0/Scytale.Studio_0.1.0_x64-setup.exe',
+    isConfigured: true,
+    notes: 'Windows 64-bit NSIS setup installer for Scytale Studio IDE with integrated PowerShell PTY terminal.'
+  },
+  {
+    id: 'studio-v0.1.0-windows-msi',
+    product: 'scytale-studio',
+    productName: 'Scytale Studio IDE (Windows MSI Package)',
+    version: '0.1.0',
+    platform: 'windows',
+    architecture: 'x86_64',
+    filename: 'Scytale Studio_0.1.0_x64_en-US.msi',
+    size: '4.86 MB',
+    sha256: '11ad1c3f4526ace2a7c1113180dd37752f4148c699c9112de786a3c7c06d65c3',
+    signature: {
+      status: 'verified',
+      signer: 'Scytale Release Authority <ratufatmasetyaningrum@gmail.com>'
+    },
+    url: 'https://github.com/ratufatma/scytale/releases/download/v0.1.0/Scytale.Studio_0.1.0_x64_en-US.msi',
+    isConfigured: true,
+    notes: 'Windows 64-bit WiX MSI enterprise installer for Scytale Studio IDE.'
+  },
+  {
+    id: 'studio-v0.1.0-linux-deb',
+    product: 'scytale-studio',
+    productName: 'Scytale Studio IDE (Linux DEB)',
+    version: '0.1.0',
+    platform: 'linux',
+    architecture: 'x86_64',
+    filename: 'scytale-studio_0.1.0_amd64.deb',
+    size: '5.4 MB',
+    sha256: '7c58440d55d287c138bf15ef38cc17c24087b227e9366611f4a25f82bb734e46',
+    signature: {
+      status: 'verified',
+      signer: 'Scytale Release Authority <ratufatmasetyaningrum@gmail.com>'
+    },
+    url: 'https://github.com/ratufatma/scytale/releases/download/v0.1.0/scytale-studio_0.1.0_amd64.deb',
+    isConfigured: true,
+    notes: 'Debian/Ubuntu installation package for Scytale Studio IDE.'
+  },
+  {
+    id: 'studio-v0.1.0-linux-appimage',
+    product: 'scytale-studio',
+    productName: 'Scytale Studio IDE (Linux AppImage)',
+    version: '0.1.0',
+    platform: 'linux',
+    architecture: 'x86_64',
+    filename: 'scytale-studio_0.1.0_amd64.AppImage',
+    size: '73 MB',
+    sha256: '0b799676f647d1f4ad8d117757ad00787c157fcf0268d7c2acbe6cf3f6a80467',
+    signature: {
+      status: 'verified',
+      signer: 'Scytale Release Authority <ratufatmasetyaningrum@gmail.com>'
+    },
+    url: 'https://github.com/ratufatma/scytale/releases/download/v0.1.0/scytale-studio_0.1.0_amd64.AppImage',
+    isConfigured: true,
+    notes: 'Standalone portable Linux executable for Scytale Studio IDE. Run with chmod +x.'
+  },
   // Scytale Release Bundle v0.4.0-testnet (Node with Stratum Pool & CLI)
   {
     id: 'bundle-v0.4.0-linux-x86_64',

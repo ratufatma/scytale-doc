@@ -54,6 +54,8 @@ export const DownloadsPage: React.FC = () => {
               <option value="all">{language === 'id' ? 'Semua Perangkat Lunak' : 'All Software'}</option>
               <option value="scytale-node">Scytale Node</option>
               <option value="scytale-cli">Scytale CLI</option>
+              <option value="scytale-passbook">Scytale Passbook</option>
+              <option value="scytale-studio">Scytale Studio</option>
               <option value="scytale-wallet">Scytale Wallet</option>
               <option value="scytale-desktop">Scytale Desktop</option>
               <option value="scytale-mobile">Scytale Mobile</option>
