@@ -41,8 +41,7 @@ export const RELEASES: Release[] = [
     },
     artifacts: DOWNLOAD_ARTIFACTS.filter(a => a.version === '0.3.0'),
     knownIssues: [
-      'Mining pool stratum coordinator is in R&D staging (scheduled for Phase 2).',
-      'GUI desktop wallet client is currently in active staging.'
+      'Mining pool stratum coordinator is in R&D staging (scheduled for Phase 2).'
     ],
     rawChangelogUrl: 'https://github.com/ratufatma/scytale/releases/tag/v0.3.0-testnet'
   }

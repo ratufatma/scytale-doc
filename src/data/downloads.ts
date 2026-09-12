@@ -101,39 +101,62 @@ export const DOWNLOAD_ARTIFACTS: DownloadArtifact[] = [
     notes: 'Official tagged source code archive from the primary git repository.'
   },
 
-  // Forthcoming / Roadmap Assets with Coming Soon status
+  // Linux Desktop Clients (.deb & .AppImage)
   {
-    id: 'desktop-v0.3.0-unconfigured',
+    id: 'desktop-deb-v0.3.0-linux-x86_64',
     product: 'scytale-desktop',
-    productName: 'Scytale Desktop GUI Wallet',
+    productName: 'Scytale Desktop Explorer (.deb)',
     version: '0.3.0',
     platform: 'linux',
     architecture: 'x86_64',
-    filename: 'scytale-desktop-v0.3.0-linux.AppImage',
-    size: 'Akan Segera Terbit (Fase 2)',
-    sha256: 'Tahap Riset & Pengembangan (R&D)',
+    filename: 'scytale-desktop_0.3.0_amd64.deb',
+    size: '72 MB',
+    sha256: '0af7781ea40de86bd709b1f14bf73bb581cb1118f971a3a179117a6f88007644',
     signature: {
-      status: 'unconfigured'
+      status: 'verified',
+      signer: 'Scytale Release Authority <ratufatmasetyaningrum@gmail.com>'
     },
-    url: '',
-    isConfigured: false,
-    notes: 'Akan Segera Terbit (Fase 2). GUI client berbasis Tauri/Rust sedang dalam tahap riset dan pengembangan (R&D).'
+    url: 'https://github.com/ratufatma/scytale/releases/download/v0.3.0-testnet/scytale-desktop_0.3.0_amd64.deb',
+    isConfigured: true,
+    notes: 'Debian/Ubuntu installation package for Scytale Desktop Explorer with integrated RPC dashboard and block explorer.'
   },
+  {
+    id: 'desktop-appimage-v0.3.0-linux-x86_64',
+    product: 'scytale-desktop',
+    productName: 'Scytale Desktop Explorer (.AppImage)',
+    version: '0.3.0',
+    platform: 'linux',
+    architecture: 'x86_64',
+    filename: 'Scytale Block Explorer-0.3.0.AppImage',
+    size: '104 MB',
+    sha256: '56ab066f4b8182f8d288b345ecf444875da863911f68002a05274e9e4553d63a',
+    signature: {
+      status: 'verified',
+      signer: 'Scytale Release Authority <ratufatmasetyaningrum@gmail.com>'
+    },
+    url: 'https://github.com/ratufatma/scytale/releases/download/v0.3.0-testnet/Scytale%20Block%20Explorer-0.3.0.AppImage',
+    isConfigured: true,
+    notes: 'Standalone portable Linux executable for Scytale Desktop Explorer. Make executable with chmod +x.'
+  },
+
+  // Android Mobile Companion (.apk)
   {
     id: 'mobile-v0.3.0-android',
     product: 'scytale-mobile',
-    productName: 'Scytale Mobile Companion',
+    productName: 'Scytale Mobile Companion (.apk)',
     version: '0.3.0',
     platform: 'android',
-    architecture: 'arm64',
-    filename: 'scytale-wallet-v0.3.0.apk',
-    size: 'Akan Segera Terbit (Fase 2)',
-    sha256: 'Tahap Riset & Pengembangan (R&D)',
+    architecture: 'all',
+    filename: 'scytale-mobile-v0.3.0-testnet.apk',
+    size: '139 MB',
+    sha256: '3446c9b66d8b0c4b2de5f544a03d8e671270eccaf76dc1487f2981af4eaedcf2',
     signature: {
-      status: 'unconfigured'
+      status: 'verified',
+      signer: 'Scytale Release Authority <ratufatmasetyaningrum@gmail.com>',
+      signatureUrl: 'https://github.com/ratufatma/scytale/releases/download/v0.3.0-testnet/scytale-mobile-v0.3.0-testnet.apk.sha256'
     },
-    url: '',
-    isConfigured: false,
-    notes: 'Akan Segera Terbit (Fase 2). Rilis dijadwalkan pada fase pengembangan berikutnya sesuai roadmap ekosistem Scytale.'
+    url: 'https://github.com/ratufatma/scytale/releases/download/v0.3.0-testnet/scytale-mobile-v0.3.0-testnet.apk',
+    isConfigured: true,
+    notes: 'Offline Hermes bundled standalone Android package for Scytale Mobile Companion with wallet management and network telemetry.'
   }
 ];
