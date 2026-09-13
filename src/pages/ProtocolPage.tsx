@@ -3,6 +3,7 @@ import { Cpu, Lock, Database, Terminal, GitBranch, ArrowRight, ShieldCheck } fro
 import { CodeBlock } from '../components/ui/CodeBlock';
 import { Callout } from '../components/ui/Callout';
 import { PreCopyButton } from '../components/ui/PreCopyButton';
+import { useLanguage } from '../context/LanguageContext';
 
 const TX_OBJECT_DIAGRAM = `+-----------------------------------------------------------------------------------+
 |                            Scytale Transaction Object                             |
@@ -39,6 +40,7 @@ const P2P_WIRE_DIAGRAM = `+------------------+-------------------+--------------
 +-----------------------------------------------------------------------------+`;
 
 export const ProtocolPage: React.FC = () => {
+  const { t } = useLanguage();
   const [activeTab, setActiveTab] = useState<'utxo' | 'pow' | 'storage' | 'hashing' | 'reorg' | 'p2p'>('utxo');
 
   return (
@@ -47,25 +49,25 @@ export const ProtocolPage: React.FC = () => {
       <header className="border-b border-slate-200 dark:border-white/10 pb-8 space-y-3">
         <div className="flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
           <Cpu className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
-          <span>Core Engineering Specification</span>
+          <span>{t.protocol.badge}</span>
         </div>
         <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 dark:text-white font-mono">
-          Scytale Protocol Specification
+          {t.protocol.title}
         </h1>
         <p className="text-slate-600 dark:text-slate-400 text-sm sm:text-base max-w-3xl leading-relaxed">
-          Formal protocol mechanics, invariant rules, binary serialization layouts, and consensus state machines governing the Scytale distributed ledger.
+          {t.protocol.description}
         </p>
       </header>
 
       {/* Interactive Topic Tabs */}
       <div className="flex items-center gap-2 overflow-x-auto pb-2 border-b border-slate-200 dark:border-white/10 text-xs font-mono">
         {[
-          { id: 'utxo', label: '1. UTXO & Transaction Model' },
-          { id: 'pow', label: '2. PoW & Difficulty Target' },
-          { id: 'hashing', label: '3. Blake3 Hashing' },
-          { id: 'storage', label: '4. redb Persistence' },
-          { id: 'reorg', label: '5. Chain Selection & Reorg' },
-          { id: 'p2p', label: '6. P2P Wire Protocol' }
+          { id: 'utxo', label: t.protocol.tabs.utxo },
+          { id: 'pow', label: t.protocol.tabs.pow },
+          { id: 'hashing', label: t.protocol.tabs.hashing },
+          { id: 'storage', label: t.protocol.tabs.storage },
+          { id: 'reorg', label: t.protocol.tabs.reorg },
+          { id: 'p2p', label: t.protocol.tabs.p2p }
         ].map(tab => (
           <button
             key={tab.id}

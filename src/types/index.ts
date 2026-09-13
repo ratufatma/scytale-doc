@@ -23,6 +23,7 @@ export interface DownloadArtifact {
   url: string;
   isConfigured: boolean;
   notes?: string;
+  persona?: 'wallet' | 'developer' | 'node';
 }
 
 export interface ReleaseChanges {

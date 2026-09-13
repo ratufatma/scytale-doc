@@ -104,17 +104,35 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate, onOpenS
             </kbd>
           </button>
 
-          {/* Language Switcher Button */}
-          <div className="relative flex items-center">
+          {/* Language Switcher Segmented Control */}
+          <div className="flex items-center rounded-lg border border-slate-200 dark:border-white/10 bg-slate-100/80 dark:bg-slate-800/80 p-0.5 text-xs font-mono font-medium">
             <button
-              onClick={toggleLanguage}
-              id="language-toggle-btn"
-              aria-label={`Switch language (current: ${language.toUpperCase()})`}
-              title={language === 'en' ? 'Ganti ke Bahasa Indonesia' : 'Switch to English'}
-              className="flex items-center gap-1.5 px-2 py-1.5 rounded-lg border border-slate-200 dark:border-white/10 bg-slate-100/80 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 hover:bg-slate-200/60 dark:hover:bg-slate-700/60 hover:text-slate-900 dark:hover:text-white text-xs font-mono font-semibold transition-colors"
+              type="button"
+              onClick={() => setLanguage('id')}
+              id="lang-btn-id"
+              className={`px-2 py-1 rounded-md transition-all ${
+                language === 'id'
+                  ? 'bg-white dark:bg-slate-900 text-slate-900 dark:text-white font-bold shadow-xs'
+                  : 'text-slate-500 hover:text-slate-900 dark:hover:text-white'
+              }`}
+              title="Ganti ke Bahasa Indonesia"
+              aria-pressed={language === 'id'}
             >
-              <Globe className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400" />
-              <span>{language === 'en' ? 'EN' : 'ID'}</span>
+              ID
+            </button>
+            <button
+              type="button"
+              onClick={() => setLanguage('en')}
+              id="lang-btn-en"
+              className={`px-2 py-1 rounded-md transition-all ${
+                language === 'en'
+                  ? 'bg-white dark:bg-slate-900 text-slate-900 dark:text-white font-bold shadow-xs'
+                  : 'text-slate-500 hover:text-slate-900 dark:hover:text-white'
+              }`}
+              title="Switch to English"
+              aria-pressed={language === 'en'}
+            >
+              EN
             </button>
           </div>
 
@@ -194,13 +212,30 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate, onOpenS
 
           <div className="pt-3 border-t border-slate-100 dark:border-white/10 flex items-center justify-between gap-2">
             <span className="text-xs text-slate-500 font-mono">{t.nav.language}:</span>
-            <button
-              onClick={toggleLanguage}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-white/10 bg-slate-100/80 dark:bg-slate-800/80 text-xs font-mono text-slate-700 dark:text-slate-300"
-            >
-              <Globe className="w-3.5 h-3.5 text-slate-500" />
-              <span>{language === 'en' ? 'Bahasa Indonesia (ID)' : 'English (EN)'}</span>
-            </button>
+            <div className="flex items-center rounded-lg border border-slate-200 dark:border-white/10 bg-slate-100/80 dark:bg-slate-800/80 p-0.5 text-xs font-mono font-medium">
+              <button
+                type="button"
+                onClick={() => setLanguage('id')}
+                className={`px-3 py-1 rounded-md transition-all ${
+                  language === 'id'
+                    ? 'bg-white dark:bg-slate-900 text-slate-900 dark:text-white font-bold shadow-xs'
+                    : 'text-slate-500 hover:text-slate-900 dark:hover:text-white'
+                }`}
+              >
+                ID (Indonesia)
+              </button>
+              <button
+                type="button"
+                onClick={() => setLanguage('en')}
+                className={`px-3 py-1 rounded-md transition-all ${
+                  language === 'en'
+                    ? 'bg-white dark:bg-slate-900 text-slate-900 dark:text-white font-bold shadow-xs'
+                    : 'text-slate-500 hover:text-slate-900 dark:hover:text-white'
+                }`}
+              >
+                EN (English)
+              </button>
+            </div>
           </div>
 
           <div className="pt-2 border-t border-slate-100 dark:border-white/10 flex items-center justify-between gap-2">

@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { CURRENT_NETWORK_INFO, NETWORK_PARAMETERS } from '../data/network';
-import { Network, Server, ShieldCheck, AlertCircle, RefreshCw, Terminal, CheckCircle } from 'lucide-react';
+import { Network, AlertCircle, RefreshCw } from 'lucide-react';
 import { CopyButton } from '../components/ui/CopyButton';
-import { CodeBlock } from '../components/ui/CodeBlock';
+import { useLanguage } from '../context/LanguageContext';
 
 export const NetworkPage: React.FC = () => {
+  const { t, language } = useLanguage();
   const [rpcUrlInput, setRpcUrlInput] = useState('');
   const [connectionStatus, setConnectionStatus] = useState<'idle' | 'testing' | 'unconfigured'>('idle');
 
@@ -22,13 +23,13 @@ export const NetworkPage: React.FC = () => {
       <header className="border-b border-slate-200 dark:border-white/10 pb-8 space-y-3">
         <div className="flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
           <Network className="w-4 h-4 text-slate-700 dark:text-slate-300" />
-          <span>Protocol Specifications &amp; Parameters</span>
+          <span>{t.network.badge}</span>
         </div>
         <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 dark:text-white font-mono">
-          Scytale Network
+          {t.network.title}
         </h1>
         <p className="text-slate-600 dark:text-slate-400 text-sm sm:text-base max-w-3xl leading-relaxed">
-          Operational specifications, consensus constants, monetary ceilings, and telemetry integration settings for the active Scytale testnet cluster.
+          {t.network.description}
         </p>
       </header>
 
@@ -38,7 +39,7 @@ export const NetworkPage: React.FC = () => {
           <div>
             <div className="flex items-center gap-2">
               <span className="text-xs font-mono font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
-                Network Cluster
+                {t.network.cluster}
               </span>
               <span className="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 font-mono text-xs font-semibold border border-slate-200 dark:border-white/10">
                 {CURRENT_NETWORK_INFO.networkId}
@@ -51,22 +52,22 @@ export const NetworkPage: React.FC = () => {
 
           <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-amber-200 dark:border-amber-500/30 bg-amber-50 dark:bg-amber-950/40 text-amber-900 dark:text-amber-300 text-xs font-mono">
             <AlertCircle className="w-4 h-4 text-amber-600 dark:text-amber-400 shrink-0" />
-            <span>Telemetry endpoint not configured</span>
+            <span>{language === 'id' ? 'Endpoint telemetri belum dikonfigurasi' : 'Telemetry endpoint not configured'}</span>
           </div>
         </div>
 
         {/* Status Callout */}
         <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-white/10 text-xs text-slate-600 dark:text-slate-300 space-y-2">
-          <p className="font-semibold text-slate-900 dark:text-white">Truthful Telemetry Notice:</p>
+          <p className="font-semibold text-slate-900 dark:text-white">{t.network.noticeTitle}</p>
           <p className="leading-relaxed">
-            {CURRENT_NETWORK_INFO.statusNotice} Scytale strictly refrains from rendering simulated or fake real-time counters. To query live block heights, difficulty, or active peer topologies, interact with your trusted local node using the CLI or configure a trusted RPC endpoint below.
+            {t.network.noticeText}
           </p>
         </div>
 
         {/* RPC Test Input */}
         <form onSubmit={testConnection} className="space-y-3 pt-2">
           <label className="block text-xs font-mono font-semibold uppercase tracking-wider text-slate-700 dark:text-slate-300">
-            Configure Live RPC Endpoint
+            {t.network.rpcTitle}
           </label>
           <div className="flex flex-col sm:flex-row gap-2 max-w-xl">
             <input
@@ -84,10 +85,10 @@ export const NetworkPage: React.FC = () => {
               {connectionStatus === 'testing' ? (
                 <>
                   <RefreshCw className="w-3.5 h-3.5 animate-spin" />
-                  <span>Connecting...</span>
+                  <span>{t.network.rpcConnecting}</span>
                 </>
               ) : (
-                <span>Test Node RPC</span>
+                <span>{t.network.rpcBtn}</span>
               )}
             </button>
           </div>
@@ -96,7 +97,7 @@ export const NetworkPage: React.FC = () => {
             <p className="text-xs text-amber-700 dark:text-amber-400 font-mono flex items-center gap-1.5">
               <AlertCircle className="w-3.5 h-3.5" />
               <span>
-                Unable to reach RPC at {rpcUrlInput || 'default address'}. Ensure `scytale-node` is running locally with `--rpc.enabled`.
+                {t.network.rpcError} ({rpcUrlInput || 'default address'})
               </span>
             </p>
           )}
@@ -106,9 +107,9 @@ export const NetworkPage: React.FC = () => {
       {/* Network Constants & Parameters Matrix */}
       <section className="space-y-6">
         <div>
-          <h2 className="text-xl font-bold text-slate-900 dark:text-white font-mono">Consensus &amp; Monetary Parameters</h2>
+          <h2 className="text-xl font-bold text-slate-900 dark:text-white font-mono">{t.network.paramsTitle}</h2>
           <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
-            Immutable protocol constants enforced by consensus validation rules.
+            {t.network.paramsSubtitle}
           </p>
         </div>
 
@@ -116,10 +117,10 @@ export const NetworkPage: React.FC = () => {
           <table className="w-full text-left text-xs sm:text-sm">
             <thead className="bg-slate-50 dark:bg-slate-800/60 border-b border-slate-200 dark:border-white/10 text-slate-900 dark:text-white font-semibold font-mono text-xs">
               <tr>
-                <th className="px-4 py-3 border-r border-slate-200 dark:border-white/10">Category</th>
-                <th className="px-4 py-3 border-r border-slate-200 dark:border-white/10">Parameter</th>
-                <th className="px-4 py-3 border-r border-slate-200 dark:border-white/10">Specification</th>
-                <th className="px-4 py-3">Consensus Enforcement</th>
+                <th className="px-4 py-3 border-r border-slate-200 dark:border-white/10">{language === 'id' ? 'Kategori' : 'Category'}</th>
+                <th className="px-4 py-3 border-r border-slate-200 dark:border-white/10">{language === 'id' ? 'Parameter' : 'Parameter'}</th>
+                <th className="px-4 py-3 border-r border-slate-200 dark:border-white/10">{language === 'id' ? 'Spesifikasi' : 'Specification'}</th>
+                <th className="px-4 py-3">{language === 'id' ? 'Penegakan Konsensus' : 'Consensus Enforcement'}</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-200 dark:divide-white/10">
@@ -147,9 +148,9 @@ export const NetworkPage: React.FC = () => {
 
       {/* Genesis Block Specifications */}
       <section className="rounded-xl border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-[#111827] p-6 space-y-4">
-        <h3 className="text-base font-bold text-slate-900 dark:text-white font-mono">Genesis Block Anchor</h3>
+        <h3 className="text-base font-bold text-slate-900 dark:text-white font-mono">{t.network.genesisTitle}</h3>
         <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-          The genesis block is hardcoded into all conforming implementations. Its hash forms the root anchor for the canonical testnet chain tree.
+          {t.network.genesisSubtitle}
         </p>
 
         <div className="p-3 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/10 space-y-2 font-mono text-xs">

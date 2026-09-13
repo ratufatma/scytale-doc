@@ -92,6 +92,22 @@ export interface Translations {
     step1Desc: string;
     step2Title: string;
     step2Desc: string;
+    personaTabs: {
+      walletTitle: string;
+      walletSubtitle: string;
+      walletBadge: string;
+      walletTarget: string;
+      devTitle: string;
+      devSubtitle: string;
+      devBadge: string;
+      devTarget: string;
+      nodeTitle: string;
+      nodeSubtitle: string;
+      nodeBadge: string;
+      nodeTarget: string;
+      nodeWarningTitle: string;
+      nodeWarningText: string;
+    };
   };
   releases: {
     badge: string;
@@ -270,6 +286,22 @@ const DICTIONARY: Record<Language, Translations> = {
       step1Desc: 'Run the hashing utility in your terminal and verify character-for-character with the digest listed.',
       step2Title: '2. Verify Cryptographic PGP Signature',
       step2Desc: 'Download the detached .asc signature file and verify against the official Scytale Release Authority key.',
+      personaTabs: {
+        walletTitle: 'User Wallet (Passbook)',
+        walletSubtitle: 'Recommended for regular users to securely store, receive, and send SCY coins.',
+        walletBadge: 'Recommended for Regular Users',
+        walletTarget: 'General users who want to store, receive, and send coins.',
+        devTitle: 'Developer Tools & IDE',
+        devSubtitle: 'Integrated workbench for eUTXO smart contract development, WASM bytecode builds, and simulation.',
+        devBadge: 'Development Environment & IDE',
+        devTarget: 'Smart contract developers & eUTXO simulation engineers.',
+        nodeTitle: 'Node Validator & Mining (Server/CLI)',
+        nodeSubtitle: 'Core consensus daemon and operator CLI tooling for running validator nodes and PoW mining.',
+        nodeBadge: 'Server Operators & Miners',
+        nodeTarget: 'Server operators, proof-of-work miners, and sysadmins.',
+        nodeWarningTitle: 'CRITICAL WARNING: SERVER / CLI PROGRAM ONLY',
+        nodeWarningText: 'WARNING: These files are command-line console (CLI) terminal programs designed to run a validator node or mining server. This is NOT a wallet application and does NOT have a graphical user interface (GUI). If you are a general user looking to store, send, or receive coins, please download Scytale Passbook under the "User Wallet" tab.',
+      },
     },
     releases: {
       badge: 'Release Ledger & Version History',
@@ -446,6 +478,22 @@ const DICTIONARY: Record<Language, Translations> = {
       step1Desc: 'Jalankan perintah hashing di terminal Anda dan cocokkan karakter demi karakter dengan digest resmi yang tertera.',
       step2Title: '2. Verifikasi Tanda Tangan PGP Kriptografis',
       step2Desc: 'Unduh berkas tanda tangan .asc terpisah dan verifikasi terhadap kunci Otoritas Rilis Scytale resmi.',
+      personaTabs: {
+        walletTitle: 'Dompet Pengguna (Wallet)',
+        walletSubtitle: 'Direkomendasikan untuk pengguna umum guna menyimpan, menerima, dan mengirim koin SCY secara aman.',
+        walletBadge: 'Rekomendasi untuk Pengguna Biasa',
+        walletTarget: 'Pengguna umum yang ingin menyimpan, menerima, dan mengirim koin.',
+        devTitle: 'Developer Tools & IDE',
+        devSubtitle: 'Workbench terpadu untuk pengujian kontrak pintar eUTXO, kompilasi bytecode WASM, dan simulasi jaringan lokal.',
+        devBadge: 'Lingkungan Pengembangan & IDE',
+        devTarget: 'Pengembang kontrak pintar & simulasi eUTXO.',
+        nodeTitle: 'Node Validator & Mining (Server/CLI)',
+        nodeSubtitle: 'Daemon konsol inti dan perkakas CLI operator untuk menjalankan server validator dan penambangan PoW.',
+        nodeBadge: 'Operator Server & Penambang',
+        nodeTarget: 'Operator server, penambang (miners), dan sysadmin.',
+        nodeWarningTitle: 'PERINGATAN KRITIS: PROGRAM KONSOL / SERVER CLI SAJA',
+        nodeWarningText: 'PERINGATAN: Berkas ini adalah program konsol terminal (CLI) untuk menjalankan server validator/penambang. Ini BUKAN aplikasi dompet dan tidak memiliki antarmuka grafis (GUI). Jika Anda adalah pengguna biasa yang ingin menyimpan atau mengirim koin, silakan gunakan Scytale Passbook di tab "Dompet Pengguna".',
+      },
     },
     releases: {
       badge: 'Buku Catatan Rilis & Riwayat Versi',
@@ -546,29 +594,45 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [language, setLanguageState] = useState<Language>(() => {
-    if (typeof window === 'undefined') return 'en';
+    if (typeof window === 'undefined') return 'id';
     const stored = localStorage.getItem('scytale-lang');
     if (stored === 'en' || stored === 'id') {
       return stored;
     }
-    // Auto-detect browser locale if Indonesian
-    if (navigator.language && navigator.language.startsWith('id')) {
-      return 'id';
-    }
-    return 'en';
+    // Default to Indonesian ('id') with option 'en'
+    return 'id';
   });
 
   useEffect(() => {
-    localStorage.setItem('scytale-lang', language);
-    document.documentElement.lang = language;
+    try {
+      localStorage.setItem('scytale-lang', language);
+      document.documentElement.lang = language;
+    } catch {
+      // ignore
+    }
   }, [language]);
 
   const setLanguage = (lang: Language) => {
     setLanguageState(lang);
+    try {
+      localStorage.setItem('scytale-lang', lang);
+      document.documentElement.lang = lang;
+    } catch {
+      // ignore
+    }
   };
 
   const toggleLanguage = () => {
-    setLanguageState(prev => (prev === 'en' ? 'id' : 'en'));
+    setLanguageState(prev => {
+      const next = prev === 'en' ? 'id' : 'en';
+      try {
+        localStorage.setItem('scytale-lang', next);
+        document.documentElement.lang = next;
+      } catch {
+        // ignore
+      }
+      return next;
+    });
   };
 
   return (

@@ -1,7 +1,9 @@
 import { DownloadArtifact } from '../types';
 
 export const DOWNLOAD_ARTIFACTS: DownloadArtifact[] = [
-  // --- Scytale Passbook Suite (v0.1.0) ---
+  // =========================================================================
+  // 1. DOMPET PENGGUNA (USER WALLET - SCYTALE PASSBOOK)
+  // =========================================================================
   {
     id: 'passbook-v0.1.0-windows-exe',
     product: 'scytale-passbook',
@@ -18,7 +20,8 @@ export const DOWNLOAD_ARTIFACTS: DownloadArtifact[] = [
     },
     url: 'https://github.com/ratufatma/scytale-passbook/releases/download/v0.1.0/Scytale.Passbook_0.1.0_x64-setup.exe',
     isConfigured: true,
-    notes: 'Windows 64-bit NSIS standalone setup installer with desktop and start menu shortcuts.'
+    notes: 'Windows 64-bit NSIS standalone setup installer with desktop and start menu shortcuts.',
+    persona: 'wallet'
   },
   {
     id: 'passbook-v0.1.0-windows-msi',
@@ -36,43 +39,8 @@ export const DOWNLOAD_ARTIFACTS: DownloadArtifact[] = [
     },
     url: 'https://github.com/ratufatma/scytale-passbook/releases/download/v0.1.0/Scytale.Passbook_0.1.0_x64_en-US.msi',
     isConfigured: true,
-    notes: 'Windows 64-bit WiX MSI enterprise installer supporting silent and per-user deployment.'
-  },
-  {
-    id: 'passbook-v0.1.0-linux-deb',
-    product: 'scytale-passbook',
-    productName: 'Scytale Passbook (Linux DEB)',
-    version: '0.1.0',
-    platform: 'linux',
-    architecture: 'x86_64',
-    filename: 'scytale-passbook_0.1.0_amd64.deb',
-    size: '2.8 MB',
-    sha256: '757cc4931fde15a90369fb1eecdce19f89052c8772de61eb62fa9211480b4b24',
-    signature: {
-      status: 'verified',
-      signer: 'Scytale Release Authority <ratufatmasetyaningrum@gmail.com>'
-    },
-    url: 'https://github.com/ratufatma/scytale-passbook/releases/download/v0.1.0/scytale-passbook_0.1.0_amd64.deb',
-    isConfigured: true,
-    notes: 'Debian/Ubuntu installation package for Scytale Passbook wallet.'
-  },
-  {
-    id: 'passbook-v0.1.0-linux-appimage',
-    product: 'scytale-passbook',
-    productName: 'Scytale Passbook (Linux AppImage)',
-    version: '0.1.0',
-    platform: 'linux',
-    architecture: 'x86_64',
-    filename: 'scytale-passbook_0.1.0_amd64.AppImage',
-    size: '70 MB',
-    sha256: 'c9baa1e42a16eafdfbd841a4b89bd508040faf0e7f93a40354e39a367540360c',
-    signature: {
-      status: 'verified',
-      signer: 'Scytale Release Authority <ratufatmasetyaningrum@gmail.com>'
-    },
-    url: 'https://github.com/ratufatma/scytale-passbook/releases/download/v0.1.0/scytale-passbook_0.1.0_amd64.AppImage',
-    isConfigured: true,
-    notes: 'Standalone portable Linux executable for Scytale Passbook. Run with chmod +x.'
+    notes: 'Windows 64-bit WiX MSI enterprise installer supporting silent and per-user deployment.',
+    persona: 'wallet'
   },
   {
     id: 'passbook-v0.1.0-android-apk',
@@ -90,14 +58,93 @@ export const DOWNLOAD_ARTIFACTS: DownloadArtifact[] = [
     },
     url: 'https://github.com/ratufatma/scytale-passbook/releases/download/v0.1.0/scytale-passbook_0.1.0.apk',
     isConfigured: true,
-    notes: 'Android APK package for Scytale Passbook mobile companion.'
+    notes: 'Android APK package for Scytale Passbook mobile non-custodial wallet.',
+    persona: 'wallet'
+  },
+  {
+    id: 'passbook-v0.1.0-linux-deb',
+    product: 'scytale-passbook',
+    productName: 'Scytale Passbook (Linux DEB)',
+    version: '0.1.0',
+    platform: 'linux',
+    architecture: 'x86_64',
+    filename: 'scytale-passbook_0.1.0_amd64.deb',
+    size: '2.8 MB',
+    sha256: '757cc4931fde15a90369fb1eecdce19f89052c8772de61eb62fa9211480b4b24',
+    signature: {
+      status: 'verified',
+      signer: 'Scytale Release Authority <ratufatmasetyaningrum@gmail.com>'
+    },
+    url: 'https://github.com/ratufatma/scytale-passbook/releases/download/v0.1.0/scytale-passbook_0.1.0_amd64.deb',
+    isConfigured: true,
+    notes: 'Debian/Ubuntu installation package for Scytale Passbook wallet.',
+    persona: 'wallet'
+  },
+  {
+    id: 'passbook-v0.1.0-linux-appimage',
+    product: 'scytale-passbook',
+    productName: 'Scytale Passbook (Linux AppImage)',
+    version: '0.1.0',
+    platform: 'linux',
+    architecture: 'x86_64',
+    filename: 'scytale-passbook_0.1.0_amd64.AppImage',
+    size: '70 MB',
+    sha256: 'c9baa1e42a16eafdfbd841a4b89bd508040faf0e7f93a40354e39a367540360c',
+    signature: {
+      status: 'verified',
+      signer: 'Scytale Release Authority <ratufatmasetyaningrum@gmail.com>'
+    },
+    url: 'https://github.com/ratufatma/scytale-passbook/releases/download/v0.1.0/scytale-passbook_0.1.0_amd64.AppImage',
+    isConfigured: true,
+    notes: 'Standalone portable Linux executable for Scytale Passbook. Run with chmod +x.',
+    persona: 'wallet'
   },
 
-  // --- Scytale Studio IDE (v0.1.0) ---
+  // =========================================================================
+  // 2. DEVELOPER TOOLS & IDE (SCYTALE STUDIO)
+  // =========================================================================
+  {
+    id: 'studio-v0.3.0-windows-exe',
+    product: 'scytale-studio',
+    productName: 'Scytale Studio IDE v0.3.0 (Windows Setup .exe)',
+    version: '0.3.0',
+    platform: 'windows',
+    architecture: 'x86_64',
+    filename: 'Scytale.Studio_0.3.0_x64-setup.exe',
+    size: '3.4 MB',
+    sha256: '3353cc87c5a8d9e5213ccc28a8ee791de0947b5f243cc0832e0bcfc6315a6b82',
+    signature: {
+      status: 'verified',
+      signer: 'Scytale Release Authority <ratufatmasetyaningrum@gmail.com>'
+    },
+    url: 'https://github.com/ratufatma/scytale/releases/download/v0.3.0-testnet/Scytale.Studio_0.3.0_x64-setup.exe',
+    isConfigured: true,
+    notes: 'Official Windows 64-bit NSIS setup installer for Scytale Studio IDE with integrated PowerShell PTY terminal.',
+    persona: 'developer'
+  },
+  {
+    id: 'studio-v0.3.0-windows-msi',
+    product: 'scytale-studio',
+    productName: 'Scytale Studio IDE v0.3.0 (Windows MSI Package)',
+    version: '0.3.0',
+    platform: 'windows',
+    architecture: 'x86_64',
+    filename: 'Scytale.Studio_0.3.0_x64_en-US.msi',
+    size: '4.8 MB',
+    sha256: '1958b84497bcc734d162de76acec7ef395416a8063b798654ab2088421ed540c',
+    signature: {
+      status: 'verified',
+      signer: 'Scytale Release Authority <ratufatmasetyaningrum@gmail.com>'
+    },
+    url: 'https://github.com/ratufatma/scytale/releases/download/v0.3.0-testnet/Scytale.Studio_0.3.0_x64_en-US.msi',
+    isConfigured: true,
+    notes: 'Official Windows 64-bit WiX MSI enterprise installer for Scytale Studio IDE.',
+    persona: 'developer'
+  },
   {
     id: 'studio-v0.1.0-windows-exe',
     product: 'scytale-studio',
-    productName: 'Scytale Studio IDE (Windows Setup .exe)',
+    productName: 'Scytale Studio IDE v0.1.0 (Windows Setup .exe)',
     version: '0.1.0',
     platform: 'windows',
     architecture: 'x86_64',
@@ -110,12 +157,13 @@ export const DOWNLOAD_ARTIFACTS: DownloadArtifact[] = [
     },
     url: 'https://github.com/ratufatma/scytale/releases/download/v0.1.0/Scytale.Studio_0.1.0_x64-setup.exe',
     isConfigured: true,
-    notes: 'Windows 64-bit NSIS setup installer for Scytale Studio IDE with integrated PowerShell PTY terminal.'
+    notes: 'Windows 64-bit NSIS setup installer for Scytale Studio IDE.',
+    persona: 'developer'
   },
   {
     id: 'studio-v0.1.0-windows-msi',
     product: 'scytale-studio',
-    productName: 'Scytale Studio IDE (Windows MSI Package)',
+    productName: 'Scytale Studio IDE v0.1.0 (Windows MSI Package)',
     version: '0.1.0',
     platform: 'windows',
     architecture: 'x86_64',
@@ -128,7 +176,8 @@ export const DOWNLOAD_ARTIFACTS: DownloadArtifact[] = [
     },
     url: 'https://github.com/ratufatma/scytale/releases/download/v0.1.0/Scytale.Studio_0.1.0_x64_en-US.msi',
     isConfigured: true,
-    notes: 'Windows 64-bit WiX MSI enterprise installer for Scytale Studio IDE.'
+    notes: 'Windows 64-bit WiX MSI enterprise installer for Scytale Studio IDE.',
+    persona: 'developer'
   },
   {
     id: 'studio-v0.1.0-linux-deb',
@@ -146,7 +195,8 @@ export const DOWNLOAD_ARTIFACTS: DownloadArtifact[] = [
     },
     url: 'https://github.com/ratufatma/scytale/releases/download/v0.1.0/scytale-studio_0.1.0_amd64.deb',
     isConfigured: true,
-    notes: 'Debian/Ubuntu installation package for Scytale Studio IDE.'
+    notes: 'Debian/Ubuntu installation package for Scytale Studio IDE.',
+    persona: 'developer'
   },
   {
     id: 'studio-v0.1.0-linux-appimage',
@@ -164,87 +214,32 @@ export const DOWNLOAD_ARTIFACTS: DownloadArtifact[] = [
     },
     url: 'https://github.com/ratufatma/scytale/releases/download/v0.1.0/scytale-studio_0.1.0_amd64.AppImage',
     isConfigured: true,
-    notes: 'Standalone portable Linux executable for Scytale Studio IDE. Run with chmod +x.'
-  },
-  // Scytale Release Bundle v0.4.0-testnet (Node with Stratum Pool & CLI)
-  {
-    id: 'bundle-v0.4.0-linux-x86_64',
-    product: 'scytale-node',
-    productName: 'Scytale Release Bundle v0.4.0 (Stratum Pool + CLI)',
-    version: '0.4.0',
-    platform: 'linux',
-    architecture: 'x86_64',
-    filename: 'scytale-v0.4.0-testnet-linux-x86_64.tar.gz',
-    size: '10.9 MB',
-    sha256: '5ce6474665e6d0ab4081a9de02f42d5702dfad6d97f7839c571c8a0e0fba9fe5',
-    signature: {
-      status: 'verified',
-      signer: 'Scytale Release Authority <ratufatmasetyaningrum@gmail.com>',
-      fingerprint: '4A8B 9C1D 2E3F 0A7B 8C9D 1E2F 3A4B 5C6D 7E8F 9A0B',
-      signatureUrl: 'https://github.com/ratufatma/scytale/releases/download/v0.4.0-testnet/scytale-v0.4.0-testnet-linux-x86_64.tar.gz.sha256'
-    },
-    url: 'https://github.com/ratufatma/scytale/releases/download/v0.4.0-testnet/scytale-v0.4.0-testnet-linux-x86_64.tar.gz',
-    isConfigured: true,
-    notes: 'Official distribution tarball containing scytale-node (with embedded Stratum SSP-1 mining pool server on port 3333) and scytale-cli compiled for Linux x86_64. Stratum pool: stratum+tcp://seed.myratu.com:3333'
-  },
-  {
-    id: 'cli-v0.4.0-linux-x86_64',
-    product: 'scytale-cli',
-    productName: 'Scytale CLI (Included in Release Tarball v0.4.0)',
-    version: '0.4.0',
-    platform: 'linux',
-    architecture: 'x86_64',
-    filename: 'scytale-v0.4.0-testnet-linux-x86_64.tar.gz',
-    size: '10.9 MB',
-    sha256: '5ce6474665e6d0ab4081a9de02f42d5702dfad6d97f7839c571c8a0e0fba9fe5',
-    signature: {
-      status: 'verified',
-      signer: 'Scytale Release Authority <ratufatmasetyaningrum@gmail.com>',
-      fingerprint: '4A8B 9C1D 2E3F 0A7B 8C9D 1E2F 3A4B 5C6D 7E8F 9A0B',
-      signatureUrl: 'https://github.com/ratufatma/scytale/releases/download/v0.4.0-testnet/scytale-v0.4.0-testnet-linux-x86_64.tar.gz.sha256'
-    },
-    url: 'https://github.com/ratufatma/scytale/releases/download/v0.4.0-testnet/scytale-v0.4.0-testnet-linux-x86_64.tar.gz',
-    isConfigured: true,
-    notes: 'Interactive wallet management, BIP-39 mnemonic creation, and miner operator CLI tool.'
-  },
-  {
-    id: 'sha256-v0.4.0-linux-x86_64',
-    product: 'scytale-node',
-    productName: 'SHA256 Checksum Verification File v0.4.0',
-    version: '0.4.0',
-    platform: 'linux',
-    architecture: 'all',
-    filename: 'scytale-v0.4.0-testnet-linux-x86_64.tar.gz.sha256',
-    size: '109 B',
-    sha256: '5ce6474665e6d0ab4081a9de02f42d5702dfad6d97f7839c571c8a0e0fba9fe5',
-    signature: {
-      status: 'verified',
-      signer: 'Scytale Release Authority'
-    },
-    url: 'https://github.com/ratufatma/scytale/releases/download/v0.4.0-testnet/scytale-v0.4.0-testnet-linux-x86_64.tar.gz.sha256',
-    isConfigured: true,
-    notes: 'Direct sha256 checksum digest for cryptographic package verification.'
-  },
-  {
-    id: 'source-v0.4.0',
-    product: 'source',
-    productName: 'Scytale Source Code Archive v0.4.0',
-    version: '0.4.0',
-    platform: 'source',
-    architecture: 'all',
-    filename: 'v0.4.0-testnet.tar.gz',
-    size: 'Git Archive',
-    sha256: 'Commit tagged v0.4.0-testnet on GitHub',
-    signature: {
-      status: 'verified',
-      signer: 'Scytale Git Authority'
-    },
-    url: 'https://github.com/ratufatma/scytale/archive/refs/tags/v0.4.0-testnet.tar.gz',
-    isConfigured: true,
-    notes: 'Official tagged source code archive from the primary git repository.'
+    notes: 'Standalone portable Linux executable for Scytale Studio IDE. Run with chmod +x.',
+    persona: 'developer'
   },
 
-  // Scytale Release Bundle v0.3.0-testnet (Node & CLI)
+  // =========================================================================
+  // 3. NODE VALIDATOR & MINING (SERVER / CLI)
+  // =========================================================================
+  {
+    id: 'bundle-v0.3.0-windows-x86_64',
+    product: 'scytale-node',
+    productName: 'Scytale Node & CLI Windows Release Bundle (.zip)',
+    version: '0.3.0',
+    platform: 'windows',
+    architecture: 'x86_64',
+    filename: 'scytale-v0.3.0-testnet-windows-x86_64.zip',
+    size: '9.6 MB',
+    sha256: '04d1aed67088eb273f67cc5dd008141548df76f0ea068aa36c56aa68c716316b',
+    signature: {
+      status: 'verified',
+      signer: 'Scytale Release Authority <ratufatmasetyaningrum@gmail.com>'
+    },
+    url: 'https://github.com/ratufatma/scytale/releases/download/v0.3.0-testnet/scytale-v0.3.0-testnet-windows-x86_64.zip',
+    isConfigured: true,
+    notes: 'Official distribution ZIP containing native Windows 64-bit binaries: scytale.exe, scytale-node.exe, and scytale-cli.exe.',
+    persona: 'node'
+  },
   {
     id: 'bundle-v0.3.0-linux-x86_64',
     product: 'scytale-node',
@@ -263,7 +258,8 @@ export const DOWNLOAD_ARTIFACTS: DownloadArtifact[] = [
     },
     url: 'https://github.com/ratufatma/scytale/releases/download/v0.3.0-testnet/scytale-v0.3.0-testnet-linux-x86_64.tar.gz',
     isConfigured: true,
-    notes: 'Official distribution tarball containing scytale-node and scytale-cli compiled for Linux x86_64 with Blake3 PoW consensus and libp2p networking.'
+    notes: 'Official distribution tarball containing scytale-node and scytale-cli compiled for Linux x86_64 with Blake3 PoW consensus and libp2p networking.',
+    persona: 'node'
   },
   {
     id: 'cli-v0.3.0-linux-x86_64',
@@ -283,68 +279,51 @@ export const DOWNLOAD_ARTIFACTS: DownloadArtifact[] = [
     },
     url: 'https://github.com/ratufatma/scytale/releases/download/v0.3.0-testnet/scytale-v0.3.0-testnet-linux-x86_64.tar.gz',
     isConfigured: true,
-    notes: 'Interactive wallet management, BIP-39 mnemonic creation, and miner operator CLI tool.'
+    notes: 'Interactive wallet management, BIP-39 mnemonic creation, and miner operator CLI tool.',
+    persona: 'node'
   },
   {
-    id: 'wallet-v0.3.0-linux-x86_64',
-    product: 'scytale-wallet',
-    productName: 'Scytale Wallet Tool (CLI Passbook)',
-    version: '0.3.0',
+    id: 'bundle-v0.4.0-linux-x86_64',
+    product: 'scytale-node',
+    productName: 'Scytale Release Bundle v0.4.0 (Stratum Pool + CLI)',
+    version: '0.4.0',
     platform: 'linux',
     architecture: 'x86_64',
-    filename: 'scytale-v0.3.0-testnet-linux-x86_64.tar.gz',
-    size: '10.0 MB',
-    sha256: '84e539e4c0be9ec575c3f0c4c9bc43eca42ff72bf2f4a79c725a5d339d87c5ad',
+    filename: 'scytale-v0.4.0-testnet-linux-x86_64.tar.gz',
+    size: '10.9 MB',
+    sha256: '5ce6474665e6d0ab4081a9de02f42d5702dfad6d97f7839c571c8a0e0fba9fe5',
     signature: {
       status: 'verified',
-      signer: 'Scytale Release Authority <ratufatmasetyaningrum@gmail.com>'
+      signer: 'Scytale Release Authority <ratufatmasetyaningrum@gmail.com>',
+      fingerprint: '4A8B 9C1D 2E3F 0A7B 8C9D 1E2F 3A4B 5C6D 7E8F 9A0B',
+      signatureUrl: 'https://github.com/ratufatma/scytale/releases/download/v0.4.0-testnet/scytale-v0.4.0-testnet-linux-x86_64.tar.gz.sha256'
     },
-    url: 'https://github.com/ratufatma/scytale/releases/download/v0.3.0-testnet/scytale-v0.3.0-testnet-linux-x86_64.tar.gz',
+    url: 'https://github.com/ratufatma/scytale/releases/download/v0.4.0-testnet/scytale-v0.4.0-testnet-linux-x86_64.tar.gz',
     isConfigured: true,
-    notes: 'Non-custodial Ed25519 wallet management accessible via the `scytale-cli wallet` subcommand.'
+    notes: 'Official distribution tarball containing scytale-node (with embedded Stratum SSP-1 mining pool server on port 3333) and scytale-cli compiled for Linux x86_64. Stratum pool: stratum+tcp://seed.myratu.com:3333',
+    persona: 'node'
   },
-
-  // SHA256 Checksum file
   {
-    id: 'sha256-v0.3.0-linux-x86_64',
-    product: 'scytale-node',
-    productName: 'SHA256 Checksum Verification File',
-    version: '0.3.0',
+    id: 'cli-v0.4.0-linux-x86_64',
+    product: 'scytale-cli',
+    productName: 'Scytale CLI (Included in Release Tarball v0.4.0)',
+    version: '0.4.0',
     platform: 'linux',
-    architecture: 'all',
-    filename: 'scytale-v0.3.0-testnet-linux-x86_64.tar.gz.sha256',
-    size: '109 B',
-    sha256: '84e539e4c0be9ec575c3f0c4c9bc43eca42ff72bf2f4a79c725a5d339d87c5ad',
+    architecture: 'x86_64',
+    filename: 'scytale-v0.4.0-testnet-linux-x86_64.tar.gz',
+    size: '10.9 MB',
+    sha256: '5ce6474665e6d0ab4081a9de02f42d5702dfad6d97f7839c571c8a0e0fba9fe5',
     signature: {
       status: 'verified',
-      signer: 'Scytale Release Authority'
+      signer: 'Scytale Release Authority <ratufatmasetyaningrum@gmail.com>',
+      fingerprint: '4A8B 9C1D 2E3F 0A7B 8C9D 1E2F 3A4B 5C6D 7E8F 9A0B',
+      signatureUrl: 'https://github.com/ratufatma/scytale/releases/download/v0.4.0-testnet/scytale-v0.4.0-testnet-linux-x86_64.tar.gz.sha256'
     },
-    url: 'https://github.com/ratufatma/scytale/releases/download/v0.3.0-testnet/scytale-v0.3.0-testnet-linux-x86_64.tar.gz.sha256',
+    url: 'https://github.com/ratufatma/scytale/releases/download/v0.4.0-testnet/scytale-v0.4.0-testnet-linux-x86_64.tar.gz',
     isConfigured: true,
-    notes: 'Direct sha256 checksum digest for cryptographic package verification.'
+    notes: 'Interactive wallet management, BIP-39 mnemonic creation, and miner operator CLI tool.',
+    persona: 'node'
   },
-
-  // Source Code release
-  {
-    id: 'source-v0.3.0',
-    product: 'source',
-    productName: 'Scytale Source Code Archive',
-    version: '0.3.0',
-    platform: 'source',
-    architecture: 'all',
-    filename: 'v0.3.0-testnet.tar.gz',
-    size: 'Git Archive',
-    sha256: 'Commit tagged v0.3.0-testnet on GitHub',
-    signature: {
-      status: 'verified',
-      signer: 'Scytale Git Authority'
-    },
-    url: 'https://github.com/ratufatma/scytale/archive/refs/tags/v0.3.0-testnet.tar.gz',
-    isConfigured: true,
-    notes: 'Official tagged source code archive from the primary git repository.'
-  },
-
-  // Linux Desktop Clients (.deb & .AppImage)
   {
     id: 'desktop-deb-v0.3.0-linux-x86_64',
     product: 'scytale-desktop',
@@ -361,7 +340,8 @@ export const DOWNLOAD_ARTIFACTS: DownloadArtifact[] = [
     },
     url: 'https://github.com/ratufatma/scytale/releases/download/v0.3.0-testnet/scytale-desktop_0.3.0_amd64.deb',
     isConfigured: true,
-    notes: 'Debian/Ubuntu installation package for Scytale Desktop Explorer with integrated RPC dashboard and block explorer.'
+    notes: 'Debian/Ubuntu installation package for Scytale Desktop Explorer with integrated RPC dashboard and block explorer.',
+    persona: 'node'
   },
   {
     id: 'desktop-appimage-v0.3.0-linux-x86_64',
@@ -379,10 +359,9 @@ export const DOWNLOAD_ARTIFACTS: DownloadArtifact[] = [
     },
     url: 'https://github.com/ratufatma/scytale/releases/download/v0.3.0-testnet/Scytale%20Block%20Explorer-0.3.0.AppImage',
     isConfigured: true,
-    notes: 'Standalone portable Linux executable for Scytale Desktop Explorer. Make executable with chmod +x.'
+    notes: 'Standalone portable Linux executable for Scytale Desktop Explorer. Make executable with chmod +x.',
+    persona: 'node'
   },
-
-  // Android Mobile Companion (.apk)
   {
     id: 'mobile-v0.3.0-android',
     product: 'scytale-mobile',
@@ -400,6 +379,83 @@ export const DOWNLOAD_ARTIFACTS: DownloadArtifact[] = [
     },
     url: 'https://github.com/ratufatma/scytale/releases/download/v0.3.0-testnet/scytale-mobile-v0.3.0-testnet.apk',
     isConfigured: true,
-    notes: 'Offline Hermes bundled standalone Android package for Scytale Mobile Companion with wallet management and network telemetry.'
+    notes: 'Offline Hermes bundled standalone Android package for Scytale Mobile Companion with wallet management and network telemetry.',
+    persona: 'node'
+  },
+  {
+    id: 'sha256-v0.4.0-linux-x86_64',
+    product: 'scytale-node',
+    productName: 'SHA256 Checksum Verification File v0.4.0',
+    version: '0.4.0',
+    platform: 'linux',
+    architecture: 'all',
+    filename: 'scytale-v0.4.0-testnet-linux-x86_64.tar.gz.sha256',
+    size: '109 B',
+    sha256: '5ce6474665e6d0ab4081a9de02f42d5702dfad6d97f7839c571c8a0e0fba9fe5',
+    signature: {
+      status: 'verified',
+      signer: 'Scytale Release Authority'
+    },
+    url: 'https://github.com/ratufatma/scytale/releases/download/v0.4.0-testnet/scytale-v0.4.0-testnet-linux-x86_64.tar.gz.sha256',
+    isConfigured: true,
+    notes: 'Direct sha256 checksum digest for cryptographic package verification.',
+    persona: 'node'
+  },
+  {
+    id: 'sha256-v0.3.0-linux-x86_64',
+    product: 'scytale-node',
+    productName: 'SHA256 Checksum Verification File v0.3.0',
+    version: '0.3.0',
+    platform: 'linux',
+    architecture: 'all',
+    filename: 'scytale-v0.3.0-testnet-linux-x86_64.tar.gz.sha256',
+    size: '109 B',
+    sha256: '84e539e4c0be9ec575c3f0c4c9bc43eca42ff72bf2f4a79c725a5d339d87c5ad',
+    signature: {
+      status: 'verified',
+      signer: 'Scytale Release Authority'
+    },
+    url: 'https://github.com/ratufatma/scytale/releases/download/v0.3.0-testnet/scytale-v0.3.0-testnet-linux-x86_64.tar.gz.sha256',
+    isConfigured: true,
+    notes: 'Direct sha256 checksum digest for cryptographic package verification.',
+    persona: 'node'
+  },
+  {
+    id: 'source-v0.4.0',
+    product: 'source',
+    productName: 'Scytale Source Code Archive v0.4.0',
+    version: '0.4.0',
+    platform: 'source',
+    architecture: 'all',
+    filename: 'v0.4.0-testnet.tar.gz',
+    size: 'Git Archive',
+    sha256: 'Commit tagged v0.4.0-testnet on GitHub',
+    signature: {
+      status: 'verified',
+      signer: 'Scytale Git Authority'
+    },
+    url: 'https://github.com/ratufatma/scytale/archive/refs/tags/v0.4.0-testnet.tar.gz',
+    isConfigured: true,
+    notes: 'Official tagged source code archive from the primary git repository.',
+    persona: 'node'
+  },
+  {
+    id: 'source-v0.3.0',
+    product: 'source',
+    productName: 'Scytale Source Code Archive v0.3.0',
+    version: '0.3.0',
+    platform: 'source',
+    architecture: 'all',
+    filename: 'v0.3.0-testnet.tar.gz',
+    size: 'Git Archive',
+    sha256: 'Commit tagged v0.3.0-testnet on GitHub',
+    signature: {
+      status: 'verified',
+      signer: 'Scytale Git Authority'
+    },
+    url: 'https://github.com/ratufatma/scytale/archive/refs/tags/v0.3.0-testnet.tar.gz',
+    isConfigured: true,
+    notes: 'Official tagged source code archive from the primary git repository.',
+    persona: 'node'
   }
 ];
